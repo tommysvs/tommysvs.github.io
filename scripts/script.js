@@ -58,8 +58,14 @@ function updateFooterLanguage(lang) {
     }
   });
 }
+
 const languageSwitcher = document.getElementById("language-switcher");
-let currentLanguage = "es";
+let currentLanguage = "en";
+
+document.addEventListener("DOMContentLoaded", () => {
+  updateLanguage();
+  languageSwitcher.textContent = currentLanguage.toUpperCase();
+});
 
 languageSwitcher.addEventListener("click", () => {
   currentLanguage = currentLanguage === "es" ? "en" : "es";
