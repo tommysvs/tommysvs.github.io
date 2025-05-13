@@ -1,4 +1,3 @@
-// Detectar la dirección del hover
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('mouseenter', (e) => {
       const rect = link.getBoundingClientRect();
@@ -88,3 +87,19 @@ function updateLanguage() {
 }
 
 updateLanguage();
+
+const navbar = document.getElementById("navbar");
+const navbarContent = document.getElementById("navbar-content");
+const menuIcon = document.getElementById("menu-icon");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 50) {
+    navbar.classList.add("bg-opacity-80", "px-1", "py-1");
+    navbarContent.classList.add("hidden");
+    menuIcon.classList.remove("hidden");
+  } else {
+    navbar.classList.remove("bg-opacity-80", "px-2", "py-2");
+    navbarContent.classList.remove("hidden");
+    menuIcon.classList.add("hidden");
+  }
+});

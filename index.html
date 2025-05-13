@@ -10,22 +10,29 @@
 <body class="bg-gradient-to-r from-purple-500 via-blue-500 to-indigo-500 text-white font-sans">
   
   <!-- Navbar -->
-  <nav class="navbar fixed top-4 left-1/2 transform -translate-x-1/2 bg-white bg-opacity-90 backdrop-blur-md shadow-lg rounded-full px-8 py-3 z-50">
-    <div class="flex space-x-6 items-center">
+  <nav id="navbar" class="fixed top-4 right-4 bg-white bg-opacity-90 backdrop-blur-md shadow-lg rounded-full px-1 py-1 z-50 transition-all duration-300">
+    <div id="navbar-content" class="flex space-x-2 items-center">
       <div class="nav-item">
-        <a href="#about" class="nav-link" data-lang="about">Sobre mí</a>
+        <a href="#about" class="nav-link text-xs font-medium text-gray-700 hover:text-gray-900" data-lang="about">About Me</a>
       </div>
       <div class="nav-item">
-        <a href="#skills" class="nav-link" data-lang="skills">Habilidades</a>
+        <a href="#skills" class="nav-link text-xs font-medium text-gray-700 hover:text-gray-900" data-lang="skills">Skills</a>
       </div>
       <div class="nav-item">
-        <a href="#experience" class="nav-link" data-lang="experience">Experiencia</a>
+        <a href="#experience" class="nav-link text-xs font-medium text-gray-700 hover:text-gray-900" data-lang="experience">Experience</a>
       </div>
       <div class="nav-item">
-        <a href="#education" class="nav-link" data-lang="education">Educación</a>
+        <a href="#education" class="nav-link text-xs font-medium text-gray-700 hover:text-gray-900" data-lang="education">Education</a>
       </div>
-      <button id="language-switcher" class="bg-blue-500 text-white font-bold py-1 px-4 rounded-full hover:bg-blue-600 transition">
+      <button id="language-switcher" class="bg-blue-500 text-white text-xs font-bold py-1 px-2 rounded-full hover:bg-blue-600 transition">
         EN
+      </button>
+    </div>
+    <div id="menu-icon" class="hidden">
+      <button class="bg-blue-500 text-white p-2 rounded-full">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
       </button>
     </div>
   </nav>
@@ -50,7 +57,7 @@
     </div>
     <div class="mb-6">
       <p class="text-gray-700 font-medium" data-lang="contact">
-        Contáctame: 
+        Contact me: 
         <a href="mailto:tommysvs@hotmail.com" class="font-bold text-blue-500 hover:text-blue-700">
           tommysvs@hotmail.com
         </a>
