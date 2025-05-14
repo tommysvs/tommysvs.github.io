@@ -104,9 +104,8 @@
 }
 
 .hero {
-  background: linear-gradient(135deg, #6a11cb, #2575fc, #6a11cb, #ff0080);
+  background: linear-gradient(135deg, #6a11cb, #5116b7, #a259c6 80%);
   background-size: 300% 300%;
-  border-radius: 1rem;
   animation: gradient-flow 8s ease infinite;
 }
 
@@ -115,7 +114,6 @@
   color: #4a4a4a;
   text-align: center;
   padding: 2rem 1.5rem;
-  border-radius: 1rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin: 0 auto;
 }
