@@ -24,10 +24,18 @@ const translations = {
     experience: "Experience",
     education: "Education",
     heroTitle: "Hi, I'm Tommy!",
-    heroSubtitle: "Developer | Systems Analyst",
-    discoverMore: "Discover More",
+    heroSubtitle: "SAP Consultant | Systems Analyst",
+    discoverMore: "Discover more",
     contact: "Contact me:",
     credits: "Made with ❤️ by",
+    close: "Close",
+    aboutTitle: "About Me",
+    aboutDescription: "Hi! I'm Tommy Vega, a SAP consultant and systems analyst passionate about technology, innovation, and continuous improvement. I specialize in finding efficient and creative solutions for business challenges, combining technical skills with a strategic vision.",
+    aboutExp1: "5+ years of experience in SAP consulting and systems analysis.",
+    aboutExp2: "Passionate about continuous learning and teamwork.",
+    aboutExp3: "Focused on results, quality, and customer satisfaction.",
+    contactMe: "Contact Me",
+    linkedin: "LinkedIn"
   },
   es: {
     about: "Sobre mí",
@@ -35,11 +43,19 @@ const translations = {
     experience: "Experiencia",
     education: "Educación",
     heroTitle: "¡Hola, soy Tommy!",
-    heroSubtitle: "Desarrollador | Analista de Sistemas",
+    heroSubtitle: "Consultor de SAP | Analista de Sistemas",
     discoverMore: "Descubre más",
     contact: "Contáctame:",
     credits: "Hecho con ❤️ por",
-  },
+    close: "Cerrar",
+    aboutTitle: "Sobre mí",
+    aboutDescription: "¡Hola! Soy Tommy Vega, consultor SAP y analista de sistemas con pasión por la tecnología, la innovación y la mejora continua. Me especializo en encontrar soluciones eficientes y creativas para los desafíos de negocio, combinando habilidades técnicas con una visión estratégica.",
+    aboutExp1: "+5 años de experiencia en consultoría SAP y análisis de sistemas.",
+    aboutExp2: "Apasionado por el aprendizaje constante y la colaboración en equipo.",
+    aboutExp3: "Enfocado en resultados, calidad y satisfacción del cliente.",
+    contactMe: "Contáctame",
+    linkedin: "LinkedIn"
+  }
 };
 
 function updateFooterLanguage(lang) {
@@ -91,6 +107,8 @@ updateLanguage();
 const navbar = document.getElementById("navbar");
 const navbarContent = document.getElementById("navbar-content");
 const menuIcon = document.getElementById("menu-icon");
+const mobileMenu = document.getElementById('mobile-menu');
+const closeMenuBtn = document.getElementById('close-mobile-menu');
 
 window.addEventListener("scroll", () => {
   if (window.scrollY > 50) {
@@ -102,4 +120,23 @@ window.addEventListener("scroll", () => {
     navbarContent.classList.remove("hidden");
     menuIcon.classList.add("hidden");
   }
+});
+
+menuIcon.addEventListener('click', () => {
+  mobileMenu.classList.remove('translate-x-full');
+  mobileMenu.classList.add('translate-x-0');
+});
+
+// Ocultar menú al hacer click en "Cerrar"
+closeMenuBtn.addEventListener('click', () => {
+  mobileMenu.classList.remove('translate-x-0');
+  mobileMenu.classList.add('translate-x-full');
+});
+
+// Opcional: cerrar menú al hacer click en un enlace del menú móvil
+mobileMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.remove('translate-x-0');
+    mobileMenu.classList.add('translate-x-full');
+  });
 });

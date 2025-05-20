@@ -28,6 +28,22 @@
   }
 }
 
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-30px); }
+}
+
+@keyframes float-fast {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-50px); }
+}
+
+@keyframes float-medium {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+
 .navbar {
   position: absolute;
   top: 1rem;
@@ -107,6 +123,18 @@
   background: linear-gradient(135deg, #6a11cb, #5116b7, #a259c6 80%);
   background-size: 300% 300%;
   animation: gradient-flow 8s ease infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+.animate-float-fast {
+  animation: float-fast 4s ease-in-out infinite;
+}
+
+.animate-float-medium {
+  animation: float-medium 5s ease-in-out infinite;
 }
 
 .footer {
