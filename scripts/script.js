@@ -11,23 +11,23 @@ window.addEventListener('load', () => {
 });
 
 document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('mouseenter', (e) => {
-      const rect = link.getBoundingClientRect();
-      const mouseX = e.clientX - rect.left;
-  
-      if (mouseX < rect.width / 2) {
-        link.classList.add('hover-left');
-        link.classList.remove('hover-right');
-      } else {
-        link.classList.add('hover-right');
-        link.classList.remove('hover-left');
-      }
-    });
-  
-    link.addEventListener('mouseleave', () => {
-      link.classList.remove('hover-left', 'hover-right');
-    });
+  link.addEventListener('mouseenter', (e) => {
+    const rect = link.getBoundingClientRect();
+    const mouseX = e.clientX - rect.left;
+
+    if (mouseX < rect.width / 2) {
+      link.classList.add('hover-left');
+      link.classList.remove('hover-right');
+    } else {
+      link.classList.add('hover-right');
+      link.classList.remove('hover-left');
+    }
   });
+
+  link.addEventListener('mouseleave', () => {
+    link.classList.remove('hover-left', 'hover-right');
+  });
+});
 
 const translations = {
   en: {
