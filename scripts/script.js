@@ -1,3 +1,15 @@
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    const loader = document.getElementById('loader-overlay');
+    if (loader) {
+      loader.classList.add('opacity-0');
+      loader.classList.add('-translate-y-10');
+      loader.style.pointerEvents = 'none';
+      setTimeout(() => loader.remove(), 700);
+    }
+  }, 3000);
+});
+
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('mouseenter', (e) => {
       const rect = link.getBoundingClientRect();
