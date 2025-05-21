@@ -105,10 +105,34 @@ updateLanguage();
 document.addEventListener('scroll', () => {
   const hero = document.querySelector('.hero');
   const content = document.getElementById('hero-content');
+
   if (!hero || !content) return;
+
   const scrolled = window.scrollY;
   const heroRect = hero.getBoundingClientRect();
+  
   if (heroRect.bottom > 0) {
     content.style.transform = `translateY(${scrolled * 0.3}px)`;
   }
+});
+
+document.addEventListener('scroll', () => {
+  document.querySelectorAll('section').forEach(section => {
+    const content = section.querySelector('div, .section-content, .max-w-4xl, #hero-content');
+    if (!content) return;
+
+    const rect = section.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+
+    let scrollRatio = 0;
+    if (rect.top < windowHeight && rect.bottom > 0) {
+      scrollRatio = Math.min(Math.max(1 - (rect.bottom / windowHeight), 0), 1);
+    }
+
+    const maxBlur = 60;
+    const blur = Math.pow(scrollRatio, 1.8) * maxBlur;
+
+    content.style.filter = `blur(${blur}px)`;
+    content.style.opacity = `${1 - scrollRatio * 0.5}`;
+  });
 });
