@@ -109,6 +109,6 @@ document.addEventListener('scroll', () => {
   const scrolled = window.scrollY;
   const heroRect = hero.getBoundingClientRect();
   if (heroRect.bottom > 0) {
-    content.style.transform = `translateY(${scrolled * 0.5}px)`;
+    content.style.transform = `translateY(${scrolled * 0.3}px)`;
   }
 });

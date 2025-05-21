@@ -10,6 +10,15 @@
 </head>
 
 <body class="relative text-white font-sans overflow-x-hidden animate-gradient-flow">
+  <!-- Background Animation -->
+  <div class="geometrical pointer-events-none fixed inset-0 z-0">
+    <div class="absolute top-10 left-10 w-24 h-24 bg-blue-300 bg-opacity-40 rounded-full animate-float-slow"></div>
+    <div class="absolute bottom-20 right-20 w-16 h-16 bg-purple-400 opacity-40 rounded-lg animate-float-fast"></div>
+    <svg class="absolute top-1/2 left-1/4 w-20 h-20 opacity-40 animate-float-medium" viewBox="0 0 100 100">
+      <polygon points="50,15 90,85 10,85" fill="#fbbf24"/>
+    </svg>
+  </div>
+
   <!-- Navbar -->
   <nav id="navbar" data-aos="fade-up" data-aos-duration="2000" class="navbar z-50 transition-all duration-300">
     <div id="navbar-content" class="flex space-x-2 items-center">
@@ -33,13 +42,6 @@
 
   <!-- Hero Section -->
   <section class="hero h-screen flex items-center justify-center text-center relative overflow-hidden bg-transparent rounded-3xl mx-auto mt-12">
-    <div class="pointer-events-none absolute inset-0 z-0">
-      <div class="absolute top-10 left-10 w-24 h-24 bg-blue-300 opacity-5 rounded-full animate-float-slow"></div>
-      <div class="absolute bottom-20 right-20 w-16 h-16 bg-purple-400 opacity-5 rounded-lg animate-float-fast"></div>
-      <svg class="absolute top-1/2 left-1/4 w-20 h-20 opacity-5 animate-float-medium" viewBox="0 0 100 100">
-        <polygon points="50,15 90,85 10,85" fill="#fbbf24"/>
-      </svg>
-    </div>
     <div id="hero-content">
       <h1 data-aos="fade-up" data-aos-duration="800" class="text-5xl md:text-7xl font-extrabold animate-fade-in-up">Hi, I'm <span class="text-blue-300">Tommy</span>!</h1>
       <p data-aos="fade-up" data-aos-duration="1000" class="mt-4 text-lg md:text-2xl">SAP Consultant | Systems Analyst</p>

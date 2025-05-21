@@ -102,7 +102,11 @@
   transform: scale(1.1); 
 }
 
-#section-content {
+.geometrical {
+  filter: blur(35px);
+}
+
+#hero-content {
   transition: transform 0.3s cubic-bezier(.25,.46,.45,.94);
   will-change: transform;
 }
