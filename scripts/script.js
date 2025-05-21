@@ -148,3 +148,63 @@ document.addEventListener('scroll', () => {
     content.style.opacity = `${1 - scrollRatio * 0.5}`;
   });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const timeline = document.getElementById('edu-timeline');
+  const inner = timeline.querySelector('div.flex');
+  const leftBtn = document.getElementById('edu-left');
+  const rightBtn = document.getElementById('edu-right');
+  let scrollAmount = 260; // Ajusta según el tamaño de tus cards
+
+  leftBtn.onclick = () => {
+    timeline.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  };
+  rightBtn.onclick = () => {
+    timeline.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  };
+
+  
+  let isDown = false, startX, scrollLeft;
+  timeline.addEventListener('mousedown', (e) => {
+    isDown = true;
+    timeline.classList.add('active');
+    startX = e.pageX - timeline.offsetLeft;
+    scrollLeft = timeline.scrollLeft;
+  });
+  timeline.addEventListener('mouseleave', () => { isDown = false; timeline.classList.remove('active'); });
+  timeline.addEventListener('mouseup', () => { isDown = false; timeline.classList.remove('active'); });
+  timeline.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - timeline.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    timeline.scrollLeft = scrollLeft - walk;
+  });
+  
+  timeline.addEventListener('touchstart', (e) => {
+    isDown = true;
+    startX = e.touches[0].pageX - timeline.offsetLeft;
+    scrollLeft = timeline.scrollLeft;
+  });
+  timeline.addEventListener('touchend', () => { isDown = false; });
+  timeline.addEventListener('touchmove', (e) => {
+    if (!isDown) return;
+    const x = e.touches[0].pageX - timeline.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    timeline.scrollLeft = scrollLeft - walk;
+  });
+});
+
+window.addEventListener('scroll', () => {
+  const curtain = document.getElementById('curtain-scroll-top');
+  if (!curtain) return;
+  if (window.scrollY > window.innerHeight * 0.5) {
+    curtain.style.display = 'flex';
+  } else {
+    curtain.style.display = 'none';
+  }
+});
+
+document.getElementById('curtain-scroll-top').onclick = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
