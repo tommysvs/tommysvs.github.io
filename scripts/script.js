@@ -35,7 +35,6 @@ const translations = {
     aboutExp2: "Passionate about continuous learning and teamwork.",
     aboutExp3: "Focused on results, quality, and customer satisfaction.",
     contactMe: "Contact Me",
-    linkedin: "LinkedIn"
   },
   es: {
     about: "Sobre mí",
@@ -54,7 +53,6 @@ const translations = {
     aboutExp2: "Apasionado por el aprendizaje constante y la colaboración en equipo.",
     aboutExp3: "Enfocado en resultados, calidad y satisfacción del cliente.",
     contactMe: "Contáctame",
-    linkedin: "LinkedIn"
   }
 };
 
@@ -104,39 +102,13 @@ function updateLanguage() {
 
 updateLanguage();
 
-const navbar = document.getElementById("navbar");
-const navbarContent = document.getElementById("navbar-content");
-const menuIcon = document.getElementById("menu-icon");
-const mobileMenu = document.getElementById('mobile-menu');
-const closeMenuBtn = document.getElementById('close-mobile-menu');
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 50) {
-    navbar.classList.add("bg-opacity-80", "px-1", "py-1");
-    navbarContent.classList.add("hidden");
-    menuIcon.classList.remove("hidden");
-  } else {
-    navbar.classList.remove("bg-opacity-80", "px-2", "py-2");
-    navbarContent.classList.remove("hidden");
-    menuIcon.classList.add("hidden");
+document.addEventListener('scroll', () => {
+  const hero = document.querySelector('.hero');
+  const content = document.getElementById('hero-content');
+  if (!hero || !content) return;
+  const scrolled = window.scrollY;
+  const heroRect = hero.getBoundingClientRect();
+  if (heroRect.bottom > 0) {
+    content.style.transform = `translateY(${scrolled * 0.5}px)`;
   }
-});
-
-menuIcon.addEventListener('click', () => {
-  mobileMenu.classList.remove('translate-x-full');
-  mobileMenu.classList.add('translate-x-0');
-});
-
-// Ocultar menú al hacer click en "Cerrar"
-closeMenuBtn.addEventListener('click', () => {
-  mobileMenu.classList.remove('translate-x-0');
-  mobileMenu.classList.add('translate-x-full');
-});
-
-// Opcional: cerrar menú al hacer click en un enlace del menú móvil
-mobileMenu.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    mobileMenu.classList.remove('translate-x-0');
-    mobileMenu.classList.add('translate-x-full');
-  });
 });

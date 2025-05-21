@@ -34,25 +34,19 @@
 }
 
 .navbar {
-  position: absolute;
+  position: fixed;
   top: 1rem;
-  right: 1rem;
+  left: 50%;
   transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.9); 
+  background: transparent; 
   backdrop-filter: blur(10px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 9999px;
   padding: 0.5rem 1rem;
   z-index: 50;
   display: flex;
   justify-content: center;
   gap: 1rem;
-  transition: box-shadow 0.3s ease;
   animation: floating 3s ease-in-out infinite;
-}
-
-.navbar:hover {
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .nav-item {
@@ -87,7 +81,7 @@
   display: block;
   padding: 0.5rem 1.5rem;
   font-weight: 500;
-  color: #4a4a4a;
+  color: white;
   text-decoration: none;
   transition: color 0.3s ease;
   z-index: 1; 
@@ -108,12 +102,10 @@
   transform: scale(1.1); 
 }
 
-/* 
-.hero {
-  background: linear-gradient(135deg, #6a11cb, #5116b7, #a259c6 80%);
-  background-size: 300% 300%;
-  animation: gradient-flow 8s ease infinite;
-}*/
+#section-content {
+  transition: transform 0.3s cubic-bezier(.25,.46,.45,.94);
+  will-change: transform;
+}
 
 .animate-float-slow {
   animation: float-slow 6s ease-in-out infinite;
