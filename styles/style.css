@@ -28,6 +28,7 @@
 }
 
 .animate-gradient-flow {
+  background: linear-gradient(135deg, #6a11cb, #5116b7, #a259c6 80%);
   background-size: 300% 300%;
   animation: gradient-flow 12s ease-in-out infinite;
 }
@@ -107,11 +108,12 @@
   transform: scale(1.1); 
 }
 
+/* 
 .hero {
   background: linear-gradient(135deg, #6a11cb, #5116b7, #a259c6 80%);
   background-size: 300% 300%;
   animation: gradient-flow 8s ease infinite;
-}
+}*/
 
 .animate-float-slow {
   animation: float-slow 6s ease-in-out infinite;
