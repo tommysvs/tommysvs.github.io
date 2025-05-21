@@ -146,24 +146,24 @@
 
 .footer-link {
   color: #2563eb;
-  font-weight: 500;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .footer-link:hover {
-  color: #1e40af;
+  color: white;
 }
 
-.footer a {
+.footer-link-extra {
   color: #2563eb;
   font-weight: 500;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
-.footer a:hover {
-  color: #1e40af;
+.footer-link-extra:hover {
+  color: white;
+  text-decoration: underline;
 }
 
 .footer svg {
@@ -174,5 +174,4 @@
 
 .footer a:hover svg {
   transform: scale(1.2);
-  color: #2563eb;
 }
