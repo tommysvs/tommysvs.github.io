@@ -28,7 +28,7 @@
 }
 
 .animate-gradient-flow {
-  background: linear-gradient(135deg, #6a11cb, #5116b7, #a259c6 80%);
+  background: linear-gradient(135deg, black, #5116b7, black 80%);
   background-size: 300% 300%;
   animation: gradient-flow 12s ease-in-out infinite;
 }
@@ -128,11 +128,10 @@
 }
 
 .footer {
-  background: white;
+  background: rgba(255, 255, 255, 0.5);
   color: #4a4a4a;
   text-align: center;
   padding: 2rem 1.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin: 0 auto;
 }
 
