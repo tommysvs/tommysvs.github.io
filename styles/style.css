@@ -28,7 +28,7 @@
 }
 
 .animate-gradient-flow {
-  background: linear-gradient(135deg, black, #5116b7, black 80%);
+  background: linear-gradient(135deg, black, #200d40, black 80%);
   background-size: 300% 300%;
   animation: gradient-flow 12s ease-in-out infinite;
 }
