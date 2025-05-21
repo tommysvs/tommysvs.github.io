@@ -6,11 +6,12 @@
   <title>Tommy Vega</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
 </head>
 <body class="bg-gradient-to-r from-purple-500 via-blue-500 to-indigo-500 text-white font-sans">
   
   <!-- Navbar -->
-  <nav id="navbar" class="fixed top-4 right-4 bg-white bg-opacity-90 backdrop-blur-md shadow-lg rounded-full px-1 py-1 z-50 transition-all duration-300">
+  <nav id="navbar" data-aos="fade-left" data-aos-duration="800" class="fixed top-4 right-4 bg-white bg-opacity-90 backdrop-blur-md shadow-lg rounded-full px-1 py-1 z-50 transition-all duration-300">
     <div id="navbar-content" class="flex space-x-2 items-center">
       <div class="nav-item">
         <a href="#about" class="nav-link text-xs font-medium text-gray-700 hover:text-gray-900" data-lang="about">About Me</a>
@@ -37,6 +38,7 @@
     </div>
   </nav>
 
+  <!-- Mobile Menu -->
   <div id="mobile-menu" class="fixed top-0 right-0 w-2/3 max-w-xs h-full bg-white bg-opacity-95 shadow-lg z-50 flex flex-col items-center pt-24 space-y-6 transition-transform transform translate-x-full">
     <a href="#about" class="block text-gray-800 text-lg font-semibold hover:text-blue-600" data-lang="about">About Me</a>
     <a href="#skills" class="block text-gray-800 text-lg font-semibold hover:text-blue-600" data-lang="skills">Skills</a>
@@ -47,26 +49,22 @@
 
   <!-- Hero Section -->
   <section class="hero h-screen flex items-center justify-center text-center relative overflow-hidden">
-    <!-- Formas geométricas flotantes -->
     <div class="pointer-events-none absolute inset-0 z-0">
-      <!-- Círculo -->
       <div class="absolute top-10 left-10 w-24 h-24 bg-blue-300 opacity-40 rounded-full animate-float-slow"></div>
-      <!-- Cuadrado -->
       <div class="absolute bottom-20 right-20 w-16 h-16 bg-purple-400 opacity-40 rounded-lg animate-float-fast"></div>
-      <!-- Triángulo -->
       <svg class="absolute top-1/2 left-1/4 w-20 h-20 opacity-40 animate-float-medium" viewBox="0 0 100 100">
         <polygon points="50,15 90,85 10,85" fill="#fbbf24"/>
       </svg>
     </div>
     <div>
-      <h1 class="text-5xl md:text-7xl font-extrabold animate-fade-in-up">Hi, I'm <span class="text-blue-300">Tommy</span>!</h1>
-      <p class="mt-4 text-lg md:text-2xl">SAP Consultant | Systems Analyst</p>
-      <a href="#about" class="mt-8 inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-full transition duration-300">Descubre más</a>
+      <h1 data-aos="fade-up" data-aos-duration="800" class="text-5xl md:text-7xl font-extrabold animate-fade-in-up">Hi, I'm <span class="text-blue-300">Tommy</span>!</h1>
+      <p data-aos="fade-up" data-aos-duration="1000" class="mt-4 text-lg md:text-2xl">SAP Consultant | Systems Analyst</p>
+      <a data-aos="fade-up" data-aos-duration="1200" href="#about" class="mt-8 inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-full transition duration-300">Descubre más</a>
     </div>
   </section>
 
   <!-- About Me Section -->
-  <section id="about" class="relative py-20 bg-white bg-opacity-90 text-gray-800">
+  <section id="about" data-aos="fade-up" data-aos-duration="800" class="relative py-20 bg-white bg-opacity-90 text-gray-800">
     <div class="max-w-4xl mx-auto px-6 flex flex-col md:flex-row items-center gap-10">
       <!-- Imagen de perfil -->
       <div class="flex-shrink-0 mb-8 md:mb-0">
@@ -115,6 +113,80 @@
     </div>
   </section>
 
+  <!-- Experience Section -->
+  <section id="experience" data-aos="fade-up" data-aos-duration="800" class="relative py-20 bg-gradient-to-br from-purple-100 via-pink-100 to-purple-200 bg-opacity-80 text-gray-800">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-purple-700 flex items-center justify-center gap-2">
+        <svg class="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        <span data-lang="experience">Experience</span>
+      </h2>
+      <div class="relative">
+        <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-purple-300 via-pink-300 to-purple-400"></div>
+        <div class="space-y-16">
+          <!-- Timeline Item 1 -->
+          <div data-aos="fade-right" data-aos-duration="800" class="flex flex-col md:flex-row items-center md:items-start group">
+            <div class="w-full md:w-1/2 md:pr-8 mb-4 md:mb-0 text-right flex flex-col items-end">
+              <img src="https://www.google.com/s2/favicons?sz=64&domain=grupoplatino.hn" alt="Grupo Platino" class="w-12 h-12 rounded-full mb-2 object-cover">              
+              <h3 class="text-xl font-bold text-purple-700">Systems Analyst</h3>
+              <p class="text-sm text-purple-400 font-semibold mb-1">Grupo Platino</p>
+              <a href="https://www.grupoplatino.hn" target="_blank" class="text-xs text-blue-500 hover:underline mb-1">grupoplatino.hn</a>
+              <p class="text-xs text-gray-500 mb-2">November 2024 - Present</p>
+              <p class="text-base">
+              Responsible for analyzing business requirements, designing system solutions, and supporting the implementation of new technologies to improve company operations.
+              </p>            
+            </div>
+            <div class="flex-shrink-0 w-8 h-8 bg-white border-4 border-purple-400 rounded-full flex items-center justify-center shadow-lg z-10 mx-auto md:mx-0">
+              <svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <div class="w-full md:w-1/2 md:pl-8"></div>
+          </div>
+          <!-- Timeline Item 2 -->
+          <div data-aos="fade-left" data-aos-duration="800" class="flex flex-col md:flex-row items-center md:items-start group">
+            <div class="w-full md:w-1/2 md:pr-8"></div>
+            <div class="flex-shrink-0 w-8 h-8 bg-white border-4 border-pink-400 rounded-full flex items-center justify-center shadow-lg z-10 mx-auto md:mx-0">
+              <svg class="w-5 h-5 text-pink-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <div class="w-full md:w-1/2 md:pl-8 text-left flex flex-col items-start">
+              <img src="https://www.google.com/s2/favicons?sz=64&domain=grupoib.com" alt="Grupo IB" class="w-12 h-12 rounded-full mb-2 object-cover">              
+              <h3 class="text-xl font-bold text-pink-700">IT Manager</h3>
+              <p class="text-sm text-pink-400 font-semibold mb-1">Grupo IB</p>
+              <a href="https://www.grupoib.com" target="_blank" class="text-xs text-blue-500 hover:underline mb-1">grupoib.com</a>
+              <p class="text-xs text-gray-500 mb-2">September 2023 - November 2024</p>
+              <p class="text-base">
+              Led the IT department, managed infrastructure and security, coordinated technology projects, and ensured the efficient operation of all IT services.
+              </p>            
+            </div>
+          </div>
+          <!-- Timeline Item 3 -->
+          <div data-aos="fade-right" data-aos-duration="800" class="flex flex-col md:flex-row items-center md:items-start group">
+            <div class="w-full md:w-1/2 md:pr-8 text-right flex flex-col items-end">
+              <img src="https://www.google.com/s2/favicons?sz=64&domain=grsenlinea.com" alt="GRS" class="w-12 h-12 rounded-full mb-2 object-cover">              
+              <h3 class="text-xl font-bold text-purple-700">ERP Regional Lead</h3>
+              <p class="text-sm text-purple-400 font-semibold mb-1">GRS</p>
+              <a href="https://www.grsenlinea.com" target="_blank" class="text-xs text-blue-500 hover:underline mb-1">grsenlinea.com</a>
+              <p class="text-xs text-gray-500 mb-2">April 2021 - July 2023</p>
+              <p class="text-base">
+              Oversaw SAP Business One system across multiple regions, provided training and support, and optimized processes to align with business goals and regional needs.
+              </p>            
+            </div>
+            <div class="flex-shrink-0 w-8 h-8 bg-white border-4 border-purple-400 rounded-full flex items-center justify-center shadow-lg z-10 mx-auto md:mx-0">
+              <svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <div class="w-full md:w-1/2 md:pl-8"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="footer mx-auto mt-8">
     <div class="container text-center">
@@ -156,5 +228,9 @@
   </footer>
 
   <script src="scripts/script.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 </html>
