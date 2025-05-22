@@ -306,3 +306,9 @@ a, button, input, textarea, select, label {
   transform: translate(-50%, -50%);
   box-sizing: border-box;
 }
+
+@media (pointer: coarse), (max-width: 768px) {
+  #custom-cursor {
+    display: none !important;
+  }
+}
