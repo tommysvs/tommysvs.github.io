@@ -9,7 +9,7 @@ window.addEventListener('load', () => {
   const overlay = document.getElementById('loader-overlay');
   overlay.style.backdropFilter = 'blur(32px) saturate(180%)';
   overlay.style.WebkitBackdropFilter = 'blur(32px) saturate(180%)';
-  overlay.style.background = 'rgba(10, 10, 18, 0.90)';
+  overlay.style.background = 'rgba(10, 10, 18, 0.60)';
 
   let width = window.innerWidth;
   let height = window.innerHeight;
@@ -26,7 +26,7 @@ window.addEventListener('load', () => {
   const glowColor = 0xa78bfa;
 
   const barLength = 32;
-  const barHeight = 0.45; // Más finita
+  const barHeight = 0.45;
 
   const bgPlaneGeometry = new THREE.PlaneGeometry(barLength * 2, barHeight * 7);
   const bgPlaneMaterial = new THREE.MeshBasicMaterial({
