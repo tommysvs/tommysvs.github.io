@@ -10,6 +10,11 @@ window.addEventListener('load', () => {
   }, 3000);
 });
 
+const cursor = document.getElementById('custom-cursor');
+  document.addEventListener('mousemove', e => {
+  cursor.style.transform = `translate(${e.clientX - 16}px, ${e.clientY - 16}px)`;
+});
+
 document.querySelectorAll('.nav-link').forEach(link => {
   link.addEventListener('mouseenter', (e) => {
     const rect = link.getBoundingClientRect();
