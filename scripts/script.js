@@ -303,9 +303,9 @@ document.addEventListener('DOMContentLoaded', () => {
   renderer.setSize(width, height);
   container.appendChild(renderer.domElement);
 
-  const particles = 300;
-  const baseRadius = 40;
-  const explodedRadius = 60;
+  const particles = 400;
+  const baseRadius = 50;
+  const explodedRadius = 70;
   let currentRadius = baseRadius;
   let targetRadius = baseRadius;
 
@@ -326,7 +326,7 @@ document.addEventListener('DOMContentLoaded', () => {
     );
   }
   geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
-  const material = new THREE.PointsMaterial({ color: 0x8b5cf6, size: 1.8 });
+  const material = new THREE.PointsMaterial({ color: 0x8b5cf6, size: 1.8, transparent: true, opacity: 0.1 });
   const points = new THREE.Points(geometry, material);
   scene.add(points);
 
