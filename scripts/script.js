@@ -286,3 +286,90 @@ window.addEventListener('scroll', () => {
 document.getElementById('curtain-scroll-top').onclick = () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 };
+
+// --- SPHERE THREE.JS BACKGROUND ---
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.getElementById('three-hero-bg');
+  if (!container) return;
+
+  const width = container.offsetWidth;
+  const height = container.offsetHeight;
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+  camera.position.z = 80;
+
+  const renderer = new THREE.WebGLRenderer({ alpha: true });
+  renderer.setSize(width, height);
+  container.appendChild(renderer.domElement);
+
+  const particles = 300;
+  const baseRadius = 40;
+  const explodedRadius = 60;
+  let currentRadius = baseRadius;
+  let targetRadius = baseRadius;
+
+  const geometry = new THREE.BufferGeometry();
+  const positions = [];
+  const basePositions = [];
+  for (let i = 0; i < particles; i++) {
+    const phi = Math.acos(-1 + (2 * i) / particles);
+    const theta = Math.sqrt(particles * Math.PI) * phi;
+    const x = Math.cos(theta) * Math.sin(phi);
+    const y = Math.sin(theta) * Math.sin(phi);
+    const z = Math.cos(phi);
+    basePositions.push([x, y, z]);
+    positions.push(
+      baseRadius * x,
+      baseRadius * y,
+      baseRadius * z
+    );
+  }
+  geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+  const material = new THREE.PointsMaterial({ color: 0x8b5cf6, size: 1.8 });
+  const points = new THREE.Points(geometry, material);
+  scene.add(points);
+
+  container.addEventListener('mouseenter', () => {
+    targetRadius = explodedRadius;
+  });
+  container.addEventListener('mouseleave', () => {
+    targetRadius = baseRadius;
+  });
+
+  let mouseX = 0, mouseY = 0;
+  document.addEventListener('mousemove', (e) => {
+    mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+    mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+  });
+
+  function animate() {
+    requestAnimationFrame(animate);
+
+    currentRadius += (targetRadius - currentRadius) * 0.08;
+
+    const pos = geometry.attributes.position;
+    for (let i = 0; i < particles; i++) {
+      pos.setXYZ(
+        i,
+        basePositions[i][0] * currentRadius,
+        basePositions[i][1] * currentRadius,
+        basePositions[i][2] * currentRadius
+      );
+    }
+    pos.needsUpdate = true;
+
+    points.rotation.y += 0.002 + mouseX * 0.01;
+    points.rotation.x += mouseY * 0.01;
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  window.addEventListener('resize', () => {
+    const w = container.offsetWidth;
+    const h = container.offsetHeight;
+    renderer.setSize(w, h);
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+  });
+});
