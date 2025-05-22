@@ -25,12 +25,11 @@ window.addEventListener('load', () => {
     const overlay = document.getElementById('loader-overlay');
     overlay.style.backdropFilter = 'blur(32px) saturate(180%)';
     overlay.style.WebkitBackdropFilter = 'blur(32px) saturate(180%)';
-    overlay.style.background = 'rgba(10, 10, 18, 0.80)';
+    overlay.style.background = 'rgba(10, 10, 18, 0.70)';
 
     let width = window.innerWidth;
     let height = window.innerHeight;
 
-    // Guarda todas las propiedades, incluyendo isMobile
     const { isMobile, barLength, barHeight, sparkleCount, cameraZ, bgPlaneHeight, bgPlaneWidth } = getResponsiveValues();
 
     const scene = new THREE.Scene();
@@ -95,7 +94,6 @@ window.addEventListener('load', () => {
     dirLight.position.set(10, 20, 20);
     scene.add(dirLight);
 
-    // Sparkles pequeños y menos cantidad en mobile
     const sparkles = [];
     for (let i = 0; i < sparkleCount; i++) {
       const geo = new THREE.SphereGeometry((isMobile ? 0.02 : 0.04) + Math.random() * (isMobile ? 0.015 : 0.03), 8, 8);
