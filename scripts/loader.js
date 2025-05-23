@@ -6,8 +6,8 @@ window.addEventListener('load', () => {
     const isMobile = window.innerWidth < 600;
     return {
       isMobile,
-      barLength: isMobile ? 16 : 32,
-      barHeight: isMobile ? 0.22 : 0.45,
+      barLength: isMobile ? 8 : 16,
+      barHeight: isMobile ? 0.10 : 0.18,
       sparkleCount: isMobile ? 10 : 22,
       cameraZ: isMobile ? 28 : 40,
       bgPlaneHeight: isMobile ? 7 : 7,
