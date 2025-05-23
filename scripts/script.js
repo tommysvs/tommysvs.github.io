@@ -311,9 +311,9 @@ document.addEventListener('DOMContentLoaded', () => {
     camera.updateProjectionMatrix();
   });
 
-  const particles = 400;
-  const baseRadius = 60;
-  const explodedRadius = 80;
+  const particles = 200;
+  const baseRadius = 50;
+  const explodedRadius = 70;
   let currentRadius = baseRadius;
   let targetRadius = baseRadius;
 
@@ -338,10 +338,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const points = new THREE.Points(geometry, material);
   scene.add(points);
 
-  container.addEventListener('mouseenter', () => {
+  document.body.addEventListener('mouseenter', () => {
     targetRadius = explodedRadius;
   });
-  container.addEventListener('mouseleave', () => {
+  document.body.addEventListener('mouseleave', () => {
     targetRadius = baseRadius;
   });
 
@@ -367,8 +367,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     pos.needsUpdate = true;
 
-    points.rotation.y += 0.002 + mouseX * 0.01;
-    points.rotation.x += mouseY * 0.01;
+    points.rotation.y += 0.002 + mouseX * 0.003;
+    points.rotation.x += mouseY * 0.003;
     renderer.render(scene, camera);
   }
   animate();
