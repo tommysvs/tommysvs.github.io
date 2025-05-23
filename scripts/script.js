@@ -289,7 +289,7 @@ document.getElementById('curtain-scroll-top').onclick = () => {
 
 // --- SPHERE THREE.JS BACKGROUND ---
 document.addEventListener('DOMContentLoaded', () => {
-  const container = document.getElementById('three-hero-bg');
+  const container = document.getElementById('three-bg');
   if (!container) return;
 
   const width = container.offsetWidth;
@@ -300,12 +300,19 @@ document.addEventListener('DOMContentLoaded', () => {
   camera.position.z = 80;
 
   const renderer = new THREE.WebGLRenderer({ alpha: true });
-  renderer.setSize(width, height);
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setClearColor(0x000000, 0);
   container.appendChild(renderer.domElement);
 
+  window.addEventListener('resize', () => {
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+  });
+
   const particles = 400;
-  const baseRadius = 50;
-  const explodedRadius = 70;
+  const baseRadius = 60;
+  const explodedRadius = 80;
   let currentRadius = baseRadius;
   let targetRadius = baseRadius;
 

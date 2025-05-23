@@ -85,6 +85,15 @@ a, button, input, textarea, select, label {
   animation: float-medium 5s ease-in-out infinite;
 }
 
+#three-bg {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
 .navbar {
   position: fixed;
   top: 1rem;

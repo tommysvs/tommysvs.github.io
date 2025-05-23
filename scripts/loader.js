@@ -45,9 +45,9 @@ window.addEventListener('load', () => {
 
     const bgPlaneGeometry = new THREE.PlaneGeometry(barLength * 2, barHeight * bgPlaneHeight);
     const bgPlaneMaterial = new THREE.MeshBasicMaterial({
-      color: 0x18181b,
+      color: 0x000000,
       transparent: true,
-      opacity: 0.32
+      opacity: 0
     });
     const bgPlane = new THREE.Mesh(bgPlaneGeometry, bgPlaneMaterial);
     bgPlane.position.set(0, 0, -2);
