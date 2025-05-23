@@ -48,23 +48,13 @@ a, button, input, textarea, select, label {
   cursor: none !important;
 }
 
-#loader-overlay {
-  backdrop-filter: blur(12px);
-  overflow: hidden !important;
-}
-
-.loader-bar {
-  background: linear-gradient(90deg, rgba(106,17,203,1), rgba(37,117,252,1));
-  animation: loader-bar 1.6s cubic-bezier(0.4,0,0.2,1) forwards;
-}
-
 .body-no-scroll {
   overflow: hidden !important;
   height: 100vh !important;
 }
 
-.animate-gradient-flow {
-  background: linear-gradient(135deg, black, #140928, black 80%);
+.bg-gradient-flow {
+  background: linear-gradient(135deg, black, #0c0618, black 80%);
   background-size: 300% 300%;
   animation: gradient-flow 12s ease-in-out infinite;
 }

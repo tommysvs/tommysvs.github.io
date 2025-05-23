@@ -1,19 +1,3 @@
-// --- TYPYNG EFFECT ---
-function typeText(el, text, callback) {
-  let i = 0;
-  function type() {
-    el.innerHTML = text.slice(0, i) + '<span class="typing-cursor">|</span>';
-    i++;
-    if (i <= text.length) {
-      setTimeout(type, 60);
-    } else {
-      el.innerHTML = text;
-      if (callback) callback();
-    }
-  }
-  type();
-}
-
 // --- SET LANGUAGE ---
 let currentLanguage = "en";
 
@@ -25,7 +9,7 @@ const translations = {
     experience: "Experience",
     education: "Education",
     heroTitle: "Hi, I'm <span class='text-blue-300'>Tommy</span>!",
-    heroSubtitle: "SAP Consultant | Systems Analyst",
+    heroSubtitle: "IT Consultant | Full Stack Developer",
     discoverMore: "Discover more",
     contact: "Contact me:",
     credits: "Made with ❤️ by Tommy Vega",
@@ -43,7 +27,7 @@ const translations = {
     experience: "Experiencia",
     education: "Educación",
     heroTitle: "¡Hola, soy <span class='text-blue-300'>Tommy</span>!",
-    heroSubtitle: "Consultor de SAP | Analista de Sistemas",
+    heroSubtitle: "Consultor de TI | Desarrollador Full Stack",
     discoverMore: "Descubre más",
     contact: "Contáctame:",
     credits: "Hecho con ❤️ por Tommy Vega",
@@ -57,6 +41,7 @@ const translations = {
   }
 };
 
+// --- UPDATE FOOTER LANGUAGE ---
 function updateFooterLanguage(lang) {
   document.querySelectorAll("[data-lang]").forEach((el) => {
     const key = el.getAttribute("data-lang");
@@ -72,6 +57,22 @@ function updateFooterLanguage(lang) {
       el.textContent = translations[lang][key];
     }
   });
+}
+
+// --- TYPYNG EFFECT ---
+function typeText(el, text, callback) {
+  let i = 0;
+  function type() {
+    el.innerHTML = text.slice(0, i) + '<span class="typing-cursor">|</span>';
+    i++;
+    if (i <= text.length) {
+      setTimeout(type, 60);
+    } else {
+      el.innerHTML = text;
+      if (callback) callback();
+    }
+  }
+  type();
 }
 
 // --- HERO TYPING AND LOADER ---
