@@ -38,6 +38,11 @@
   51%, 100% { opacity: 0; }
 }
 
+@keyframes bounceDown {
+  0%, 100% { transform: translateY(0);}
+  50% { transform: translateY(10px);}
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 15dvh;
@@ -89,6 +94,7 @@ a, button, input, textarea, select, label {
   pointer-events: none;
 }
 
+/* Navbar Styles */
 .navbar {
   position: fixed;
   top: 1rem;
@@ -148,6 +154,7 @@ a, button, input, textarea, select, label {
   color: white;
 }
 
+/* Language Switcher Styles */
 #language-switcher {
   position: fixed;
   bottom: 1rem;
@@ -162,6 +169,7 @@ a, button, input, textarea, select, label {
   background: linear-gradient(90deg, rgba(106,17,203,0.6), rgba(37,117,252,0.7));
 }
 
+/* Hero Section Styles */
 #hero-content {
   transition: transform 0.3s cubic-bezier(.25,.46,.45,.94);
   will-change: transform;
@@ -192,6 +200,7 @@ a, button, input, textarea, select, label {
   background: linear-gradient(90deg, rgba(106,17,203,0.2), rgba(37,117,252,0.5));
 }
 
+/* Typing Effect Styles */
 .typing-cursor {
   display: inline-block;
   color: #fff;
@@ -199,6 +208,7 @@ a, button, input, textarea, select, label {
   font-weight: bold;
 }
 
+/* Footer Styles */
 .footer {
   text-align: center;
   padding: 2rem 1.5rem;
@@ -238,6 +248,7 @@ a, button, input, textarea, select, label {
   transform: scale(1.2);
 }
 
+/* Curtain Scroll Top Button Styles */
 #curtain-scroll-top {
   transition: opacity 0.4s, transform 0.4s;
   opacity: 0.95;
@@ -251,6 +262,7 @@ a, button, input, textarea, select, label {
   transform: scale(0.97) translateY(4px);
 }
 
+/* Scrollbar Styles */
 ::-webkit-scrollbar {
   width: 10px;
   background: transparent;
@@ -271,6 +283,7 @@ a, button, input, textarea, select, label {
   border-radius: 8px;
 }
 
+/* Custom Cursor Styles */
 #custom-cursor {
   position: fixed;
   top: 0;
