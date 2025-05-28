@@ -219,8 +219,14 @@ document.addEventListener('scroll', () => {
       scrollRatio = Math.min(Math.max(1 - (rect.bottom / windowHeight), 0), 1);
     }
 
-    const maxBlur = 60;
-    const blur = Math.pow(scrollRatio, 1.8) * maxBlur;
+    let maxBlur = 60;
+    let blurExponent = 1.8;
+    if (window.innerWidth < 640) {
+      maxBlur = 30;
+      blurExponent = 3.2;
+    }
+
+    const blur = Math.pow(scrollRatio, blurExponent) * maxBlur;
 
     content.style.filter = `blur(${blur}px)`;
     content.style.opacity = `${1 - scrollRatio * 0.5}`;
