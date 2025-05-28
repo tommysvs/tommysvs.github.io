@@ -20,6 +20,7 @@ const translations = {
     aboutExp2: "Passionate about continuous learning and teamwork.",
     aboutExp3: "Focused on results, quality, and customer satisfaction.",
     contactMe: "Contact Me",
+    cvDescription: "Discover in detail my professional background, skills, and achievements. Download my CV in your preferred language and learn more about my experience in technology, business, and digital transformation."
   },
   es: {
     about: "Sobre mí",
@@ -37,6 +38,7 @@ const translations = {
     aboutExp2: "Apasionado por el aprendizaje constante y la colaboración en equipo.",
     aboutExp3: "Enfocado en resultados, calidad y satisfacción del cliente.",
     contactMe: "Contáctame",
+    cvDescription: "Descubre en detalle mi trayectoria profesional, habilidades y logros. Descarga mi CV en el idioma que prefieras y conoce mi experiencia en tecnología, negocios y transformación digital."
   }
 };
 
