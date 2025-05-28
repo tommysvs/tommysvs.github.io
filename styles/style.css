@@ -38,6 +38,11 @@
   51%, 100% { opacity: 0; }
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 15dvh;
+}
+
 body, html {
   cursor: none !important;
   scrollbar-width: thin;
