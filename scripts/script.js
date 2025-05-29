@@ -9,7 +9,7 @@ const translations = {
     experience: "Experience",
     education: "Education",
     heroTitle: "Hi, I'm <span class='text-blue-300'>Tommy</span>!",
-    heroSubtitle: "IT Consultant | Full Stack Developer",
+    heroSubtitle: "IT Consultant",
     discoverMore: "Discover more",
     contact: "Contact me:",
     credits: "Made with ❤️ by Tommy Vega",
@@ -20,6 +20,7 @@ const translations = {
     aboutExp2: "Passionate about continuous learning and teamwork.",
     aboutExp3: "Focused on results, quality, and customer satisfaction.",
     contactMe: "Contact Me",
+    cvTitle: "Resume",
     cvDescription: "Discover in detail my professional background, skills, and achievements. Download my CV in your preferred language and learn more about my experience in technology, business, and digital transformation."
   },
   es: {
@@ -28,7 +29,7 @@ const translations = {
     experience: "Experiencia",
     education: "Educación",
     heroTitle: "¡Hola, soy <span class='text-blue-300'>Tommy</span>!",
-    heroSubtitle: "Consultor de TI | Desarrollador Full Stack",
+    heroSubtitle: "Consultor de TI",
     discoverMore: "Descubre más",
     contact: "Contáctame:",
     credits: "Hecho con ❤️ por Tommy Vega",
@@ -38,6 +39,7 @@ const translations = {
     aboutExp2: "Apasionado por el aprendizaje constante y la colaboración en equipo.",
     aboutExp3: "Enfocado en resultados, calidad y satisfacción del cliente.",
     contactMe: "Contáctame",
+    cvTitle: "Curriculum",
     cvDescription: "Descubre en detalle mi trayectoria profesional, habilidades y logros. Descarga mi CV en el idioma que prefieras y conoce mi experiencia en tecnología, negocios y transformación digital."
   }
 };
