@@ -390,3 +390,40 @@ document.addEventListener('DOMContentLoaded', () => {
     camera.updateProjectionMatrix();
   });
 });
+
+// --- GSAP TIMELINE SCROLL ---
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.gsap && window.ScrollTrigger) {
+    const section = document.getElementById('education');
+    const timeline = document.getElementById('edu-timeline');
+    if (!section || !timeline) return;
+
+    const totalWidth = timeline.scrollWidth;
+    const viewportWidth = section.offsetWidth;
+
+    const cards = timeline.children.length;
+    const card = timeline.children[0];
+    const cardWidth = card ? card.offsetWidth : 340;
+    const gap = 48; // gap-12 en Tailwind = 3rem = 48px
+    const lastCardOffset = (viewportWidth - cardWidth) / 2;
+    const scrollDistance = (cardWidth + gap) * (cards - 1) - lastCardOffset;
+
+    if (totalWidth > viewportWidth) {
+      gsap.to(timeline, {
+        x: () => `-${scrollDistance}px`,
+        ease: "none",
+        scrollTrigger: {
+          trigger: section,
+          start: "top top",
+          end: () => `+=${scrollDistance}`,
+          pin: true,
+          scrub: 1,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+        }
+      });
+    } else {
+      timeline.style.transform = "none";
+    }
+  }
+});

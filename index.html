@@ -353,109 +353,81 @@
   </section>
 
   <!-- Education Section -->
-  <section id="education" data-aos="fade-up" data-aos-duration="800" class="relative flex items-center justify-center min-h-screen px-4 md:px-12 bg-transparent bg-opacity-90 text-gray-800 rounded-3xl mx-auto">
-    <div class="max-w-5xl mx-auto w-full">
-    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-purple-600 flex items-center justify-center gap-2">
+  <section id="education" class="education-section relative min-h-screen overflow-hidden bg-transparent px-0 md:px-0 flex items-center justify-center">
+    <div class="w-full">
+      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-purple-600 flex items-center justify-center gap-2">
         <svg class="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0v6"/>
         </svg>
         <span data-lang="education">Education</span>
       </h2>
-      <div class="relative flex flex-col items-center justify-center" style="min-height: 200px;">
-        <button id="edu-left" class="absolute left-0 z-20 bg-white/10 hover:bg-purple-400/30 text-purple-400 hover:text-white rounded-full p-2 shadow transition disabled:opacity-30" aria-label="Scroll left">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
-        </button>
-        <button id="edu-right" class="absolute right-0 z-20 bg-white/10 hover:bg-purple-400/30 text-purple-400 hover:text-white rounded-full p-2 shadow transition disabled:opacity-30" aria-label="Scroll right">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-        </button>
-        <div id="edu-timeline" class="w-full overflow-x-hidden pb-8">
-          <div class="flex gap-10 min-w-[700px] md:min-w-[1100px] px-10 py-2 transition-transform duration-300 ease-in-out cursor-grab active:cursor-grabbing select-none">
-            <!-- College 1 -->
-            <div class="flex flex-col items-center min-w-[260px]">
-              <div class="mb-4">
-                <div class="bg-white/10 backdrop-blur-lg border-2 border-purple-400/40 rounded-2xl shadow-xl px-6 py-5 text-center w-[240px]">
-                  <div class="flex justify-center mb-2">
-                    <svg class="w-10 h-10 text-purple-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0v6"/>
-                    </svg>
-                  </div>
-                  <h3 class="text-base font-bold text-purple-700">B.S. in Computer Science</h3>
-                  <p class="text-xs text-purple-400 font-semibold">UNICAH</p>
-                  <p class="text-xs text-gray-400 mb-1">2022 - Present</p>
-                  <p class="text-xs text-white">Specialized in software engineering, databases, and business process analysis.</p>
-                </div>
+      <div class="education-timeline-outer relative w-full overflow-x-auto">
+        <div id="edu-timeline" class="education-timeline flex gap-6 px-4 py-6 sm:gap-12 sm:px-12 sm:py-8 pr-[50vw] sm:pr-0">
+          <!-- Card 1 -->
+          <div class="edu-card flex flex-col items-center min-w-[260px] max-w-[260px] h-[260px] sm:min-w-[340px] sm:max-w-[340px] sm:h-[340px]">
+            <div class="bg-white/10 backdrop-blur-lg border-2 border-purple-400/40 rounded-2xl shadow-xl h-[240px] w-[240px] sm:h-[320px] sm:w-[320px] flex flex-col items-center justify-center text-center p-4 sm:p-6">
+              <div class="flex justify-center items-center mb-2">
+                <img src="https://www.google.com/s2/favicons?sz=64&domain=unicah.edu" alt="UNICAH Logo" class="h-12 w-12 object-contain rounded-full bg-white/80 p-1 shadow" />
               </div>
-              <div class="w-5 h-5 rounded-full bg-purple-400 border-4 border-white shadow-lg z-10"></div>
+              <h3 class="text-base font-bold text-purple-700">B.S. in Computer Science</h3>
+              <p class="text-xs text-purple-400 font-semibold">UNICAH</p>
+              <p class="text-xs text-gray-400 mb-1">2022 - Present</p>
+              <p class="text-xs text-white hidden sm:block">Specialized in software engineering, databases, and business process analysis.</p>
             </div>
-            <!-- College 2 -->
-            <div class="flex flex-col items-center min-w-[260px]">
-              <div class="mb-4">
-                <div class="bg-white/10 backdrop-blur-lg border-2 border-blue-400/40 rounded-2xl shadow-xl px-6 py-5 text-center w-[240px]">
-                  <div class="flex justify-center mb-2">
-                    <svg class="w-10 h-10 text-blue-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                      <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M8 15h8M8 11h8M8 7h8"/>
-                    </svg>
-                  </div>
-                  <h3 class="text-base font-bold text-blue-700">A.S. in Computer Programming & Analysis</h3>
-                  <p class="text-xs text-blue-400 font-semibold">Valencia College</p>
-                  <p class="text-xs text-gray-400 mb-1">2016 - 2018</p>
-                  <p class="text-xs text-white">Emphasis on software development and algorithms, and practical programming skills.</p>
-                </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="edu-card flex flex-col items-center min-w-[260px] max-w-[260px] h-[260px] sm:min-w-[340px] sm:max-w-[340px] sm:h-[340px]">
+            <div class="bg-white/10 backdrop-blur-lg border-2 border-blue-400/40 rounded-2xl shadow-xl h-[240px] w-[240px] sm:h-[320px] sm:w-[320px] flex flex-col items-center justify-center text-center p-4 sm:p-6">
+              <div class="flex justify-center items-center mb-2">
+                <img src="https://www.google.com/s2/favicons?sz=64&domain=valenciacollege.edu" alt="Valencia College Logo" class="h-12 w-12 object-contain rounded-full bg-white/80 p-1 shadow" />
               </div>
-              <div class="w-5 h-5 rounded-full bg-blue-400 border-4 border-white shadow-lg z-10"></div>
+              <h3 class="text-base font-bold text-blue-700">A.S. in Computer Programming & Analysis</h3>
+              <p class="text-xs text-blue-400 font-semibold">Valencia College</p>
+              <p class="text-xs text-gray-400 mb-1">2016 - 2018</p>
+              <p class="text-xs text-white hidden sm:block">Emphasis on software development and algorithms, and practical programming skills.</p>
             </div>
-            <!-- Course 1 -->
-            <div class="flex flex-col items-center min-w-[170px]">
-              <div class="mb-2">
-                <div class="bg-white/10 backdrop-blur-lg border border-pink-300/30 rounded-xl shadow-lg px-3 py-2 text-center w-[150px]">
-                  <div class="flex justify-center mb-1">
-                    <svg class="w-6 h-6 text-pink-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
-                    </svg>
-                  </div>
-                  <h3 class="text-xs font-bold text-pink-700">ESET PROTECT - Principles of Administration</h3>
-                  <p class="text-[11px] text-pink-400 font-semibold">ESET</p>
-                  <p class="text-[11px] text-gray-400 mb-1">2024</p>
-                </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="edu-card flex flex-col items-center min-w-[260px] max-w-[260px] h-[260px] sm:min-w-[340px] sm:max-w-[340px] sm:h-[340px]">
+            <div class="bg-white/10 backdrop-blur-lg border-2 border-pink-400/40 rounded-2xl shadow-xl h-[240px] w-[240px] sm:h-[320px] sm:w-[320px] flex flex-col items-center justify-center text-center p-4 sm:p-6">
+              <div class="flex justify-center items-center mb-2">
+                <img src="https://www.google.com/s2/favicons?sz=64&domain=eset.com" alt="ESET Logo" class="h-12 w-12 object-contain rounded-full bg-white/80 p-1 shadow" />
               </div>
-              <div class="w-3 h-3 rounded-full bg-pink-400 border-2 border-white shadow z-10"></div>
+              <h3 class="text-base font-bold text-pink-700">ESET PROTECT - Principles of Administration</h3>
+              <p class="text-xs text-pink-400 font-semibold">ESET</p>
+              <p class="text-xs text-gray-400 mb-1">2024</p>
+              <p class="text-xs text-white hidden sm:block">Cybersecurity and endpoint management fundamentals.</p>
             </div>
-            <!-- Course 2 -->
-            <div class="flex flex-col items-center min-w-[170px]">
-              <div class="mb-2">
-                <div class="bg-white/10 backdrop-blur-lg border border-yellow-300/30 rounded-xl shadow-lg px-3 py-2 text-center w-[150px]">
-                  <div class="flex justify-center mb-1">
-                    <svg class="w-6 h-6 text-yellow-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
-                    </svg>
-                  </div>
-                  <h3 class="text-xs font-bold text-yellow-700">SAP Business One - Key User</h3>
-                  <p class="text-[11px] text-yellow-400 font-semibold">Prime Institute</p>
-                  <p class="text-[11px] text-gray-400 mb-1">2021</p>
-                </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="edu-card flex flex-col items-center min-w-[260px] max-w-[260px] h-[260px] sm:min-w-[340px] sm:max-w-[340px] sm:h-[340px]">
+            <div class="bg-white/10 backdrop-blur-lg border-2 border-yellow-400/40 rounded-2xl shadow-xl h-[240px] w-[240px] sm:h-[320px] sm:w-[320px] flex flex-col items-center justify-center text-center p-4 sm:p-6">
+              <div class="flex justify-center items-center mb-2">
+                <img src="https://www.google.com/s2/favicons?sz=64&domain=sap.com" alt="SAP Logo" class="h-12 w-12 object-contain rounded-full bg-white/80 p-1 shadow" />
               </div>
-              <div class="w-3 h-3 rounded-full bg-yellow-400 border-2 border-white shadow z-10"></div>
+              <h3 class="text-base font-bold text-yellow-700">SAP Business One - Key User</h3>
+              <p class="text-xs text-yellow-400 font-semibold">Prime Institute</p>
+              <p class="text-xs text-gray-400 mb-1">2021</p>
+              <p class="text-xs text-white hidden sm:block">ERP user training and business process optimization.</p>
             </div>
-            <!-- Course 3 -->
-            <div class="flex flex-col items-center min-w-[170px]">
-              <div class="mb-2">
-                <div class="bg-white/10 backdrop-blur-lg border border-green-300/30 rounded-xl shadow-lg px-3 py-2 text-center w-[150px]">
-                  <div class="flex justify-center mb-1">
-                    <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
-                    </svg>
-                  </div>
-                  <h3 class="text-xs font-bold text-green-700">Certificate (C1 Advanced)</h3>
-                  <p class="text-[11px] text-green-400 font-semibold">EF SET</p>
-                  <p class="text-[11px] text-gray-400 mb-1">2019</p>
-                </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="edu-card flex flex-col items-center min-w-[260px] max-w-[260px] h-[260px] sm:min-w-[340px] sm:max-w-[340px] sm:h-[340px]">
+            <div class="bg-white/10 backdrop-blur-lg border-2 border-green-400/40 rounded-2xl shadow-xl h-[240px] w-[240px] sm:h-[320px] sm:w-[320px] flex flex-col items-center justify-center text-center p-4 sm:p-6">
+              <div class="flex justify-center items-center mb-2">
+                <img src="https://www.google.com/s2/favicons?sz=64&domain=efset.org" alt="EF SET Logo" class="h-12 w-12 object-contain rounded-full bg-white/80 p-1 shadow" />
               </div>
-              <div class="w-3 h-3 rounded-full bg-green-400 border-2 border-white shadow z-10"></div>
+              <h3 class="text-base font-bold text-green-700">Certificate (C1 Advanced)</h3>
+              <p class="text-xs text-green-400 font-semibold">EF SET</p>
+              <p class="text-xs text-gray-400 mb-1">2019</p>
+              <p class="text-xs text-white hidden sm:block">English proficiency at C1 Advanced level.</p>
             </div>
           </div>
         </div>
-        <div class="absolute left-0 right-0 bottom-0 h-1 bg-gradient-to-r from-purple-900/30 via-purple-400/40 to-yellow-400/30 rounded-full pointer-events-none"></div>
       </div>
     </div>
   </section>
@@ -538,6 +510,7 @@
   </button>
 
   <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/three@0.146.0/build/three.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script src="scripts/loader.js"></script>
