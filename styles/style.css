@@ -154,6 +154,32 @@ a, button, input, textarea, select, label {
   color: white;
 }
 
+/* Pixelated Section Styles */
+.section-pixelated {
+  position: relative;
+  overflow: hidden;
+}
+.section-pixel-canvas {
+  position: absolute;
+  left: 0; top: 0; width: 100%; height: 100%;
+  z-index: 30;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.9s cubic-bezier(.4,0,.2,1);
+  display: block;
+}
+
+.section-pixelated > *:not(.section-pixel-canvas) {
+  opacity: 1 !important;
+  transition: opacity 0.2s;
+}
+
+.section-unpixelated .section-pixel-canvas {
+  opacity: 0 !important;
+  transition: opacity 0.5s cubic-bezier(.4,0,.2,1);
+  pointer-events: none;
+}
+
 /* Language Switcher Styles */
 #language-switcher {
   position: fixed;

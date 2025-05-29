@@ -12,7 +12,7 @@ const translations = {
     heroSubtitle: "IT Consultant",
     discoverMore: "Discover more",
     contact: "Contact me:",
-    credits: "Made with ❤️ by Tommy Vega",
+    credits: "2025 &copy; Made with ❤️ by Tommy Vega",
     close: "Close",
     aboutTitle: "About Me",
     aboutDescription:  "Hi! I'm Tommy Vega. I’m passionate about technology and always looking for new ways to solve problems and make things better. I enjoy building digital solutions, automating tasks, and learning new tools or frameworks. I believe in teamwork, continuous improvement, and using tech to create a real impact—whether it’s for a business, a project, or just for fun.",
@@ -32,7 +32,7 @@ const translations = {
     heroSubtitle: "Consultor de TI",
     discoverMore: "Descubre más",
     contact: "Contáctame:",
-    credits: "Hecho con ❤️ por Tommy Vega",
+    credits: "2025 &copy; Hecho con ❤️ por Tommy Vega",
     close: "Cerrar",
     aboutTitle: "Sobre mí",
     aboutDescription: "¡Hola! Soy Tommy Vega. Me apasiona la tecnología y siempre busco nuevas formas de resolver problemas y mejorar las cosas. Disfruto crear soluciones digitales, automatizar tareas y aprender nuevas herramientas o frameworks. Creo en el trabajo en equipo, la mejora continua y en usar la tecnología para generar un impacto real, ya sea en un negocio, un proyecto o solo por diversión.",    aboutExp1: "+5 años de experiencia en consultoría SAP y análisis de sistemas.",
@@ -390,3 +390,89 @@ document.addEventListener('DOMContentLoaded', () => {
     camera.updateProjectionMatrix();
   });
 });
+
+// --- SECTION PIXELATION ---
+function pixelateSectionWithCanvas(section, t) {
+  let canvas = section.querySelector('.section-pixel-canvas');
+  if (!canvas) {
+    canvas = document.createElement('canvas');
+    canvas.className = 'section-pixel-canvas';
+    section.appendChild(canvas);
+    canvas._lastPixelSize = -1;
+  }
+
+  const opacity = 1 - t;
+  canvas.style.opacity = opacity;
+
+  canvas.style.display = opacity <= 0.01 ? 'none' : 'block';
+
+  const pixelSize = Math.round(40 - t * 36);
+
+  if (
+    canvas._lastPixelSize === pixelSize &&
+    canvas._lastW === section.offsetWidth &&
+    canvas._lastH === section.offsetHeight
+  ) {
+    return;
+  }
+  canvas._lastPixelSize = pixelSize;
+  canvas._lastW = section.offsetWidth;
+  canvas._lastH = section.offsetHeight;
+
+  canvas.style.visibility = 'hidden';
+
+  setTimeout(() => {
+    canvas.style.display = 'none';
+
+    html2canvas(section, {
+      backgroundColor: null,
+      logging: false,
+      useCORS: true,
+      ignoreElements: (el) => el.classList && el.classList.contains('section-pixel-canvas')
+    }).then(screenshot => {
+      const ctx = canvas.getContext('2d');
+      const w = section.offsetWidth;
+      const h = section.offsetHeight;
+      canvas.width = w;
+      canvas.height = h;
+
+      const tempCanvas = document.createElement('canvas');
+      tempCanvas.width = Math.ceil(w / pixelSize);
+      tempCanvas.height = Math.ceil(h / pixelSize);
+      const tempCtx = tempCanvas.getContext('2d');
+      tempCtx.imageSmoothingEnabled = false;
+      tempCtx.drawImage(screenshot, 0, 0, tempCanvas.width, tempCanvas.height);
+
+      ctx.imageSmoothingEnabled = false;
+      ctx.clearRect(0, 0, w, h);
+      ctx.drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height, 0, 0, w, h);
+
+      canvas.style.display = 'block';
+      canvas.style.visibility = 'visible';
+    });
+  }, 10);
+}
+
+function pixelateSectionByScroll(section) {
+  const rect = section.getBoundingClientRect();
+  const vh = window.innerHeight;
+  const sectionCenter = rect.top + rect.height / 2;
+  const viewportCenter = vh / 2;
+  const dist = Math.abs(sectionCenter - viewportCenter);
+
+  const maxDist = vh * 0.7;
+  let t = Math.min(1, Math.max(0, dist / (maxDist)));
+  t = 1 - t;
+
+  pixelateSectionWithCanvas(section, t);
+}
+
+function handleSectionPixelation() {
+  document.querySelectorAll('section.section-pixelated[id]').forEach(section => {
+    pixelateSectionByScroll(section);
+  });
+}
+
+window.addEventListener('scroll', handleSectionPixelation, { passive: true });
+window.addEventListener('resize', handleSectionPixelation);
+window.addEventListener('DOMContentLoaded', handleSectionPixelation);
