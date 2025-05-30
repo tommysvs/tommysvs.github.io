@@ -8,6 +8,7 @@ const translations = {
     skills: "Skills",
     experience: "Experience",
     education: "Education",
+    resume: "Resume",
     heroTitle: "Hi, I'm <span class='text-[#ffe066]'>Tommy</span>!",
     heroSubtitle: "IT Consultant | SAP Specialist",
     discoverMore: "Discover more",
@@ -28,7 +29,6 @@ const translations = {
     itleadDesc: "Oversaw SAP Business One system across multiple regions, provided training and support, and optimized processes to align with business goals and regional needs.",
     bachelorDegree: "Bachelor of Science in Computer Science",
     associateDegree: "Associate of Science in Programming & Analysis",
-    cvTitle: "Resume",
     cvDescription: "Discover in detail my professional background, skills, and achievements. Download my CV in your preferred language and learn more about my experience in technology, business, and digital transformation."
   },
   es: {
@@ -36,6 +36,7 @@ const translations = {
     skills: "Habilidades",
     experience: "Experiencia",
     education: "Educación",
+    resume: "Curriculum",
     heroTitle: "¡Hola, soy <span class='text-[#ffe066]'>Tommy</span>!",
     heroSubtitle: "Consultor de TI | Especialista en SAP",
     discoverMore: "Descubre más",
@@ -55,7 +56,6 @@ const translations = {
     itleadDesc: "Supervisé el sistema SAP Business One en múltiples regiones, brindé capacitación y soporte, y optimicé procesos para alinearlos con los objetivos y necesidades regionales del negocio.",
     bachelorDegree: "Ingeniería en Ciencias de la Computación",
     associateDegree: "Associate of Science in Programming & Analysis",
-    cvTitle: "Curriculum",
     cvDescription: "Descubre en detalle mi trayectoria profesional, habilidades y logros. Descarga mi CV en el idioma que prefieras y conoce mi experiencia en tecnología, negocios y transformación digital."
   }
 };
@@ -452,24 +452,23 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// --- FULLSCREEN MENU ---
-const menu = document.getElementById('fullscreen-menu');
-const openBtn = document.getElementById('open-menu');
-const closeBtn = document.getElementById('close-menu');
+// --- FULL SCREEN MENU TOGGLE ---
+document.addEventListener('DOMContentLoaded', () => {
+  const menuToggle = document.getElementById('menu-toggle');
+  const fullscreenMenu = document.getElementById('fullscreen-menu');
 
-openBtn.addEventListener('click', () => {
-  menu.classList.remove('opacity-0', 'pointer-events-none');
-  menu.classList.add('opacity-100');
-});
+  menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('open');
+    fullscreenMenu.classList.toggle('opacity-0');
+    fullscreenMenu.classList.toggle('pointer-events-none');
+  });
 
-closeBtn.addEventListener('click', () => {
-  menu.classList.add('opacity-0', 'pointer-events-none');
-  menu.classList.remove('opacity-100');
-});
-
-menu.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    menu.classList.add('opacity-0', 'pointer-events-none');
-    menu.classList.remove('opacity-100');
+  // Cerrar menú al hacer click en un enlace
+  fullscreenMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      menuToggle.classList.remove('open');
+      fullscreenMenu.classList.add('opacity-0');
+      fullscreenMenu.classList.add('pointer-events-none');
+    });
   });
 });

@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tommy Vega</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/three@0.157.0/build/three.min.js"></script>
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
 </head>
@@ -63,34 +62,32 @@
   </div>
 
   <!-- Navbar -->
-  <nav id="navbar" data-aos="fade-up" data-aos-duration="2000" class="navbar z-50 transition-all duration-300 hidden sm:block">
-    <div id="navbar-content" class="flex flex-col items-center gap-8 text-xs md:text-sm">
-      <div class="nav-item">
-        <a href="#about" class="nav-link" data-lang="about">About Me</a>
-      </div>
-      <div class="nav-item">
-        <a href="#skills" class="nav-link" data-lang="skills">Skills</a>
-      </div>
-      <div class="nav-item">
-        <a href="#experience" class="nav-link" data-lang="experience">Experience</a>
-      </div>
-      <div class="nav-item">
-        <a href="#education" class="nav-link" data-lang="education">Education</a>
-      </div>
+  <nav class="navbar">
+    <div class="nav-item">
+      <a href="#about" class="nav-link" data-lang="about">About Me</a>
+    </div>
+    <div class="nav-item">
+      <a href="#skills" class="nav-link" data-lang="skills">Skills</a>
+    </div>
+    <div class="nav-item">
+      <a href="#experience" class="nav-link" data-lang="experience">Experience</a>
+    </div>
+    <div class="nav-item">
+      <a href="#education" class="nav-link" data-lang="education">Education</a>
+    </div>
+    <div class="nav-item">
+      <a href="#cv" class="nav-link" data-lang="resume">Resume</a>
     </div>
   </nav>
 
   <!-- Full-Screen Button -->
-  <button id="open-menu" class="fixed top-6 right-6 z-[9998] text-3xl text-white hover:text-[#ffe066] transition p-0 bg-transparent border-none outline-none flex flex-col justify-center items-end w-10 h-10">
-    <span class="block w-6 h-px bg-white mb-1"></span>
-    <span class="block w-5 h-px bg-white mb-1"></span>
-    <span class="block w-8 h-px bg-white"></span>
+  <button id="menu-toggle" class="fixed top-6 right-6 z-[9998] text-3xl text-white hover:text-[#ffe066] transition p-0 bg-transparent border-none outline-none flex flex-col justify-center items-end w-10 h-10 group">
+    <span class="menuline line1"></span>
+    <span class="menuline line2"></span>
+    <span class="menuline line3"></span>
   </button>
 
-  <div id="fullscreen-menu" class="fixed inset-0 z-[9998] bg-[#18181b]/[.99] flex flex-col items-center justify-center transition-all duration-500 opacity-0 pointer-events-none">
-    <button id="close-menu" class="absolute top-6 right-8 text-3xl text-white hover:text-[#ffe066] transition">
-      &times;
-    </button>
+  <div id="fullscreen-menu" class="fixed inset-0 z-[9997] bg-[#18181b]/[.99] flex flex-col items-center justify-center transition-all duration-500 opacity-0 pointer-events-none">
     <nav class="flex flex-col gap-10 text-3xl font-bold">
       <a href="#about" class="hover:text-[#ffe066] transition" data-lang="about">About Me</a>
       <a href="#skills" class="hover:text-[#ffe066] transition" data-lang="skills">Skills</a>
@@ -103,7 +100,7 @@
   <!-- Hero Section -->
   <section class="hero h-screen flex items-center justify-center text-center relative overflow-hidden bg-transparent rounded-3xl mx-auto">
     <div id="hero-content">
-      <h1 id="hero-typing" data-aos="fade-up" data-aos-duration="800"></span></h1>
+      <h1 id="hero-typing" data-aos="fade-up" data-aos-duration="800"></h1>
       <p id="hero-typing-subtitle" data-aos="fade-up" data-aos-duration="1000"></p>
       <span id="hero-mouse" data-aos="fade-up" data-aos-duration="1200" class="relative flex items-center justify-center mt-8">
         <svg class="w-8 h-8 text-white" fill="none" viewBox="0 0 40 64" xmlns="http://www.w3.org/2000/svg">
@@ -559,7 +556,7 @@
 
   <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
   <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
-  <script src="https://unpkg.com/three@0.146.0/build/three.min.js"></script>
+  <script src="https://unpkg.com/three@0.157.0/build/three.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script src="scripts/loader.js"></script>
   <script src="scripts/script.js"></script>
