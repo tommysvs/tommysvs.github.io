@@ -219,6 +219,7 @@ a, button, input, textarea, select, label {
   width: 100vw;
   max-width: 100vw;
   position: relative;
+  overflow-x: hidden !important;
 }
 
 .education-timeline {
