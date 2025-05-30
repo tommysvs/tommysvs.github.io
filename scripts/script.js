@@ -545,3 +545,25 @@ document.addEventListener('DOMContentLoaded', () => {
     camera.updateProjectionMatrix();
   });
 });
+
+// --- FULLSCREEN MENU ---
+const menu = document.getElementById('fullscreen-menu');
+const openBtn = document.getElementById('open-menu');
+const closeBtn = document.getElementById('close-menu');
+
+openBtn.addEventListener('click', () => {
+  menu.classList.remove('opacity-0', 'pointer-events-none');
+  menu.classList.add('opacity-100');
+});
+
+closeBtn.addEventListener('click', () => {
+  menu.classList.add('opacity-0', 'pointer-events-none');
+  menu.classList.remove('opacity-100');
+});
+
+menu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    menu.classList.add('opacity-0', 'pointer-events-none');
+    menu.classList.remove('opacity-100');
+  });
+});

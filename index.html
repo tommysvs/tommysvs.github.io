@@ -35,7 +35,7 @@
   </div>
 
   <!-- Social Media Links Desktop -->
-  <div class="fixed right-8 top-1/2 z-[9998] flex-col items-center gap-6 -translate-y-1/2 backdrop-blur-md rounded-3xl px-3 py-4 hidden sm:flex">
+  <div class="fixed right-8 top-1/2 z-[9997] flex-col items-center gap-6 -translate-y-1/2 backdrop-blur-md rounded-3xl px-3 py-4 hidden sm:flex">
     <a href="https://www.linkedin.com/in/tommyvega" target="_blank" rel="noopener" class="group">
       <svg class="w-5 h-5 text-white hover:text-[#ffe066] transition" fill="currentColor" viewBox="0 0 24 24">
         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.337-.027-3.063-1.867-3.063-1.868 0-2.155 1.46-2.155 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.759 1.381-1.559 2.841-1.559 3.039 0 3.6 2.001 3.6 4.604v5.588z"/>
@@ -49,7 +49,7 @@
   </div>
 
   <!-- Social Media Links Mobile -->
-  <div class="fixed left-4 bottom-16 z-[9998] flex flex-col items-center gap-6 backdrop-blur-md rounded-3xl px-3 py-4 sm:hidden">
+  <div class="fixed left-4 bottom-16 z-[9997] flex flex-col items-center gap-6 backdrop-blur-md rounded-3xl px-3 py-4 sm:hidden">
     <a href="https://www.linkedin.com/in/tommyvega" target="_blank" rel="noopener" class="group">
       <svg class="w-5 h-5 text-white hover:text-[#ffe066] transition" fill="currentColor" viewBox="0 0 24 24">
         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.337-.027-3.063-1.867-3.063-1.868 0-2.155 1.46-2.155 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.759 1.381-1.559 2.841-1.559 3.039 0 3.6 2.001 3.6 4.604v5.588z"/>
@@ -63,22 +63,42 @@
   </div>
 
   <!-- Navbar -->
-  <nav id="navbar" data-aos="fade-up" data-aos-duration="2000" class="navbar z-50 transition-all duration-300 w-full md:w-auto max-w-full md:max-w-fit mx-auto px-2 py-3">
-    <div id="navbar-content" class="flex flex-wrap justify-center gap-x-2 gap-y-1 md:gap-x-4 md:gap-y-0 items-center text-xs md:text-sm">
+  <nav id="navbar" data-aos="fade-up" data-aos-duration="2000" class="navbar z-50 transition-all duration-300 hidden sm:block">
+    <div id="navbar-content" class="flex flex-col items-center gap-8 text-xs md:text-sm">
       <div class="nav-item">
-        <a href="#about" class="nav-link font-medium px-2 py-1 rounded hover:bg-purple-500/20 transition" data-lang="about">About Me</a>
+        <a href="#about" class="nav-link" data-lang="about">About Me</a>
       </div>
       <div class="nav-item">
-        <a href="#skills" class="nav-link font-medium px-2 py-1 rounded hover:bg-purple-500/20 transition" data-lang="skills">Skills</a>
+        <a href="#skills" class="nav-link" data-lang="skills">Skills</a>
       </div>
       <div class="nav-item">
-        <a href="#experience" class="nav-link font-medium px-2 py-1 rounded hover:bg-purple-500/20 transition" data-lang="experience">Experience</a>
+        <a href="#experience" class="nav-link" data-lang="experience">Experience</a>
       </div>
       <div class="nav-item">
-        <a href="#education" class="nav-link font-medium px-2 py-1 rounded hover:bg-purple-500/20 transition" data-lang="education">Education</a>
+        <a href="#education" class="nav-link" data-lang="education">Education</a>
       </div>
     </div>
   </nav>
+
+  <!-- Full-Screen Button -->
+  <button id="open-menu" class="fixed top-6 right-6 z-[9998] text-3xl text-white hover:text-[#ffe066] transition p-0 bg-transparent border-none outline-none flex flex-col justify-center items-end w-10 h-10">
+    <span class="block w-6 h-px bg-white mb-1"></span>
+    <span class="block w-5 h-px bg-white mb-1"></span>
+    <span class="block w-8 h-px bg-white"></span>
+  </button>
+
+  <div id="fullscreen-menu" class="fixed inset-0 z-[9998] bg-[#18181b]/[.99] flex flex-col items-center justify-center transition-all duration-500 opacity-0 pointer-events-none">
+    <button id="close-menu" class="absolute top-6 right-8 text-3xl text-white hover:text-[#ffe066] transition">
+      &times;
+    </button>
+    <nav class="flex flex-col gap-10 text-3xl font-bold">
+      <a href="#about" class="hover:text-[#ffe066] transition" data-lang="about">About Me</a>
+      <a href="#skills" class="hover:text-[#ffe066] transition" data-lang="skills">Skills</a>
+      <a href="#experience" class="hover:text-[#ffe066] transition" data-lang="experience">Experience</a>
+      <a href="#education" class="hover:text-[#ffe066] transition" data-lang="education">Education</a>
+      <a href="#cv" class="hover:text-[#ffe066] transition" data-lang="cv">Resume</a>
+    </nav>
+  </div>
 
   <!-- Hero Section -->
   <section class="hero h-screen flex items-center justify-center text-center relative overflow-hidden bg-transparent rounded-3xl mx-auto mt-12">
