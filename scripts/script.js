@@ -314,7 +314,7 @@ document.getElementById('curtain-scroll-top').onclick = () => {
 };
 
 // --- SPHERE THREE.JS BACKGROUND ---
-document.addEventListener('DOMContentLoaded', () => {
+/*document.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementById('three-bg');
   if (!container) return;
 
@@ -336,9 +336,9 @@ document.addEventListener('DOMContentLoaded', () => {
     camera.updateProjectionMatrix();
   });
 
-  const particles = 200;
-  const baseRadius = 50;
-  const explodedRadius = 70;
+  const particles = 600;
+  const baseRadius = 70;
+  const explodedRadius = 60;
   let currentRadius = baseRadius;
   let targetRadius = baseRadius;
 
@@ -405,7 +405,7 @@ document.addEventListener('DOMContentLoaded', () => {
     camera.aspect = w / h;
     camera.updateProjectionMatrix();
   });
-});
+});*/
 
 // --- GSAP TIMELINE SCROLL ---
 document.addEventListener('DOMContentLoaded', () => {
@@ -442,4 +442,106 @@ document.addEventListener('DOMContentLoaded', () => {
       timeline.style.transform = "none";
     }
   }
+});
+
+// --- THREE.JS RANDOM PARTICLES ---
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.getElementById('three-bg');
+  if (!container) return;
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, container.offsetWidth / container.offsetHeight, 0.1, 1000);
+  camera.position.z = 80;
+
+  const renderer = new THREE.WebGLRenderer({ alpha: true });
+  renderer.setSize(container.offsetWidth, container.offsetHeight);
+  renderer.setClearColor(0x000000, 0);
+  renderer.domElement.style.position = "absolute";
+  renderer.domElement.style.top = 0;
+  renderer.domElement.style.left = 0;
+  renderer.domElement.style.pointerEvents = "none";
+  container.appendChild(renderer.domElement);
+
+  const particleCount = 600;
+  const spread = 60;
+  const positions = [];
+  const basePositions = [];
+  const animOffsets = [];
+  for (let i = 0; i < particleCount; i++) {
+    const x = (Math.random() - 0.5) * spread * 2;
+    const y = (Math.random() - 0.5) * spread * 2;
+    const z = (Math.random() - 0.5) * spread * 2;
+    positions.push(x, y, z);
+    basePositions.push(x, y, z);
+    animOffsets.push(Math.random() * Math.PI * 2);
+  }
+
+  const geometry = new THREE.BufferGeometry();
+  geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+  const material = new THREE.PointsMaterial({
+    color: 0xffe066,
+    size: 0.5,
+    transparent: true,
+    opacity: 0.25
+  });
+  const particles = new THREE.Points(geometry, material);
+  scene.add(particles);
+
+  let mouse = { x: 0, y: 0 };
+  let mouseMoved = false;
+  container.addEventListener('mousemove', (e) => {
+    const rect = container.getBoundingClientRect();
+    mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+    mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+    mouseMoved = true;
+  });
+
+  function animateParticles() {
+    requestAnimationFrame(animateParticles);
+    const time = performance.now() * 0.7 * 0.001;
+    const pos = geometry.attributes.position.array;
+
+    let mouse3D = null;
+    if (mouseMoved) {
+      const vector = new THREE.Vector3(mouse.x, mouse.y, 0.5);
+      vector.unproject(camera);
+      mouse3D = vector;
+    }
+
+    for (let i = 0; i < particleCount; i++) {
+      let bx = basePositions[i * 3 + 0];
+      let by = basePositions[i * 3 + 1];
+      let bz = basePositions[i * 3 + 2];
+
+      let fx = bx + Math.sin(time + animOffsets[i]) * 1.2;
+      let fy = by + Math.cos(time * 1.2 + animOffsets[i]) * 1.2;
+      let fz = bz + Math.sin(time * 0.7 + animOffsets[i]) * 1.2;
+
+      if (mouse3D) {
+        const dx = fx - mouse3D.x;
+        const dy = fy - mouse3D.y;
+        const dz = fz - mouse3D.z;
+        const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
+        if (dist < 15) {
+          const force = (15 - dist) * 0.18;
+          fx += dx / dist * force;
+          fy += dy / dist * force;
+          fz += dz / dist * force;
+        }
+      }
+
+      pos[i * 3 + 0] = fx;
+      pos[i * 3 + 1] = fy;
+      pos[i * 3 + 2] = fz;
+    }
+    geometry.attributes.position.needsUpdate = true;
+    renderer.render(scene, camera);
+  }
+  animateParticles();
+
+  window.addEventListener('resize', () => {
+    renderer.setSize(container.offsetWidth, container.offsetHeight);
+    camera.aspect = container.offsetWidth / container.offsetHeight;
+    camera.updateProjectionMatrix();
+  });
 });

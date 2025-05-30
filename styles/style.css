@@ -51,7 +51,23 @@ html {
 body, html {
   cursor: none !important;
   scrollbar-width: thin;
-  scrollbar-color: #6d28d9 #18181b;
+  scrollbar-color: #ffe066 #1a181b;
+}
+
+body::after {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  opacity: 0.10;
+  mix-blend-mode: soft-light;
+  background:
+    repeating-linear-gradient(45deg, #fff2 0 1px, transparent 1px 6px),
+    repeating-linear-gradient(-45deg, #fff3 0 0.7px, transparent 0.7px 5px),
+    repeating-radial-gradient(circle, #fff2 0 0.7px, transparent 0.7px 100%);
+  background-blend-mode: screen;
+  background-size: 90px 90px, 120px 120px, 100% 100%;
 }
 
 a, button, input, textarea, select, label {
@@ -64,13 +80,13 @@ a, button, input, textarea, select, label {
 }
 
 .bg-gradient-flow {
-  background: linear-gradient(135deg, black, #0c0618, black 80%);
+  background: linear-gradient(135deg, rgb(20, 18, 21), #17151b, rgb(22, 18, 24) 100%);
   background-size: 300% 300%;
   animation: gradient-flow 12s ease-in-out infinite;
 }
 
 .geometrical {
-  filter: blur(40px);
+  filter: blur(45px);
 }
 
 .animate-float-slow {
@@ -309,13 +325,13 @@ a, button, input, textarea, select, label {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #6d28d9 40%, #fbbf24 100%);
+  background: linear-gradient(135deg, #ffe066 40%, #fbbf24 100%);
   border-radius: 8px;
   border: 2px solid #18181b;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #a78bfa 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #fee581 0%, #fde68a 100%);
 }
 
 ::-webkit-scrollbar-track {
@@ -342,7 +358,7 @@ a, button, input, textarea, select, label {
   left: 50%;
   width: 6px;
   height: 6px;
-  background: #fff;
+  background: #ffe066;
   border-radius: 50%;
   transform: translate(-50%, -50%);
 }
@@ -353,7 +369,7 @@ a, button, input, textarea, select, label {
   left: 50%;
   width: 28px;
   height: 28px;
-  border: 2px solid #fff;
+  border: 2px solid #ffe066;
   border-radius: 50%;
   transform: translate(-50%, -50%);
   box-sizing: border-box;

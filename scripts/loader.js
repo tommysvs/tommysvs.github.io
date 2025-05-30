@@ -22,10 +22,44 @@ window.addEventListener('load', () => {
     loaderContainer.style.height = "100vh";
     loaderContainer.style.display = "block";
 
+    const text = "Almost there...";
+    const textDiv = document.createElement('div');
+    textDiv.style.position = "absolute";
+    textDiv.style.top = "55%";
+    textDiv.style.left = "50%";
+    textDiv.style.transform = "translate(-50%, -50%)";
+    textDiv.style.color = "#ffeda5";
+    textDiv.style.fontSize = "1.1rem";
+    textDiv.style.fontWeight = "bold";
+    textDiv.style.letterSpacing = "0.08em";
+    textDiv.style.textShadow = "0 2px 12px #000, 0 0px 2px #ffe066";
+    textDiv.style.pointerEvents = "none";
+    textDiv.style.zIndex = "10";
+    textDiv.style.whiteSpace = "pre";
+    loaderContainer.appendChild(textDiv);
+
+    textDiv.innerHTML = "";
+    for (let i = 0; i < text.length; i++) {
+      const span = document.createElement('span');
+      span.textContent = text[i];
+      span.style.opacity = "0";
+      span.style.transition = "opacity 0.3s";
+      textDiv.appendChild(span);
+    }
+
+    setTimeout(() => {
+      const spans = textDiv.querySelectorAll('span');
+      spans.forEach((span, i) => {
+        setTimeout(() => {
+          span.style.opacity = "1";
+        }, i * 70);
+      });
+    }, 600);
+
     const overlay = document.getElementById('loader-overlay');
     overlay.style.backdropFilter = 'blur(32px) saturate(180%)';
     overlay.style.WebkitBackdropFilter = 'blur(32px) saturate(180%)';
-    overlay.style.background = 'rgba(10, 10, 18, 0.70)';
+    overlay.style.background = '#17151b';
 
     let width = window.innerWidth;
     let height = window.innerHeight;
