@@ -463,7 +463,6 @@ document.addEventListener('DOMContentLoaded', () => {
     fullscreenMenu.classList.toggle('pointer-events-none');
   });
 
-  // Cerrar menú al hacer click en un enlace
   fullscreenMenu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       menuToggle.classList.remove('open');

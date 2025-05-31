@@ -105,6 +105,12 @@ a, button, input, textarea, select, label {
   pointer-events: none;
 }
 
+/* Social Media Icons */
+.group:hover svg {
+  transform: rotate(15deg) scale(1.1);
+  transition: transform 0.3s cubic-bezier(.4,2,.6,1);
+}
+
 /* Navbar Styles */
 .navbar {
   position: fixed;
@@ -121,7 +127,7 @@ a, button, input, textarea, select, label {
   justify-content: center;
   align-items: center;
   gap: 1.3rem;
-  font-size: 0.7rem;
+  font-size: 0.9rem;
 }
 
 .nav-item {
@@ -131,20 +137,39 @@ a, button, input, textarea, select, label {
 }
 
 .nav-link {
+  position: relative;
   display: block;
-  padding: 0.5rem 0.5rem;
+  padding: 0.5rem 0.7rem;
   color: white;
   text-decoration: none;
   transition: color 0.3s ease;
   z-index: 1; 
   white-space: nowrap;
-  writing-mode: vertical-lr;
+  writing-mode: vertical-rl;
   text-orientation: mixed;
 }
 
 .nav-link:hover {
   color: #ffe066;
-  text-decoration: underline;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  top: 10%;
+  left: 0.5rem;
+  transform: scaleY(0);
+  width: 1px;
+  height: 80%;
+  background: #ffe066;
+  border-radius: 2px;
+  transition: transform 0.3s cubic-bezier(.4,2,.6,1);
+  transform-origin: top;
+}
+
+.nav-link:hover::after,
+.nav-link:focus::after {
+  transform: scaleY(1);
 }
 
 @media (max-width: 640px) {
