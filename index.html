@@ -80,25 +80,42 @@
     </div>
   </nav>
 
-  <!-- Full-Screen Button -->
+  <!-- Full-Screen Menu -->
   <button id="menu-toggle" class="fixed top-6 right-6 z-[9998] text-3xl text-white hover:text-[#ffe066] transition p-0 bg-transparent border-none outline-none flex flex-col justify-center items-end w-10 h-10 group">
     <span class="menuline line1"></span>
     <span class="menuline line2"></span>
     <span class="menuline line3"></span>
   </button>
 
-  <div id="fullscreen-menu" class="fixed inset-0 z-[9997] bg-[#18181b]/[.99] flex flex-col items-center justify-center transition-all duration-500 opacity-0 pointer-events-none">
-    <nav class="flex flex-col gap-10 text-3xl font-bold">
-      <a href="#about" class="hover:text-[#ffe066] transition" data-lang="about">About Me</a>
-      <a href="#skills" class="hover:text-[#ffe066] transition" data-lang="skills">Skills</a>
-      <a href="#experience" class="hover:text-[#ffe066] transition" data-lang="experience">Experience</a>
-      <a href="#education" class="hover:text-[#ffe066] transition" data-lang="education">Education</a>
-      <a href="#cv" class="hover:text-[#ffe066] transition" data-lang="resume">Resume</a>
+  <div id="fullscreen-menu" class="fixed inset-0 z-[9997] bg-[#18181b]/[.90] flex flex-col items-center justify-center transition-all duration-500 opacity-0 pointer-events-none backdrop-blur-xl">
+    <div class="fixed left-6 top-8 flex flex-col items-center z-[9998] select-none">
+      <a href="https://www.linkedin.com/in/tommyvega" target="_blank" rel="noopener" class="text-white hover:text-[#ffe066] transition font-semibold tracking-widest mb-4" style="writing-mode: vertical-rl; text-orientation: mixed; letter-spacing: 0.2em;">
+        LINKEDIN
+      </a>
+      <a href="https://github.com/tommysvs" target="_blank" rel="noopener" class="text-white hover:text-[#ffe066] transition font-semibold tracking-widest" style="writing-mode: vertical-rl; text-orientation: mixed; letter-spacing: 0.2em;">
+        GITHUB
+      </a>
+    </div>
+    <nav class="flex flex-col gap-6 text-3xl font-bold items-center w-auto">
+      <a href="#about" class="fullscreen-nav-link text-left w-full" data-lang="about"></a>
+      <a href="#skills" class="fullscreen-nav-link text-left w-full" data-lang="skills">Skills</a>
+      <a href="#experience" class="fullscreen-nav-link text-left w-full" data-lang="experience">Experience</a>
+      <a href="#education" class="fullscreen-nav-link text-left w-full" data-lang="education">Education</a>
+      <a href="#resume" class="fullscreen-nav-link text-left w-full" data-lang="resume">Resume</a>
     </nav>
+    <div class="fixed bottom-8 left-8 flex flex-col items-start z-[9998]">
+      <span class="mb-2 text-white/80 text-sm italic">Let’s build something together</span>
+      <a href="mailto:tommysvs@hotmail.com" class="flex items-center gap-2 text-lg text-white/90 hover:text-[#ffe066] transition font-semibold">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l9 6 9-6M21 8v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8m18-2a2 2 0 00-2-2H5a2 2 0 00-2 2v0" />
+        </svg>
+        tommysvs@hotmail.com
+      </a>
+    </div>
   </div>
 
   <!-- Hero Section -->
-  <section class="hero h-screen flex items-center justify-center text-center relative overflow-hidden bg-transparent rounded-3xl mx-auto">
+  <section class="hero parallax-section h-screen flex items-center justify-center text-center relative overflow-hidden bg-transparent rounded-3xl mx-auto">
     <div id="hero-content">
       <h1 id="hero-typing" data-aos="fade-up" data-aos-duration="800"></h1>
       <p id="hero-typing-subtitle" data-aos="fade-up" data-aos-duration="1000"></p>
@@ -112,7 +129,7 @@
   </section>
 
   <!-- About Me Section -->
-  <section id="about" data-aos="fade-up" data-aos-duration="800" class="relative flex items-center justify-center min-h-screen px-4 md:px-12 bg-transparent bg-opacity-90 text-gray-800 rounded-3xl mx-auto">
+  <section id="about" data-aos="fade-up" data-aos-duration="800" class="parallax-section relative flex items-center justify-center min-h-screen px-4 md:px-12 bg-transparent bg-opacity-90 text-gray-800 rounded-3xl mx-auto">
     <div class="max-w-4xl w-full mx-auto px-4 flex flex-col md:flex-row items-start gap-10">
       <!--<div class="flex-shrink-0 mb-8 md:mb-0">
         <img src="assets/images/profile.jpg" alt="Tommy Vega"
@@ -477,14 +494,14 @@
     </div>
   </section>
 
-  <!-- CV Section -->
-  <section id="cv" data-aos="fade-up" data-aos-duration="800" class="relative flex items-center justify-center min-h-screen px-4 md:px-12 bg-transparent bg-opacity-90 text-gray-800 rounded-3xl mx-auto mt-12 overflow-hidden">
+  <!-- Resume Section -->
+  <section id="resume" data-aos="fade-up" data-aos-duration="800" class="relative flex items-center justify-center min-h-screen px-4 md:px-12 bg-transparent bg-opacity-90 text-gray-800 rounded-3xl mx-auto mt-12 overflow-hidden">
     <div class="relative z-10 flex flex-col items-center">
       <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center text-[#ffe066] flex items-center gap-2 drop-shadow-lg">
         <svg class="w-8 h-8 text-yellow-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0v6"/>
         </svg>
-        <span data-lang="cvTitle">Resume</span>
+        <span data-lang="resume">Resume</span>
       </h2>
       <p data-lang="cvDescription" class="mb-8 text-lg text-white/90 text-center max-w-2xl">
         Discover my professional background, skills, and achievements in detail. Download my CV in your preferred language and explore my experience in technology, business, and digital transformation.
@@ -525,12 +542,12 @@
         </p>
         <div class="flex justify-center space-x-4 mt-4">
           <a href="https://www.linkedin.com/in/tommyvega" target="_blank" class="hover:scale-110 transition">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white hover:text-blue-300 transition" fill="currentColor" viewBox="0 0 24 24">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white hover:text-[#ffe066] transition" fill="currentColor" viewBox="0 0 24 24">
               <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.337-.027-3.063-1.867-3.063-1.868 0-2.155 1.46-2.155 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.759 1.381-1.559 2.841-1.559 3.039 0 3.6 2.001 3.6 4.604v5.588z"/>
             </svg>
           </a>
           <a href="https://github.com/tommysvs" target="_blank" class="hover:scale-110 transition">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white hover:text-gray-600 transition" fill="currentColor" viewBox="0 0 24 24">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white hover:text-[#ffe066] transition" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.089-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.332-5.466-5.93 0-1.31.469-2.381 1.236-3.221-.123-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.241 2.873.118 3.176.77.84 1.236 1.911 1.236 3.221 0 4.61-2.807 5.623-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576 4.765-1.587 8.2-6.084 8.2-11.386 0-6.627-5.373-12-12-12z"/>
             </svg>
           </a>

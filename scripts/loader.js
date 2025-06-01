@@ -72,7 +72,7 @@ window.addEventListener('load', () => {
     renderer.setSize(width, height);
     loaderContainer.appendChild(renderer.domElement);
 
-    const accentColor = 0xa78bfa;
+    const accentColor = 0xffe066;
     const glowColor = 0xa78bfa;
 
     const bgPlaneGeometry = new THREE.PlaneGeometry(barLength * 2, barHeight * bgPlaneHeight);

@@ -114,7 +114,7 @@ a, button, input, textarea, select, label {
 /* Navbar Styles */
 .navbar {
   position: fixed;
-  top: 0.5rem;
+  top: 1rem;
   left: 1rem;
   right: auto;
   background: transparent;
@@ -231,6 +231,39 @@ a, button, input, textarea, select, label {
 #menu-toggle:not(.open):hover .line3 {
   transform: translateX(4px) rotate(3deg);
   background: #ffe066;
+}
+
+/* Fullscreen Navigation Styles */
+.fullscreen-nav-link {
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+  width: 100%;
+  padding: 0.5em;
+  color: #fff !important;
+  z-index: 1;
+}
+
+.fullscreen-nav-link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #ffe066;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(.4,2,.6,1);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.fullscreen-nav-link:hover::before,
+.fullscreen-nav-link:focus::before {
+  transform: scaleX(1);
+}
+
+.fullscreen-nav-link:hover,
+.fullscreen-nav-link:focus {
+  color: #18181b !important;
 }
 
 /* Language Switcher Styles */
