@@ -228,7 +228,7 @@ document.addEventListener('scroll', () => {
 // --- SECTION SCROLL BLUR ---
 document.addEventListener('scroll', () => {
   document.querySelectorAll('section').forEach(section => {
-    const content = section.querySelector('div, .section-content, .max-w-4xl, #hero-content');
+    const content = section.querySelector('.section-content, #hero-content');
     if (!content) return;
 
     const rect = section.getBoundingClientRect();
@@ -472,4 +472,31 @@ document.addEventListener('DOMContentLoaded', () => {
       fullscreenMenu.classList.add('pointer-events-none');
     });
   });
+});
+
+// --- HIDE MOBILE SOCIAL ICONS ON FOOTER INTERSECTION WITH FADE ---
+document.addEventListener("DOMContentLoaded", function () {
+  const mobileSocial = document.querySelector('.fixed.left-4.bottom-16.z-\\[9997\\]');
+  const footer = document.getElementById('footer');
+
+  if (!mobileSocial || !footer) return;
+
+  mobileSocial.style.transition = 'opacity 0.4s';
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          mobileSocial.style.opacity = '0';
+          mobileSocial.style.pointerEvents = 'none';
+        } else {
+          mobileSocial.style.opacity = '1';
+          mobileSocial.style.pointerEvents = '';
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  observer.observe(footer);
 });
