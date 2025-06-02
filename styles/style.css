@@ -73,6 +73,12 @@ a, button, input, textarea, select, label {
   height: 100vh !important;
 }
 
+.glass-blur {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: transparent;
+}
+
 /* Background Styles */
 .bg-gradient-flow {
   background: linear-gradient(135deg, rgb(20, 18, 21), #17151b, rgb(22, 18, 24) 100%);
@@ -218,19 +224,24 @@ a, button, input, textarea, select, label {
   width: 28px;
 }
 
+#menu-toggle.open:hover .line1,
+#menu-toggle.open:hover .line3,
+#menu-toggle:not(.open):hover .line1,
+#menu-toggle:not(.open):hover .line2,
+#menu-toggle:not(.open):hover .line3  {
+  background: #ffe066;
+}
+
 #menu-toggle:not(.open):hover .line1 {
   transform: translateX(4px) rotate(6deg);
-  background: #ffe066;
 }
 
 #menu-toggle:not(.open):hover .line2 {
   transform: translateX(8px) rotate(-6deg);
-  background: #ffe066;
 }
 
 #menu-toggle:not(.open):hover .line3 {
   transform: translateX(4px) rotate(3deg);
-  background: #ffe066;
 }
 
 /* Fullscreen Navigation Styles */
@@ -266,6 +277,14 @@ a, button, input, textarea, select, label {
   color: #18181b !important;
 }
 
+.fullscreen-social-link {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+  line-height: 1.1;
+}
+
 /* Language Switcher Styles */
 #language-switcher {
   position: fixed;
@@ -276,7 +295,7 @@ a, button, input, textarea, select, label {
   background: #ffe066;
   color: black;
   font-weight: bold;
-}
+ }
 
 #language-switcher:hover {
   transform: scale(1.1); 
