@@ -461,14 +461,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   menuToggle.addEventListener('click', () => {
     menuToggle.classList.toggle('open');
-    fullscreenMenu.classList.toggle('opacity-0');
+    fullscreenMenu.classList.toggle('translate-x-full');
+    fullscreenMenu.classList.toggle('translate-x-0');
     fullscreenMenu.classList.toggle('pointer-events-none');
   });
 
   fullscreenMenu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       menuToggle.classList.remove('open');
-      fullscreenMenu.classList.add('opacity-0');
+      fullscreenMenu.classList.add('translate-x-full');
+      fullscreenMenu.classList.remove('translate-x-0');
       fullscreenMenu.classList.add('pointer-events-none');
     });
   });
