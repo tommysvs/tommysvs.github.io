@@ -55,9 +55,9 @@ window.addEventListener('load', () => {
     }, 600);
 
     const overlay = document.getElementById('loader-overlay');
-    overlay.style.backdropFilter = 'blur(32px) saturate(180%)';
-    overlay.style.WebkitBackdropFilter = 'blur(32px) saturate(180%)';
-    overlay.style.background = '#17151b';
+    overlay.style.backdropFilter = 'blur(24px) saturate(120%)';
+    overlay.style.WebkitBackdropFilter = 'blur(24px) saturate(120%)';
+    overlay.style.background = '#17151b99';
 
     let width = window.innerWidth;
     let height = window.innerHeight;

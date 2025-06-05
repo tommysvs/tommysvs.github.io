@@ -185,9 +185,23 @@ function updateLanguage() {
 }
 
 // --- CUSTOM CURSOR ---
-const cursor = document.getElementById('custom-cursor');
-document.addEventListener('mousemove', e => {
-  cursor.style.transform = `translate(${e.clientX - 16}px, ${e.clientY - 16}px)`;
+document.addEventListener('DOMContentLoaded', () => {
+  const cursorDot = document.querySelector('.cursor-dot');
+  const cursorRing = document.querySelector('.cursor-ring');
+
+  document.addEventListener('mousemove', e => {
+    cursorDot.style.left = cursorRing.style.left = e.clientX + 'px';
+    cursorDot.style.top = cursorRing.style.top = e.clientY + 'px';
+  });
+
+  document.querySelectorAll('a, button, #curtain-scroll-top').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursorDot.classList.add('grow');
+    });
+    el.addEventListener('mouseleave', () => {
+      cursorDot.classList.remove('grow');
+    });
+  });
 });
 
 // --- NAV LINK HOVER ---
@@ -390,7 +404,7 @@ document.addEventListener('DOMContentLoaded', () => {
     color: 0xffe066,
     size: 0.5,
     transparent: true,
-    opacity: 0.25
+    opacity: 0.50
   });
   const particles = new THREE.Points(geometry, material);
   scene.add(particles);
@@ -458,21 +472,27 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
   const menuToggle = document.getElementById('menu-toggle');
   const fullscreenMenu = document.getElementById('fullscreen-menu');
+  const navLinks = fullscreenMenu.querySelectorAll('.fullscreen-nav-link');
 
   menuToggle.addEventListener('click', () => {
     menuToggle.classList.toggle('open');
     fullscreenMenu.classList.toggle('translate-x-full');
     fullscreenMenu.classList.toggle('translate-x-0');
     fullscreenMenu.classList.toggle('pointer-events-none');
-  });
 
-  fullscreenMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      menuToggle.classList.remove('open');
-      fullscreenMenu.classList.add('translate-x-full');
-      fullscreenMenu.classList.remove('translate-x-0');
-      fullscreenMenu.classList.add('pointer-events-none');
-    });
+    if (fullscreenMenu.classList.contains('translate-x-0')) {
+      navLinks.forEach((link, i) => {
+        setTimeout(() => {
+          link.classList.add('opacity-100', 'translate-y-0');
+          link.classList.remove('opacity-0', 'translate-y-4');
+        }, 100 + i * 120); // delay incremental
+      });
+    } else {
+      navLinks.forEach((link) => {
+        link.classList.remove('opacity-100', 'translate-y-0');
+        link.classList.add('opacity-0', 'translate-y-4');
+      });
+    }
   });
 });
 

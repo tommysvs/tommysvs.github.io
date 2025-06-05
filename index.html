@@ -62,7 +62,7 @@
   </div>
 
   <!-- Navbar -->
-  <nav class="navbar">
+  <nav id="navbar" class="navbar">
     <div class="nav-item">
       <a href="#about" class="nav-link" data-lang="about">About Me</a>
     </div>
@@ -87,29 +87,34 @@
     <span class="menuline line3"></span>
   </button>
 
-  <div id="fullscreen-menu" class="fixed inset-0 z-[9997] bg-[#18181b]/[.99] flex flex-col items-center justify-center transition-transform duration-500 ease-[cubic-bezier(.68,-0.55,.27,1.55)] translate-x-full pointer-events-none">    <div class="fixed left-6 top-8 flex flex-col items-center z-[9998] select-none">
-      <a href="https://www.linkedin.com/in/tommyvega" target="_blank" rel="noopener" class="fullscreen-social-link text-white hover:text-[#ffe066] transition font-semibold tracking-widest mb-4">
-        LINKEDIN
-      </a>
-      <a href="https://github.com/tommysvs" target="_blank" rel="noopener" class="fullscreen-social-link text-white hover:text-[#ffe066] transition font-semibold tracking-widest">
-        GITHUB
-      </a>
-    </div>
-    <nav class="flex flex-col gap-6 sm:text-2xl text-lg md:text-3xl font-bold items-center w-auto">
-      <a href="#about" class="fullscreen-nav-link text-left w-full" data-lang="about">About me</a>
-      <a href="#skills" class="fullscreen-nav-link text-left w-full" data-lang="skills">Skills</a>
-      <a href="#experience" class="fullscreen-nav-link text-left w-full" data-lang="experience">Experience</a>
-      <a href="#education" class="fullscreen-nav-link text-left w-full" data-lang="education">Education</a>
-      <a href="#resume" class="fullscreen-nav-link text-left w-full" data-lang="resume">Resume</a>
-    </nav>
-    <div class="fixed bottom-8 left-8 flex flex-col items-start z-[9998]">
-      <span data-lang="contactPhrase" class="mb-2 text-white/80 text-sm italic">Let’s build something together</span>
-      <a href="mailto:tommysvs@hotmail.com" class="flex items-center gap-2 text-md text-white/90 hover:text-[#ffe066] transition font-semibold">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l9 6 9-6M21 8v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8m18-2a2 2 0 00-2-2H5a2 2 0 00-2 2v0" />
-        </svg>
-        tommysvs@hotmail.com
-      </a>
+  <div id="fullscreen-menu" class="fixed inset-0 z-[9997] bg-[#18181b]/[.85] backdrop-blur-md flex items-center justify-center transition-transform duration-500 ease-[cubic-bezier(.68,-0.55,.27,1.55)] translate-x-full pointer-events-none">
+    <div class="flex flex-col-reverse sm:flex-row w-full max-w-5xl items-center justify-center px-4">
+      <div class="flex flex-col items-center justify-center flex-1 mb-8 sm:mb-0">
+        <a href="https://www.linkedin.com/in/tommyvega" target="_blank" rel="noopener" class="fullscreen-social-link text-white hover:text-[#ffe066] transition font-semibold mb-4">
+          LINKEDIN
+        </a>
+        <a href="https://github.com/tommysvs" target="_blank" rel="noopener" class="fullscreen-social-link text-white hover:text-[#ffe066] transition font-semibold">
+          GITHUB
+        </a>
+        <div class="mt-8 flex flex-col items-start">
+          <span data-lang="contactPhrase" class="mb-2 text-white/80 text-sm italic">Let’s build something together</span>
+          <a href="mailto:tommysvs@hotmail.com" class="flex items-center gap-2 text-md text-white/90 hover:text-[#ffe066] transition font-semibold">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l9 6 9-6M21 8v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8m18-2a2 2 0 00-2-2H5a2 2 0 00-2 2v0" />
+            </svg>
+            tommysvs@hotmail.com
+          </a>
+        </div>
+      </div>
+      <div class="hidden sm:block w-px h-[70vh] bg-white opacity-40 mx-12"></div>
+      <div class="block sm:hidden w-[70vw] h-px bg-white opacity-40 my-8"></div>
+      <nav class="flex flex-col gap-6 sm:text-xl text-lg md:text-2xl font-bold items-center w-auto flex-1">
+        <a href="#about" class="fullscreen-nav-link text-left w-full opacity-0 translate-y-4 transition-all duration-500" data-lang="about">About me</a>
+        <a href="#skills" class="fullscreen-nav-link text-left w-full opacity-0 translate-y-4 transition-all duration-500" data-lang="skills">Skills</a>
+        <a href="#experience" class="fullscreen-nav-link text-left w-full opacity-0 translate-y-4 transition-all duration-500" data-lang="experience">Experience</a>
+        <a href="#education" class="fullscreen-nav-link text-left w-full opacity-0 translate-y-4 transition-all duration-500" data-lang="education">Education</a>
+        <a href="#resume" class="fullscreen-nav-link text-left w-full opacity-0 translate-y-4 transition-all duration-500" data-lang="resume">Resume</a>
+      </nav>
     </div>
   </div>
 
@@ -128,8 +133,8 @@
   </section>
 
   <!-- About Me Section -->
-  <section id="about" data-aos="fade-up" data-aos-duration="800" class="parallax-section relative flex items-center justify-center min-h-screen px-4 md:px-12 bg-transparent bg-opacity-90 text-gray-800 rounded-3xl mx-auto">
-    <div class="section-content max-w-4xl w-full mx-auto px-4 flex flex-col md:flex-row items-start gap-10">
+  <section id="about" data-aos="fade-up" data-aos-duration="800" class="relative flex items-center justify-center min-h-screen px-4 md:px-12 bg-transparent bg-opacity-90 text-gray-800 rounded-3xl mx-auto">
+    <div class="max-w-4xl w-full mx-auto px-4 flex flex-col md:flex-row items-start gap-10">
       <!--<div class="flex-shrink-0 mb-8 md:mb-0">
         <img src="assets/images/profile.jpg" alt="Tommy Vega"
           class="w-40 h-40 md:w-56 md:h-56 rounded-full shadow-lg border-4 border-blue-400 object-cover">
