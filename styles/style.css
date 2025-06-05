@@ -513,14 +513,15 @@ a, button, input, textarea, select, label {
 }
 
 .cursor-ring {
-  width: 28px;
-  height: 28px;
-  border: 2px solid #ffe06680;
+  width: 40px;
+  height: 40px;
+  border: 80px solid #9fddff30;
   border-radius: 50%;
   position: absolute;
   left: 0; top: 0;
   transform: translate(-50%, -50%);
   transition: border-color 0.2s;
+  filter: blur(100px);
   z-index: 1;
 }
 
