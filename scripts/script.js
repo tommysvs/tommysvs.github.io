@@ -384,8 +384,8 @@ document.addEventListener('DOMContentLoaded', () => {
   renderer.domElement.style.pointerEvents = "none";
   container.appendChild(renderer.domElement);
 
-  const particleCount = 600;
-  const spread = 60;
+  const particleCount = 800;
+  const spread = 200;
   const positions = [];
   const basePositions = [];
   const animOffsets = [];
@@ -404,31 +404,15 @@ document.addEventListener('DOMContentLoaded', () => {
     color: 0xffe066,
     size: 0.5,
     transparent: true,
-    opacity: 0.50
+    opacity: 0.90
   });
   const particles = new THREE.Points(geometry, material);
   scene.add(particles);
-
-  let mouse = { x: 0, y: 0 };
-  let mouseMoved = false;
-  container.addEventListener('mousemove', (e) => {
-    const rect = container.getBoundingClientRect();
-    mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-    mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
-    mouseMoved = true;
-  });
 
   function animateParticles() {
     requestAnimationFrame(animateParticles);
     const time = performance.now() * 0.7 * 0.001;
     const pos = geometry.attributes.position.array;
-
-    let mouse3D = null;
-    if (mouseMoved) {
-      const vector = new THREE.Vector3(mouse.x, mouse.y, 0.5);
-      vector.unproject(camera);
-      mouse3D = vector;
-    }
 
     for (let i = 0; i < particleCount; i++) {
       let bx = basePositions[i * 3 + 0];
@@ -438,19 +422,6 @@ document.addEventListener('DOMContentLoaded', () => {
       let fx = bx + Math.sin(time + animOffsets[i]) * 1.2;
       let fy = by + Math.cos(time * 1.2 + animOffsets[i]) * 1.2;
       let fz = bz + Math.sin(time * 0.7 + animOffsets[i]) * 1.2;
-
-      if (mouse3D) {
-        const dx = fx - mouse3D.x;
-        const dy = fy - mouse3D.y;
-        const dz = fz - mouse3D.z;
-        const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
-        if (dist < 15) {
-          const force = (15 - dist) * 0.18;
-          fx += dx / dist * force;
-          fy += dy / dist * force;
-          fz += dz / dist * force;
-        }
-      }
 
       pos[i * 3 + 0] = fx;
       pos[i * 3 + 1] = fy;
@@ -485,7 +456,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
           link.classList.add('opacity-100', 'translate-y-0');
           link.classList.remove('opacity-0', 'translate-y-4');
-        }, 100 + i * 120); // delay incremental
+        }, 100 + i * 120);
       });
     } else {
       navLinks.forEach((link) => {
