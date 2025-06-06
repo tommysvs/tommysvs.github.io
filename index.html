@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
 </head>
 
-<body class="text-white font-sans overflow-x-hidden bg-gradient-flow">
+<body class="bg-white text-gray-900 dark:bg-[#18181b] dark:text-white font-sans">
   <!-- Loader Overlay -->
   <div id="loader-overlay" class="fixed inset-0 z-[9999] flex items-center justify-center bg-[#1a181b] transition-all duration-700 opacity-100">
     <div id="loader-threejs" style="width:100vw;height:100vh;display:block;"></div>
@@ -119,10 +119,10 @@
   </div>
 
   <!-- Hero Section -->
-  <section class="hero parallax-section h-screen flex items-center justify-center text-center relative overflow-hidden bg-transparent rounded-3xl mx-auto">
+  <section class="hero parallax-section h-screen flex items-center justify-center text-center relative overflow-hidden bg-white/80 dark:bg-[#23232a]/80 rounded-3xl mx-auto transition-colors duration-500">
     <div id="hero-content">
-      <h1 id="hero-typing" data-aos="fade-up" data-aos-duration="800"></h1>
-      <p id="hero-typing-subtitle" data-aos="fade-up" data-aos-duration="1000"></p>
+      <h1 id="hero-typing" data-aos="fade-up" data-aos-duration="800" class="text-gray-900 dark:text-white"></h1>
+      <p id="hero-typing-subtitle" data-aos="fade-up" data-aos-duration="1000" class="text-gray-700 dark:text-gray-200"></p>
       <span id="hero-mouse" data-aos="fade-up" data-aos-duration="1200" class="relative flex items-center justify-center mt-8">
         <svg class="w-8 h-8 text-white" fill="none" viewBox="0 0 40 64" xmlns="http://www.w3.org/2000/svg">
           <rect x="4" y="4" width="32" height="56" rx="16" stroke="currentColor" stroke-width="3" fill="none"/>
@@ -590,8 +590,12 @@
   </div>
 
   <!-- Language Switcher -->
-  <button id="language-switcher" class="nav-lang-button py-1 px-4 rounded-full transition">
-    EN
+  <button id="language-switcher" class="language-switcher" aria-label="Switch language">
+    <span class="switch-track">
+      <span id="lang-en" class="switch-label">EN</span>
+      <span id="lang-es" class="switch-label">ES</span>
+      <span id="lang-knob" class="switch-knob"></span>
+    </span>
   </button>
 
   <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>

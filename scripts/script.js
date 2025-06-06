@@ -1,6 +1,3 @@
-// --- SET LANGUAGE ---
-let currentLanguage = "en";
-
 // --- TRANSLATIONS ---
 const translations = {
   en: {
@@ -141,15 +138,25 @@ window.addEventListener('load', () => {
 });
 
 // --- CHANGE LANGUAGE ON CLICK ---
-const languageSwitcher = document.getElementById("language-switcher");
-if (languageSwitcher) {
-  languageSwitcher.textContent = currentLanguage.toUpperCase();
-  languageSwitcher.addEventListener("click", () => {
-    currentLanguage = currentLanguage === "es" ? "en" : "es";
-    updateLanguage();
-    languageSwitcher.textContent = currentLanguage.toUpperCase();
+document.addEventListener('DOMContentLoaded', () => {
+  const switcher = document.getElementById('language-switcher');
+  const en = document.getElementById('lang-en');
+  const es = document.getElementById('lang-es');
+
+  window.currentLanguage = window.currentLanguage || 'en';
+  updateSwitchVisual();
+
+  switcher.addEventListener('click', () => {
+    window.currentLanguage = window.currentLanguage === "es" ? "en" : "es";
+    updateSwitchVisual();
+    if (typeof updateLanguage === "function") updateLanguage();
   });
-}
+
+  function updateSwitchVisual() {
+    switcher.classList.toggle('en', window.currentLanguage === 'en');
+    switcher.classList.toggle('es', window.currentLanguage === 'es');
+  }
+});
 
 // --- UPDATE LANGUAGE FUNCTION ---
 function updateLanguage() {

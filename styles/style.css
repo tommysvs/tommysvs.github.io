@@ -311,21 +311,103 @@ a, button, input, textarea, select, label {
 }
 
 /* Language Switcher Styles */
-#language-switcher {
+.language-switcher {
   position: fixed;
-  bottom: 1rem;
-  left: 1rem;
-  font-size: 0.8rem;
-  transition: background 0.3s ease, transform 0.2s ease;
-  background: #ffe066;
-  backdrop-filter: blur(4px);
-  color: black;
-  font-weight: bold;
- }
+  bottom: 2rem;
+  left: 2rem;
+  z-index: 9997;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+}
 
-#language-switcher:hover {
-  transform: scale(1.1); 
-  background: #ffe682;
+.switch-track {
+  position: relative;
+  width: 64px;
+  height: 36px;
+  background: #fff;
+  border-radius: 999px;
+  box-shadow: 0 4px 16px 0 rgba(0,0,0,0.18), 0 1.5px 0 #e0e0e0 inset;
+  border: 1.5px solid #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  transition: background 0.3s;
+}
+
+.switch-label {
+  position: relative;
+  z-index: 2;
+  font-weight: bold;
+  font-size: 13px;
+  color: #888;
+  transition: color 0.3s, opacity 0.3s;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.switch-label.active {
+  color: #222;
+  opacity: 1;
+}
+
+.switch-knob {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(180deg, #fff 70%, #eaeaea 100%);
+  border-radius: 50%;
+  box-shadow: 0 4px 16px 0 rgba(0,0,0,1), 0 1.5px 0 #e0e0e0 inset;
+  border: 1.5px solid #e0e0e0;
+  transition: transform 0.3s cubic-bezier(.77,0,.18,1), background 0.3s;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.switch-knob::before {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 50%;
+  border-radius: 50% 50% 0 0/60% 60% 0 0;
+  background: rgba(255,255,255,0.7);
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.language-switcher.es .switch-knob {
+  transform: translateX(28px);
+}
+
+.language-switcher.en .switch-knob {
+  transform: translateX(0);
+}
+
+.language-switcher.en #lang-en {
+  color: #222;
+  opacity: 1;
+}
+
+.language-switcher.en #lang-es {
+  color: #888;
+  opacity: 0.6;
+}
+
+.language-switcher.es #lang-es {
+  color: #222;
+  opacity: 1;
+}
+
+.language-switcher.es #lang-en {
+  color: #888;
+  opacity: 0.6;
 }
 
 /* Section Styles */
