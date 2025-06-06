@@ -90,6 +90,14 @@ a, button, input, textarea, select, label {
   background: transparent;
 }
 
+#loader-overlay ~ #custom-cursor {
+  display: none !important;
+}
+
+#loader-overlay.show ~ #custom-cursor {
+  display: none !important;
+}
+
 /* Background Styles */
 .bg-gradient-flow {
   background: linear-gradient(135deg, rgb(20, 18, 21), #17151b, rgb(22, 18, 24) 100%);
@@ -137,14 +145,14 @@ a, button, input, textarea, select, label {
   background: transparent;
   backdrop-filter: blur(10px);
   border-radius: 2rem;
-  padding: 1rem 0rem;
+  padding: 0rem;
   z-index: 50;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1.3rem;
-  font-size: 0.8rem;
+  gap: 1rem;
+  font-size: 0.6rem;
 }
 
 .nav-item {
@@ -168,6 +176,7 @@ a, button, input, textarea, select, label {
 
 .nav-link:hover {
   color: #ffe066;
+  filter: blur(1px);
 }
 
 .nav-link::after {
@@ -309,6 +318,7 @@ a, button, input, textarea, select, label {
   font-size: 0.8rem;
   transition: background 0.3s ease, transform 0.2s ease;
   background: #ffe066;
+  backdrop-filter: blur(4px);
   color: black;
   font-weight: bold;
  }
@@ -318,6 +328,7 @@ a, button, input, textarea, select, label {
   background: #ffe682;
 }
 
+/* Section Styles */
 .section-centered {
   margin: 2.5rem auto;
   background: transparent;

@@ -384,8 +384,8 @@ document.addEventListener('DOMContentLoaded', () => {
   renderer.domElement.style.pointerEvents = "none";
   container.appendChild(renderer.domElement);
 
-  const particleCount = 800;
-  const spread = 200;
+  const particleCount = 50;
+  const spread = 100;
   const positions = [];
   const basePositions = [];
   const animOffsets = [];
@@ -402,9 +402,9 @@ document.addEventListener('DOMContentLoaded', () => {
   geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
   const material = new THREE.PointsMaterial({
     color: 0xffe066,
-    size: 0.5,
+    size: 0.3,
     transparent: true,
-    opacity: 0.90
+    opacity: 0.5
   });
   const particles = new THREE.Points(geometry, material);
   scene.add(particles);
@@ -464,6 +464,19 @@ document.addEventListener('DOMContentLoaded', () => {
         link.classList.add('opacity-0', 'translate-y-4');
       });
     }
+  });
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      fullscreenMenu.classList.add('translate-x-full');
+      fullscreenMenu.classList.remove('translate-x-0');
+      fullscreenMenu.classList.add('pointer-events-none');
+      menuToggle.classList.remove('open');
+      navLinks.forEach((l) => {
+        l.classList.remove('opacity-100', 'translate-y-0');
+        l.classList.add('opacity-0', 'translate-y-4');
+      });
+    });
   });
 });
 

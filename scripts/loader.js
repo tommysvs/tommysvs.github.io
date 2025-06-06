@@ -22,13 +22,13 @@ window.addEventListener('load', () => {
     loaderContainer.style.height = "100vh";
     loaderContainer.style.display = "block";
 
-    const text = "Almost there...";
+    const text = "Loading...";
     const textDiv = document.createElement('div');
     textDiv.style.position = "absolute";
     textDiv.style.bottom = "2rem";
     textDiv.style.right = "2rem";
     textDiv.style.color = "#ffeda5";
-    textDiv.style.fontSize = "0.8rem";
+    textDiv.style.fontSize = "0.7rem";
     textDiv.style.letterSpacing = "0.08em";
     textDiv.style.textShadow = "0 2px 12px #000, 0 0px 2px #ffe066";
     textDiv.style.pointerEvents = "none";
@@ -55,9 +55,9 @@ window.addEventListener('load', () => {
     }, 600);
 
     const overlay = document.getElementById('loader-overlay');
-    overlay.style.backdropFilter = 'blur(24px) saturate(120%)';
-    overlay.style.WebkitBackdropFilter = 'blur(24px) saturate(120%)';
-    overlay.style.background = '#17151b99';
+    overlay.style.backdropFilter = 'blur(24px) saturate(80%)';
+    overlay.style.WebkitBackdropFilter = 'blur(24px) saturate(80%)';
+    overlay.style.background = '#17151b90';
 
     let width = window.innerWidth;
     let height = window.innerHeight;
@@ -132,7 +132,7 @@ window.addEventListener('load', () => {
       const mat = new THREE.MeshBasicMaterial({
         color: 0xfbbf24,
         transparent: true,
-        opacity: 0.7 + Math.random() * 0.3
+        opacity: 0.4 + Math.random() * 0.3
       });
       const mesh = new THREE.Mesh(geo, mat);
       mesh.position.set(
