@@ -201,7 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cursorDot.style.top = cursorRing.style.top = e.clientY + 'px';
   });
 
-  document.querySelectorAll('a, button, #curtain-scroll-top').forEach(el => {
+  document.querySelectorAll('a, button, #scroll-top, naip-card-1').forEach(el => {
     el.addEventListener('mouseenter', () => {
       cursorDot.classList.add('grow');
     });
@@ -308,7 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // --- SCROLL TO TOP ---
 window.addEventListener('scroll', () => {
-  const curtain = document.getElementById('curtain-scroll-top');
+  const curtain = document.getElementById('scroll-top');
   if (!curtain) return;
   if (window.scrollY > window.innerHeight * 0.5) {
     curtain.style.display = 'flex';
@@ -317,7 +317,7 @@ window.addEventListener('scroll', () => {
   }
 });
 
-document.getElementById('curtain-scroll-top').onclick = () => {
+document.getElementById('scroll-top').onclick = () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 
@@ -508,7 +508,7 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// --- CLOCK FOR HONDURAS TIME ZONE ---
+// --- CLOCK TIME ZONE ---
 function updateClock() {
   const tz = 'America/Tegucigalpa';
   const now = new Date();
@@ -533,4 +533,20 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
   if (cards[0]) cards[0].classList.add("active");
+});
+
+// --- HIDE TIME ZONE GROUP ON SCROLL ---
+window.addEventListener('scroll', () => {
+  const tzGroup = document.getElementById('tz-group');
+  const tzAvailable = document.getElementById('tz-available');
+  const tzParent = tzGroup?.parentElement;
+  if (!tzGroup || !tzAvailable || !tzParent) return;
+
+  if (window.scrollY > 10) {
+    tzGroup.classList.add('tz-hide-on-scroll');
+    tzParent.classList.add('tz-group-hidden');
+  } else {
+    tzGroup.classList.remove('tz-hide-on-scroll');
+    tzParent.classList.remove('tz-group-hidden');
+  }
 });

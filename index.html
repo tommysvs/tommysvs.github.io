@@ -28,9 +28,11 @@
   <!-- Timezone Clock -->
   <div id="timezone-clock" class="fixed top-4 left-4 z-[9996] bg-transparent backdrop-blur-md bg-opacity-90 text-[#fff] rounded-xl px-3 py-1 flex items-center gap-2 font-mono text-xs select-none">
     <div class="flex flex-col justify-center">
-      <span id="tz-label">America/Tegucigalpa</span>
-      <span id="tz-time" class="ml-0">--:--:--</span>
-      <div class="flex items-center mb-1">
+      <div id="tz-group">
+        <span id="tz-label">America/Tegucigalpa</span>
+        <span id="tz-time" class="ml-0">--:--:--</span>
+      </div>
+      <div id="tz-available" class="flex items-center mb-1">
         <span class="inline-block w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
         <span class="text-green-400 font-semibold ml-1">available</span>
       </div>
@@ -66,8 +68,7 @@
   </div>
 
   <!-- Full-Screen Menu -->
-  <button id="menu-toggle" class="fixed top-2 right-6 z-[9998] bg-transparent backdrop-blur-md text-3xl text-white hover:text-[#ffe066] transition p-0 bg-transparent border-none outline-none flex flex-col justify-center items-end w-10 h-10 group">
-    <span class="menuline line1"></span>
+<button id="menu-toggle" class="fixed top-2 right-2 z-[9998] bg-transparent backdrop-blur-md rounded-2xl text-3xl text-white hover:text-[#ffe066] transition px-4 py-3 border-none outline-none flex flex-col justify-center items-end w-14 h-14 group">    <span class="menuline line1"></span>
     <span class="menuline line2"></span>
     <span class="menuline line3"></span>
   </button>
@@ -540,7 +541,7 @@
   </footer>
 
   <!-- Scroll to Top Button -->
-  <div id="curtain-scroll-top" class="fixed bottom-2 right-2 z-[9997] w-15 h-15 flex flex-col items-end justify-end cursor-pointer group transition-all duration-500" style="display:none;">
+  <div id="scroll-top" class="fixed bottom-2 right-2 z-[9997] w-15 h-15 flex flex-col items-end justify-end cursor-pointer group transition-all duration-500" style="display:none;">
     <div class="absolute bottom-2 right-2 flex flex-col items-center z-10">
       <svg class="w-8 h-8 text-white animate-bounce" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 8">
         <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/>
