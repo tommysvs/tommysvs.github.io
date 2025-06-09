@@ -29,12 +29,6 @@ a, button, input, textarea, select, label {
   height: 100vh !important;
 }
 
-.glass-blur {
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  background: transparent;
-}
-
 #loader-overlay ~ #custom-cursor {
   display: none !important;
 }
@@ -63,15 +57,19 @@ a, button, input, textarea, select, label {
 .tz-hide-on-scroll {
   opacity: 0;
   pointer-events: none;
+  display: none;
+  transition: opacity 0.4s;
+}
+
+#tz-group {
   transition: opacity 0.4s;
 }
 
 #tz-available {
-  transition: transform 0.4s cubic-bezier(.77,0,.18,1), margin 0.4s cubic-bezier(.77,0,.18,1);
+  transition: margin 0.7s cubic-bezier(.77,0,.18,1), opacity 0.7s cubic-bezier(.77,0,.18,1);
 }
 
 .tz-group-hidden #tz-available {
-  transform: translateY(-1.1em);
   margin-bottom: 0;
 }
 
@@ -193,10 +191,10 @@ a, button, input, textarea, select, label {
   position: relative;
   width: 64px;
   height: 36px;
-  background: #fff;
+  background: transparent;
+  backdrop-filter: blur(4px);
   border-radius: 999px;
-  box-shadow: 0 4px 16px 0 rgba(0,0,0,0.18), 0 1.5px 0 #e0e0e0 inset;
-  border: 1.5px solid #e0e0e0;
+  border: 1px solid #e0e0e050;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -342,7 +340,9 @@ body.scrolled .hero {
 }
 
 .naip-card {
-  background: #fff;
+  background: url('data:image/svg+xml;utf8,<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="40" height="40" fill="white"/><circle cx="20" cy="20" r="1.5" fill="%23ffe066" fill-opacity="0.18"/><circle cx="10" cy="10" r="1.5" fill="%23ffe066" fill-opacity="0.13"/><circle cx="30" cy="30" r="1.5" fill="%23ffe066" fill-opacity="0.13"/><circle cx="30" cy="10" r="1.5" fill="%23ffe066" fill-opacity="0.09"/><circle cx="10" cy="30" r="1.5" fill="%23ffe066" fill-opacity="0.09"/></svg>') repeat;
+  background-size: 40px 40px;
+  background-blend-mode: lighten;
   border-radius: 1.5rem;
   box-shadow: 0 6px 32px 0 #ffe06644, 0 1.5px 8px 0 #18181b11;
   transition: 
@@ -389,7 +389,7 @@ body.scrolled .hero {
 }
 
 #naip-stack .naip-card:not(.active):nth-child(2) {
-  transform: scale(0.93) rotate(4deg) translateY(48px) translateX(48px);
+  transform: scale(0.93) rotate(2deg) translateY(48px) translateX(48px);
   z-index: 9;
   opacity: 0.88;
   filter: blur(1px) grayscale(18%);
@@ -399,6 +399,26 @@ body.scrolled .hero {
   box-shadow: 0 12px 48px 0 #ffe06688, 0 3px 16px 0 #18181b22;
   opacity: 1;
   filter: none;
+}
+
+#naip-stack:hover .naip-card:not(.active) {
+  transform: scale(0.95) rotate(8deg) translateY(48px) translateX(64px) !important;
+  opacity: 0.7;
+  filter: blur(1.5px) grayscale(20%);
+  transition: 
+    transform 0.4s cubic-bezier(.4,2,.6,1),
+    opacity 0.4s cubic-bezier(.4,2,.6,1),
+    filter 0.4s cubic-bezier(.4,2,.6,1);
+}
+
+#naip-stack:hover .naip-card.active {
+  transform: scale(1.07) translateY(-16px) !important;
+  box-shadow: 0 16px 64px 0 #ffe066aa, 0 6px 24px 0 #18181b33;
+  opacity: 1;
+  filter: none;
+  transition: 
+    transform 0.4s cubic-bezier(.4,2,.6,1),
+    box-shadow 0.4s cubic-bezier(.4,2,.6,1);
 }
 
 .naip-inner {

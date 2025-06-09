@@ -201,7 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cursorDot.style.top = cursorRing.style.top = e.clientY + 'px';
   });
 
-  document.querySelectorAll('a, button, #scroll-top, naip-card-1').forEach(el => {
+  document.querySelectorAll('a, button, #scroll-top').forEach(el => {
     el.addEventListener('mouseenter', () => {
       cursorDot.classList.add('grow');
     });
@@ -543,10 +543,18 @@ window.addEventListener('scroll', () => {
   if (!tzGroup || !tzAvailable || !tzParent) return;
 
   if (window.scrollY > 10) {
-    tzGroup.classList.add('tz-hide-on-scroll');
+    tzGroup.style.opacity = '0';
+    tzGroup.style.pointerEvents = 'none';
+    setTimeout(() => {
+      if (window.scrollY > 10) tzGroup.style.display = 'none';
+    }, 400);
     tzParent.classList.add('tz-group-hidden');
   } else {
-    tzGroup.classList.remove('tz-hide-on-scroll');
+    tzGroup.style.display = '';
+    setTimeout(() => {
+      tzGroup.style.opacity = '1';
+      tzGroup.style.pointerEvents = '';
+    }, 10);
     tzParent.classList.remove('tz-group-hidden');
   }
 });
