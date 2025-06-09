@@ -401,24 +401,26 @@ body.scrolled .hero {
   filter: none;
 }
 
-#naip-stack:hover .naip-card:not(.active) {
-  transform: scale(0.95) rotate(8deg) translateY(48px) translateX(64px) !important;
-  opacity: 0.7;
-  filter: blur(1.5px) grayscale(20%);
-  transition: 
-    transform 0.4s cubic-bezier(.4,2,.6,1),
-    opacity 0.4s cubic-bezier(.4,2,.6,1),
-    filter 0.4s cubic-bezier(.4,2,.6,1);
-}
+@media (hover: hover) and (pointer: fine) {
+  #naip-stack:hover .naip-card:not(.active) {
+    transform: scale(0.95) rotate(8deg) translateY(48px) translateX(64px) !important;
+    opacity: 0.7;
+    filter: blur(1.5px) grayscale(20%);
+    transition: 
+      transform 0.4s cubic-bezier(.4,2,.6,1),
+      opacity 0.4s cubic-bezier(.4,2,.6,1),
+      filter 0.4s cubic-bezier(.4,2,.6,1);
+  }
 
-#naip-stack:hover .naip-card.active {
-  transform: scale(1.07) translateY(-16px) !important;
-  box-shadow: 0 16px 64px 0 #ffe066aa, 0 6px 24px 0 #18181b33;
-  opacity: 1;
-  filter: none;
-  transition: 
-    transform 0.4s cubic-bezier(.4,2,.6,1),
-    box-shadow 0.4s cubic-bezier(.4,2,.6,1);
+  #naip-stack:hover .naip-card.active {
+    transform: scale(1.07) translateY(-16px) !important;
+    box-shadow: 0 16px 64px 0 #ffe066aa, 0 6px 24px 0 #18181b33;
+    opacity: 1;
+    filter: none;
+    transition: 
+      transform 0.4s cubic-bezier(.4,2,.6,1),
+      box-shadow 0.4s cubic-bezier(.4,2,.6,1);
+  }
 }
 
 .naip-inner {
