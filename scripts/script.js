@@ -231,25 +231,10 @@ document.querySelectorAll('.nav-link').forEach(link => {
   });
 });
 
-// --- HERO PARALLAX Y BLUR ---
-document.addEventListener('scroll', () => {
-  const hero = document.querySelector('.hero');
-  const content = document.getElementById('hero-content');
-
-  if (!hero || !content) return;
-
-  const scrolled = window.scrollY;
-  const heroRect = hero.getBoundingClientRect();
-
-  if (heroRect.bottom > 0) {
-    content.style.transform = `translateY(${scrolled * 0.3}px)`;
-  }
-});
-
 // --- SECTION SCROLL BLUR ---
 document.addEventListener('scroll', () => {
   document.querySelectorAll('section').forEach(section => {
-    const content = section.querySelector('.section-content, #hero-content');
+    const content = section.querySelector('.section-content');
     if (!content) return;
 
     const rect = section.getBoundingClientRect();
@@ -391,8 +376,8 @@ document.addEventListener('DOMContentLoaded', () => {
   renderer.domElement.style.pointerEvents = "none";
   container.appendChild(renderer.domElement);
 
-  const particleCount = 50;
-  const spread = 100;
+  const particleCount = 100;
+  const spread = 200;
   const positions = [];
   const basePositions = [];
   const animOffsets = [];
@@ -513,3 +498,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
   observer.observe(footer);
 });
+
+// --- SCROLL EFFECTS ---
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 10) {
+    document.body.classList.add('scrolled');
+  } else {
+    document.body.classList.remove('scrolled');
+  }
+});
+
+// --- CLOCK FOR HONDURAS TIME ZONE ---
+function updateClock() {
+  const tz = 'America/Tegucigalpa';
+  const now = new Date();
+  const options = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true, timeZone: tz };
+  document.getElementById('tz-label').textContent = tz.replace('_', ' ');
+  document.getElementById('tz-time').textContent = now.toLocaleTimeString('en-US', options);
+}
+setInterval(updateClock, 1000);
+updateClock();
