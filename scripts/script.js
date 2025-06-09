@@ -334,7 +334,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cards = timeline.children.length;
     const card = timeline.children[0];
     const cardWidth = card ? card.offsetWidth : 340;
-    const gap = 48; // gap-12 en Tailwind = 3rem = 48px
+    const gap = 48;
     const lastCardOffset = (viewportWidth - cardWidth) / 2;
     const scrollDistance = (cardWidth + gap) * (cards - 1) - lastCardOffset;
 
@@ -518,3 +518,19 @@ function updateClock() {
 }
 setInterval(updateClock, 1000);
 updateClock();
+
+// --- NAIP STACK CARD INTERACTION ---
+document.addEventListener("DOMContentLoaded", function () {
+  const cards = Array.from(document.querySelectorAll("#naip-stack .naip-card"));
+  cards.forEach(card => {
+    card.addEventListener("click", function () {
+      cards.forEach(c => c.classList.remove("active"));
+      this.classList.add("active");
+      this.style.zIndex = 20;
+      cards.filter(c => c !== this).forEach((c, i) => {
+        c.style.zIndex = 10 - i;
+      });
+    });
+  });
+  if (cards[0]) cards[0].classList.add("active");
+});

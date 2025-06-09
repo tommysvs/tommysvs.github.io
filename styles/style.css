@@ -315,6 +315,177 @@ body.scrolled .hero {
   font-weight: bold;
 }
 
+/* About Section Styles */
+.naip-card {
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 6px 32px 0 #ffe06644, 0 1.5px 8px 0 #18181b11;
+  transition: 
+    box-shadow 0.3s cubic-bezier(.4,2,.6,1),
+    transform 0.4s cubic-bezier(.4,2,.6,1),
+    z-index 0s,
+    opacity 0.3s;
+  will-change: transform;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 1.5rem 2rem 1.5rem;
+  width: 350px; 
+  height: 520px;
+  min-width: 220px;
+  min-height: 400px;
+  max-width: 90vw;
+  max-height: 80vh;
+  cursor: pointer;
+  position: absolute;
+  left: 0; 
+  top: 0;
+}
+
+#naip-stack {
+  perspective: 1200px;
+  width: 370px;
+  height: 540px;
+  min-height: 420px;
+  margin: 0 auto;
+  position: relative;
+}
+
+#naip-stack .naip-card {
+  opacity: 0.85;
+  filter: blur(0.5px) grayscale(10%);
+  pointer-events: auto;
+}
+
+#naip-stack .naip-card.active {
+  z-index: 20 !important;
+  box-shadow: 0 12px 48px 0 #ffe06688, 0 3px 16px 0 #18181b22;
+  transform: scale(1.04) rotate(0deg) translateY(0px) !important;
+  opacity: 1;
+  filter: none;
+}
+
+#naip-stack .naip-card:not(.active):nth-child(1) {
+  transform: scale(0.96) rotate(-5deg) translateY(32px) translateX(-18px);
+  z-index: 10;
+  opacity: 0.92;
+  filter: blur(0.5px) grayscale(10%);
+}
+
+#naip-stack .naip-card:not(.active):nth-child(2) {
+  transform: scale(0.93) rotate(4deg) translateY(48px) translateX(48px);
+  z-index: 9;
+  opacity: 0.88;
+  filter: blur(1px) grayscale(18%);
+}
+
+.naip-card:hover {
+  box-shadow: 0 12px 48px 0 #ffe06688, 0 3px 16px 0 #18181b22;
+  opacity: 1;
+  filter: none;
+}
+
+.naip-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+  text-align: center;
+}
+
+.naip-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ffe066;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 2px 12px #ffe06633;
+}
+
+.naip-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 0.5rem;
+  stroke: #18181b;
+}
+
+.naip-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #18181b;
+  margin-bottom: 0.2rem;
+  letter-spacing: 0.01em;
+}
+
+.naip-card p {
+  font-size: 1rem;
+  color: #23232a;
+  opacity: 0.85;
+}
+
+@media (max-width: 640px) {
+  #naip-stack {
+    width: 100vw;
+    min-width: 0;
+    max-width: 100vw;
+    height: 92vw;
+    min-height: 260px;
+    max-height: 90vh;
+    position: relative;
+  }
+
+  .naip-card {
+    width: 70vw;
+    min-width: 0;
+    max-width: 90vw;
+    height: 100vw;
+    min-height: 260px;
+    max-height: 80vh;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1rem 0.5rem 1.2rem 0.5rem;
+    border-radius: 1.1rem;
+  }
+
+  #naip-stack .naip-card:not(.active):nth-child(1) {
+    transform: scale(0.97) rotate(-4deg) translateY(4vw) translateX(-2vw);
+    z-index: 10;
+  }
+
+  #naip-stack .naip-card:not(.active):nth-child(2) {
+    transform: scale(0.94) rotate(4deg) translateY(4vw) translateX(2vw);
+    z-index: 9;
+  }
+
+  #naip-stack .naip-card.active {
+    transform: scale(1.03) rotate(0deg) translateY(0px) translateX(-50%) !important;
+    z-index: 20 !important;
+  }
+
+  .naip-inner {
+    gap: 0.6rem;
+  }
+
+  .naip-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .naip-card p {
+    font-size: 0.98rem;
+  }
+
+  .naip-avatar {
+    width: 48px;
+    height: 48px;
+  }
+
+  .naip-icon {
+    width: 32px;
+    height: 32px;
+  }
+}
+
 /* Education horizontal scroll */
 .education-section {
   padding-left: 0 !important;

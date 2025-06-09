@@ -20,13 +20,13 @@ window.addEventListener('load', () => {
     const textDiv = document.createElement('div');
     textDiv.style.position = "relative";
     textDiv.style.color = "#fff";
-    textDiv.style.fontSize = "0.8rem";
+    textDiv.style.fontSize = "0.7rem";
     textDiv.style.letterSpacing = "0.08em";
     textDiv.style.textShadow = "0 2px 12px #000, 0 0px 2px #ffe066";
     textDiv.style.pointerEvents = "none";
     textDiv.style.zIndex = "10";
     textDiv.style.whiteSpace = "pre";
-    textDiv.style.fontFamily = "inherit";
+    textDiv.style.fontFamily = "'Fira Mono', 'IBM Plex Mono', 'Menlo', 'Consolas', 'Liberation Mono', 'monospace'";
     textDiv.style.textAlign = "center";
     loaderContainer.appendChild(textDiv);
 

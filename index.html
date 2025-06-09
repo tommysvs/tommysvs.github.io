@@ -7,6 +7,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@500&display=swap" rel="stylesheet">
 </head>
 
 <body class="font-sans">
@@ -24,11 +25,16 @@
   <!-- Background Particles -->
   <div id="three-bg"></div>
 
-  <div id="timezone-clock" class="fixed top-4 left-4 z-[9998] bg-[#18181b] bg-opacity-90 text-[#fff] rounded-xl px-3 py-1 shadow-lg flex flex-row items-center gap-2 font-mono text-xs select-none" style="backdrop-filter: blur(8px);">
-    <span id="tz-label">San Pedro Sula, HN</span>
-    <span class="inline-block w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-    <span class="text-green-400 font-semibold">available</span>
-    <span id="tz-time" class="ml-2">--:--:--</span>
+  <!-- Timezone Clock -->
+  <div id="timezone-clock" class="fixed top-4 left-4 z-[9996] bg-[#18181b] bg-opacity-90 text-[#fff] rounded-xl px-3 py-1 shadow-lg flex items-center gap-2 font-mono text-xs select-none" style="backdrop-filter: blur(8px);">
+    <div class="flex flex-col justify-center">
+      <span id="tz-label">America/Tegucigalpa</span>
+      <span id="tz-time" class="ml-0">--:--:--</span>
+      <div class="flex items-center mb-1">
+        <span class="inline-block w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+        <span class="text-green-400 font-semibold ml-1">available</span>
+      </div>
+    </div>
   </div>
 
   <!-- Social Media Links Desktop -->
@@ -46,7 +52,7 @@
   </div>
 
   <!-- Social Media Links Mobile -->
-  <div class="fixed left-4 bottom-16 z-[9997] flex flex-col items-center gap-6 backdrop-blur-md rounded-3xl px-3 py-4 sm:hidden">
+  <div class="fixed left-2 bottom-16 z-[9997] flex flex-col items-center gap-6 backdrop-blur-md rounded-3xl px-3 py-4 sm:hidden">
     <a href="https://www.linkedin.com/in/tommyvega" target="_blank" rel="noopener" class="group">
       <svg class="w-5 h-5 text-white hover:text-[#ffe066] transition" fill="currentColor" viewBox="0 0 24 24">
         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.337-.027-3.063-1.867-3.063-1.868 0-2.155 1.46-2.155 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.759 1.381-1.559 2.841-1.559 3.039 0 3.6 2.001 3.6 4.604v5.588z"/>
@@ -66,7 +72,7 @@
     <span class="menuline line3"></span>
   </button>
 
-  <div id="fullscreen-menu" class="fixed inset-0 z-[9997] bg-[#18181b]/[.90] backdrop-blur-lg flex items-center justify-center transition-transform duration-500 ease-[cubic-bezier(.68,-0.55,.27,1.55)] translate-x-full pointer-events-none">
+  <div id="fullscreen-menu" class="fixed inset-0 z-[9997] bg-[#18181b]/[.90] backdrop-blur-md flex items-center justify-center transition-transform duration-500 ease-[cubic-bezier(.68,-0.55,.27,1.55)] translate-x-full pointer-events-none">
     <div class="flex flex-col-reverse sm:flex-row w-full max-w-5xl items-center justify-center px-4">
       <div class="flex flex-col items-center justify-center flex-1 mb-8 sm:mb-0">
         <a href="https://www.linkedin.com/in/tommyvega" target="_blank" rel="noopener" class="fullscreen-social-link text-white hover:text-[#ffe066] transition font-semibold mb-4">
@@ -112,54 +118,29 @@
   </section>
 
   <!-- About Me Section -->
-  <section id="about" data-aos="fade-up" data-aos-duration="800" class="about-section relative flex flex-col items-center justify-center min-h-screen">
-    <div class="max-w-4xl w-full mx-auto px-4 py-10 flex flex-col items-center gap-10">
-      <div class="flex flex-col md:flex-row items-center gap-8 w-full">
-        <img src="assets/images/me.JPEG" alt="Tommy Vega" class="w-40 h-40 rounded-full shadow-lg border-4 border-blue-400 object-cover mb-4 md:mb-0">
-        <div class="flex-1 text-center md:text-left">
-          <h2 class="text-4xl font-extrabold text-white mb-2">Hi, I'm Tommy 👋</h2>
-          <p class="text-lg text-white mb-3">
-            Tech enthusiast, problem solver, and lifelong learner. I love building digital solutions, automating tasks, and exploring new frameworks. My mission: use technology to make life easier and more fun—for myself and everyone around me.
-          </p>
-          <div class="flex flex-wrap justify-center md:justify-start gap-2 mt-2">
-            <span class="bg-blue-600/80 text-white rounded-full px-3 py-1 text-xs font-semibold">#TechLover</span>
-            <span class="bg-purple-600/80 text-white rounded-full px-3 py-1 text-xs font-semibold">#TeamPlayer</span>
-            <span class="bg-yellow-500/80 text-white rounded-full px-3 py-1 text-xs font-semibold">#ContinuousLearning</span>
+  <section id="about" class="about-section w-full flex flex-col items-center justify-center min-h-screen bg-[#18181b] py-20">
+    <div id="naip-stack" class="relative mx-auto flex items-center justify-center">
+      <!-- Card 1 -->
+      <div class="naip-card">
+        <div class="naip-inner">
+          <img src="assets/images/me.JPEG" alt="Tommy Vega" class="naip-avatar mx-auto rounded-full border-4 border-[#ffe066] shadow" style="object-fit:cover;width:90px;height:90px;">
+          <h3 class="text-[#ffe066] font-extrabold text-xl mt-2 mb-1">Tommy Vega</h3>
+          <div class="font-semibold text-gray-800 mb-1">IT Consultant</div>
+          <div class="text-gray-600 text-sm mb-1">
+            <span class="block">tommysvs@hotmail.com</span>
+            <span class="block">San Pedro Sula, Honduras</span>
           </div>
+          <p>Tech enthusiast, problem solver, and lifelong learner. I love building digital solutions, automating tasks, and exploring new frameworks.</p>
         </div>
       </div>
-
-      <div class="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-8">
-        <div class="glass-blur rounded-xl p-6 flex flex-col items-center shadow-lg border border-blue-200/30">
-          <svg class="w-10 h-10 text-blue-400 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <!-- Card 2 -->
+      <div class="naip-card">
+        <div class="naip-inner">
+          <svg class="naip-icon" fill="none" stroke="#18181b" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6h13M9 6L5 9.5M9 6l-4-3.5"/>
           </svg>
-          <h3 class="font-bold text-blue-600 mb-1">Coding & Side Projects</h3>
-          <p class="text-sm text-gray-200 text-center">I love experimenting with new tech, building apps, and automating anything I can.</p>
-        </div>
-        <div class="glass-blur rounded-xl p-6 flex flex-col items-center shadow-lg border border-purple-200/30">
-          <svg class="w-10 h-10 text-purple-400 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2a4 4 0 014-4h2a4 4 0 014 4v2"/>
-          </svg>
-          <h3 class="font-bold text-purple-600 mb-1">Music & Gaming</h3>
-          <p class="text-sm text-gray-200 text-center">Music is my daily fuel. I also enjoy video games and board games with friends.</p>
-        </div>
-        <div class="glass-blur rounded-xl p-6 flex flex-col items-center shadow-lg border border-yellow-200/30">
-          <svg class="w-10 h-10 text-yellow-400 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3"/>
-          </svg>
-          <h3 class="font-bold text-yellow-600 mb-1">Outdoors & Coffee</h3>
-          <p class="text-sm text-gray-200 text-center">I love hiking, photography, and discovering new coffee shops around the city.</p>
-        </div>
-      </div>
-
-      <div class="mt-10 w-full flex flex-col items-center">
-        <div class="glass-blur rounded-2xl p-6 flex flex-col items-center shadow-lg border border-pink-200/30 max-w-md">
-          <img src="assets/images/risotto.JPEG" alt="Milo the Cat" class="w-20 h-20 rounded-full object-cover border-4 border-pink-400 mb-3">
-          <h3 class="font-bold text-pink-500 mb-1">Meet Risotto 🐱🐾</h3>
-          <p class="text-sm text-gray-200 text-center">
-            Risotto is my loyal coding companion. He loves to nap on my keyboard, chase laser pointers, and occasionally join my video calls. If you see a stray cat emoji in my code, you know who to blame!
-          </p>
+          <h3>Coding & Projects</h3>
+          <p>I love experimenting with new tech, building apps, and automating anything I can.</p>
         </div>
       </div>
     </div>
