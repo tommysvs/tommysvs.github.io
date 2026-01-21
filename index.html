@@ -95,11 +95,21 @@
       <div class="hidden sm:block w-px h-[70vh] bg-white opacity-40 mx-12"></div>
       <div class="block sm:hidden w-[70vw] h-px bg-white opacity-40 my-8"></div>
       <nav class="flex flex-col gap-6 sm:text-xl text-lg md:text-2xl font-bold items-center w-auto flex-1">
-        <a href="#about" class="fullscreen-nav-link text-left w-full opacity-0 translate-y-4 transition-all duration-500" data-lang="about">About me</a>
-        <a href="#skills" class="fullscreen-nav-link text-left w-full opacity-0 translate-y-4 transition-all duration-500" data-lang="skills">Skills</a>
-        <a href="#experience" class="fullscreen-nav-link text-left w-full opacity-0 translate-y-4 transition-all duration-500" data-lang="experience">Experience</a>
-        <a href="#education" class="fullscreen-nav-link text-left w-full opacity-0 translate-y-4 transition-all duration-500" data-lang="education">Education</a>
-        <a href="#resume" class="fullscreen-nav-link text-left w-full opacity-0 translate-y-4 transition-all duration-500" data-lang="resume">Resume</a>
+        <a href="#about" class="fullscreen-nav-link text-left w-full opacity-0 translate-y-4 transition-all duration-500">
+          <span class="text-[#ffe066] mr-2">01.</span><span data-lang="about">About me</span>
+        </a>
+        <a href="#skills" class="fullscreen-nav-link text-left w-full opacity-0 translate-y-4 transition-all duration-500">
+          <span class="text-[#ffe066] mr-2">02.</span><span data-lang="skills">Skills</span>
+        </a>
+        <a href="#experience" class="fullscreen-nav-link text-left w-full opacity-0 translate-y-4 transition-all duration-500">
+          <span class="text-[#ffe066] mr-2">03.</span><span data-lang="experience">Experience</span>
+        </a>
+        <a href="#education" class="fullscreen-nav-link text-left w-full opacity-0 translate-y-4 transition-all duration-500">
+          <span class="text-[#ffe066] mr-2">04.</span><span data-lang="education">Education</span>
+        </a>
+        <a href="#resume" class="fullscreen-nav-link text-left w-full opacity-0 translate-y-4 transition-all duration-500">
+          <span class="text-[#ffe066] mr-2">05.</span><span data-lang="resume">Resume</span>
+        </a>
       </nav>
     </div>
   </div>
@@ -120,6 +130,12 @@
 
   <!-- About Me Section -->
   <section id="about" class="about-section w-full flex flex-col items-center justify-center min-h-screen bg-transparent">
+    <div class="text-center mb-10 px-4">
+      <h2 class="text-3xl md:text-4xl font-bold mb-2 text-white flex items-center justify-center gap-2 drop-shadow-lg">
+        <span class="text-[#ffe066]">01.</span>
+        <span class="text-white" data-lang="about">About me</span>
+      </h2>
+    </div>
     <div id="naip-stack" class="relative mx-auto flex items-center justify-center">
       <!-- Card 1 -->
       <div class="naip-card">
@@ -147,17 +163,37 @@
     </div>
   </section>
 
+  <!-- Skills Section -->
+  <section id="skills" class="relative flex flex-col items-center justify-center min-h-screen px-4 md:px-12 bg-transparent text-center">
+    <div class="max-w-3xl">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white flex items-center justify-center gap-2 drop-shadow-lg">
+        <span class="text-[#ffe066]">02.</span>
+        <span class="text-white" data-lang="skills">Skills</span>
+      </h2>
+      <p class="text-white/80 text-lg" data-lang="sectionConstruction">Sección en construcción.</p>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="relative flex flex-col items-center justify-center min-h-screen px-4 md:px-12 bg-transparent text-center">
+    <div class="max-w-3xl">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white flex items-center justify-center gap-2 drop-shadow-lg">
+        <span class="text-[#ffe066]">03.</span>
+        <span class="text-white" data-lang="experience">Experience</span>
+      </h2>
+      <p class="text-white/80 text-lg" data-lang="sectionConstruction">Sección en construcción.</p>
+    </div>
+  </section>
+
   <!-- Education Section -->
   <section id="education" class="education-section relative flex flex-col items-center justify-center min-h-screen bg-transparent">
     <div class="text-center mb-12 px-4">
-      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-[#ffe066] flex items-center justify-center gap-2 drop-shadow-lg">
-        <svg class="w-8 h-8 text-yellow-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C6.5 6.253 2 10.998 2 16.5c0 5.503 4.478 10.447 10 10.447s10-4.944 10-10.447c0-5.502-4.478-10.247-10-10.247z"/>
-        </svg>
-        <span data-lang="education">Education</span>
+      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white flex items-center justify-center gap-2 drop-shadow-lg">
+        <span class="text-[#ffe066]">04.</span>
+        <span class="text-white" data-lang="education">Education</span>
       </h2>
       <p class="text-lg text-white/90 text-center max-w-2xl mx-auto" data-lang="educationDescription">
-        Continuous learning and professional development drive my career. Here's my academic background.
+        Where I studied and what I learned along the way.
       </p>
     </div>
 
@@ -207,14 +243,12 @@
   <!-- Resume Section -->
   <section id="resume" data-aos="fade-up" data-aos-duration="800" class="relative flex items-center justify-center min-h-screen px-4 md:px-12 bg-transparent bg-opacity-90 text-gray-800 rounded-3xl mx-auto overflow-hidden pt-16">
     <div class="section-content relative z-10 flex flex-col items-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center text-[#ffe066] flex items-center gap-2 drop-shadow-lg">
-        <svg class="w-8 h-8 text-yellow-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0v6"/>
-        </svg>
-        <span data-lang="resume">Resume</span>
+      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center text-white flex items-center gap-2 drop-shadow-lg">
+        <span class="text-[#ffe066]">05.</span>
+        <span class="text-white" data-lang="resume">Resume</span>
       </h2>
       <p data-lang="cvDescription" class="mb-8 text-lg text-white/90 text-center max-w-2xl">
-        Discover my professional background, skills, and achievements in detail. Download my CV in your preferred language and explore my experience in technology, business, and digital transformation.
+        Check out my resume to see my full background, skills, and experience. Available in English and Spanish.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 mb-10 w-full justify-center items-center">
         <a href="assets/resume/TommyVega_ENG.pdf" download
@@ -233,11 +267,11 @@
   <footer data-aos="fade-up" data-aos-duration="800" id="footer" class="footer bg-transparent">
     <div class="w-full px-0">
       <div class="flex flex-wrap justify-center space-x-6 mb-6">
-        <a href="#about" class="footer-link" data-lang="about">About me</a>
-        <a href="#skills" class="footer-link" data-lang="skills">Skills</a>
-        <a href="#experience" class="footer-link" data-lang="experience">Experience</a>
-        <a href="#education" class="footer-link" data-lang="education">Education</a>
-        <a href="#resume" class="footer-link" data-lang="resume">Resume</a>
+        <a href="#about" class="footer-link"><span class="footer-num mr-1">01.</span><span class="footer-label" data-lang="about">About me</span></a>
+        <a href="#skills" class="footer-link"><span class="footer-num mr-1">02.</span><span class="footer-label" data-lang="skills">Skills</span></a>
+        <a href="#experience" class="footer-link"><span class="footer-num mr-1">03.</span><span class="footer-label" data-lang="experience">Experience</span></a>
+        <a href="#education" class="footer-link"><span class="footer-num mr-1">04.</span><span class="footer-label" data-lang="education">Education</span></a>
+        <a href="#resume" class="footer-link"><span class="footer-num mr-1">05.</span><span class="footer-label" data-lang="resume">Resume</span></a>
       </div>
       <div class="mb-6 text-center">
         <p class="text-gray-300 font-medium" data-lang="contact">

@@ -28,7 +28,8 @@ const translations = {
     itleadDesc: "Oversaw SAP Business One system across multiple regions, provided training and support, and optimized processes to align with business goals and regional needs.",
     bachelorDegree: "Bachelor of Science in Computer Science",
     associateDegree: "Associate of Science in Programming & Analysis",
-    cvDescription: "Check out my resume to see my full background, skills, and experience. Available in English and Spanish."
+    cvDescription: "Check out my resume to see my full background, skills, and experience. Available in English and Spanish.",
+    sectionConstruction: "Section under construction."
   },
   es: {
     about: "Sobre mí",
@@ -57,7 +58,8 @@ const translations = {
     itleadDesc: "Supervisé el sistema SAP Business One en múltiples regiones, brindé capacitación y soporte, y optimicé procesos para alinearlos con los objetivos y necesidades regionales del negocio.",
     bachelorDegree: "Ingeniería en Ciencias de la Computación",
     associateDegree: "Associate of Science in Programming & Analysis",
-    cvDescription: "Mirá mi CV para ver mi experiencia completa, habilidades y logros. Disponible en inglés y español."
+    cvDescription: "Te comparto mi CV para explorar mi experiencia completa, habilidades y logros. Disponible en inglés y español.",
+    sectionConstruction: "Sección en construcción."
   }
 };
 
