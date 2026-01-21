@@ -17,7 +17,6 @@ body, html {
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 15dvh;
 }
 
 a, button, input, textarea, select, label {
