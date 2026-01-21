@@ -54,7 +54,7 @@
   </div>
 
   <!-- Social Media Links Mobile -->
-  <div class="fixed left-2 bottom-4 z-[9997] flex flex-col items-center gap-6 backdrop-blur-md rounded-3xl px-3 py-4 sm:hidden">
+  <div class="fixed left-2 bottom-2 z-[9997] flex flex-col items-center gap-6 backdrop-blur-md rounded-3xl px-3 py-4 sm:hidden">
     <a href="https://www.linkedin.com/in/tommyvega" target="_blank" rel="noopener" class="group">
       <svg class="w-5 h-5 text-white hover:text-[#ffe066] transition" fill="currentColor" viewBox="0 0 24 24">
         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.337-.027-3.063-1.867-3.063-1.868 0-2.155 1.46-2.155 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.759 1.381-1.559 2.841-1.559 3.039 0 3.6 2.001 3.6 4.604v5.588z"/>
@@ -87,7 +87,7 @@
 
   <div id="fullscreen-menu" class="fixed inset-0 z-[9997] bg-[#18181b]/[.90] backdrop-blur-md flex items-center justify-center transition-transform duration-500 ease-[cubic-bezier(.68,-0.55,.27,1.55)] translate-x-full pointer-events-none">
     <div class="flex flex-col-reverse sm:flex-row w-full max-w-5xl items-center justify-center px-4">
-      <div class="flex flex-col items-center justify-center flex-1 mb-8 sm:mb-0">
+      <div class="flex flex-col items-center justify-center flex-1 mb-6 sm:mb-0">
         <a href="https://www.linkedin.com/in/tommyvega" target="_blank" rel="noopener" class="fullscreen-social-link text-white hover:text-[#ffe066] transition font-semibold mb-4">
           LINKEDIN
         </a>
@@ -105,8 +105,8 @@
         </div>
       </div>
       <div class="hidden sm:block w-px h-[70vh] bg-white opacity-40 mx-12"></div>
-      <div class="block sm:hidden w-[70vw] h-px bg-white opacity-40 my-8"></div>
-      <nav class="flex flex-col gap-6 sm:text-xl text-lg md:text-2xl font-bold items-center w-auto flex-1">
+      <div class="block sm:hidden w-[70vw] h-px bg-white opacity-40 my-5"></div>
+      <nav class="flex flex-col gap-4 sm:gap-6 sm:text-xl text-base md:text-2xl font-bold items-center w-auto flex-1">
         <a href="#about" class="fullscreen-nav-link text-left w-full opacity-0 translate-y-4 transition-all duration-500">
           <span class="text-[#ffe066] mr-2">01.</span><span data-lang="about">About me</span>
         </a>
@@ -124,7 +124,7 @@
         </a>
         
         <!-- Language Switcher -->
-        <div class="mt-8">
+        <div class="mt-5 sm:mt-8">
           <button id="language-switcher" class="language-switcher" aria-label="Switch language">
             <span class="switch-track">
               <span id="lang-en" class="switch-label">EN</span>
@@ -288,13 +288,17 @@
 
   <!-- Footer -->
   <footer data-aos="fade-up" data-aos-duration="800" id="footer" class="footer bg-transparent">
-    <div class="w-full px-0">
-      <div class="flex flex-wrap justify-center space-x-6 mb-6">
-        <a href="#about" class="footer-link"><span class="footer-num mr-1">01.</span><span class="footer-label" data-lang="about">About me</span></a>
-        <a href="#skills" class="footer-link"><span class="footer-num mr-1">02.</span><span class="footer-label" data-lang="skills">Skills</span></a>
-        <a href="#experience" class="footer-link"><span class="footer-num mr-1">03.</span><span class="footer-label" data-lang="experience">Experience</span></a>
-        <a href="#education" class="footer-link"><span class="footer-num mr-1">04.</span><span class="footer-label" data-lang="education">Education</span></a>
-        <a href="#resume" class="footer-link"><span class="footer-num mr-1">05.</span><span class="footer-label" data-lang="resume">Resume</span></a>
+    <div class="w-full px-4">
+      <div class="flex flex-wrap justify-center items-center gap-x-2 gap-y-2 sm:gap-x-4 sm:gap-y-2 mb-6 text-xs sm:text-base max-w-sm sm:max-w-none mx-auto">
+        <a href="#about" class="footer-link whitespace-nowrap"><span class="footer-num mr-1">01.</span><span class="footer-label" data-lang="about">About me</span></a>
+        <span class="hidden sm:inline text-[#ffe066]/40">|</span>
+        <a href="#skills" class="footer-link whitespace-nowrap"><span class="footer-num mr-1">02.</span><span class="footer-label" data-lang="skills">Skills</span></a>
+        <span class="hidden sm:inline text-[#ffe066]/40">|</span>
+        <a href="#experience" class="footer-link whitespace-nowrap"><span class="footer-num mr-1">03.</span><span class="footer-label" data-lang="experience">Experience</span></a>
+        <span class="hidden sm:inline text-[#ffe066]/40">|</span>
+        <a href="#education" class="footer-link whitespace-nowrap"><span class="footer-num mr-1">04.</span><span class="footer-label" data-lang="education">Education</span></a>
+        <span class="hidden sm:inline text-[#ffe066]/40">|</span>
+        <a href="#resume" class="footer-link whitespace-nowrap"><span class="footer-num mr-1">05.</span><span class="footer-label" data-lang="resume">Resume</span></a>
       </div>
       <div class="mb-6 text-center">
         <p class="text-gray-300 font-medium" data-lang="contact">
@@ -313,7 +317,7 @@
   </footer>
 
   <!-- Scroll to Top Button -->
-  <div id="scroll-top" class="fixed bottom-2 right-2 z-[9997] backdrop-blur-mdw-15 h-15 flex flex-col items-end justify-end cursor-pointer group transition-all duration-500" style="display:none;">
+  <div id="scroll-top" class="fixed bottom-2 right-2 z-[9990] backdrop-blur-mdw-15 h-15 flex flex-col items-end justify-end cursor-pointer group transition-all duration-500" style="display:none;">
     <div class="absolute bottom-2 right-2 flex flex-col items-center z-10">
       <svg class="w-8 h-8 text-white animate-bounce" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 8">
         <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/>
