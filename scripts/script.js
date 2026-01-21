@@ -19,6 +19,7 @@ const translations = {
     aboutExp2: "Passionate about continuous learning and teamwork.",
     aboutExp3: "Focused on results, quality, and customer satisfaction.",
     contactMe: "Contact Me",
+    educationDescription: "Where I studied and what I learned along the way.",
     sapDesc: "ERP Implementation & Support",
     projectDesc: "Agile & Team Leadership",
     bussanaDesc: "Process Mapping & Solutions",
@@ -27,7 +28,7 @@ const translations = {
     itleadDesc: "Oversaw SAP Business One system across multiple regions, provided training and support, and optimized processes to align with business goals and regional needs.",
     bachelorDegree: "Bachelor of Science in Computer Science",
     associateDegree: "Associate of Science in Programming & Analysis",
-    cvDescription: "Discover in detail my professional background, skills, and achievements. Download my CV in your preferred language and learn more about my experience in technology, business, and digital transformation."
+    cvDescription: "Check out my resume to see my full background, skills, and experience. Available in English and Spanish."
   },
   es: {
     about: "Sobre mí",
@@ -47,6 +48,7 @@ const translations = {
     aboutExp2: "Apasionado por el aprendizaje constante y la colaboración en equipo.",
     aboutExp3: "Enfocado en resultados, calidad y satisfacción del cliente.",
     contactMe: "Contáctame",
+    educationDescription: "Dónde estudié y qué aprendí en el camino.",
     sapDesc: "Implementación y soporte de ERP",
     projectDesc: "Liderazgo ágil y de equipos",
     bussanaDesc: "Mapeo de procesos y soluciones",
@@ -55,7 +57,7 @@ const translations = {
     itleadDesc: "Supervisé el sistema SAP Business One en múltiples regiones, brindé capacitación y soporte, y optimicé procesos para alinearlos con los objetivos y necesidades regionales del negocio.",
     bachelorDegree: "Ingeniería en Ciencias de la Computación",
     associateDegree: "Associate of Science in Programming & Analysis",
-    cvDescription: "Descubre en detalle mi trayectoria profesional, habilidades y logros. Descarga mi CV en el idioma que prefieras y conoce mi experiencia en tecnología, negocios y transformación digital."
+    cvDescription: "Mirá mi CV para ver mi experiencia completa, habilidades y logros. Disponible en inglés y español."
   }
 };
 
