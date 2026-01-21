@@ -28,11 +28,11 @@
   <!-- Timezone Clock -->
   <div id="timezone-clock" class="fixed top-4 left-4 z-[9996] bg-transparent backdrop-blur-md bg-opacity-90 text-[#fff] rounded-xl px-3 py-1 flex items-center gap-2 font-mono text-xs select-none">
     <div class="flex flex-col justify-center">
-      <div id="tz-group">
+      <div id="tz-group" class="flex flex-col sm:flex-row sm:gap-1">
         <span id="tz-label">America/Tegucigalpa</span>
-        <span id="tz-time" class="ml-0">--:--:--</span>
+        <span id="tz-time" class="sm:ml-0">--:--:--</span>
       </div>
-      <div id="tz-available" class="flex items-center mb-1">
+      <div id="tz-available" class="flex items-center mt-2 sm:mb-1">
         <span class="inline-block w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
         <span class="text-green-400 font-semibold ml-1">available</span>
       </div>
@@ -40,7 +40,7 @@
   </div>
 
   <!-- Social Media Links Desktop -->
-  <div class="fixed right-4 top-1/2 z-[9997] flex-col items-center gap-6 -translate-y-1/2 backdrop-blur-md rounded-3xl px-3 py-4 hidden sm:flex">
+  <div class="fixed left-4 top-1/2 z-[9997] flex-col items-center gap-6 -translate-y-1/2 backdrop-blur-md rounded-3xl px-3 py-4 hidden sm:flex">
     <a href="https://www.linkedin.com/in/tommyvega" target="_blank" rel="noopener" class="group">
       <svg class="w-5 h-5 text-white hover:text-[#ffe066] transition" fill="currentColor" viewBox="0 0 24 24">
         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.337-.027-3.063-1.867-3.063-1.868 0-2.155 1.46-2.155 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.759 1.381-1.559 2.841-1.559 3.039 0 3.6 2.001 3.6 4.604v5.588z"/>
@@ -54,7 +54,7 @@
   </div>
 
   <!-- Social Media Links Mobile -->
-  <div class="fixed left-2 bottom-16 z-[9997] flex flex-col items-center gap-6 backdrop-blur-md rounded-3xl px-3 py-4 sm:hidden">
+  <div class="fixed left-2 bottom-4 z-[9997] flex flex-col items-center gap-6 backdrop-blur-md rounded-3xl px-3 py-4 sm:hidden">
     <a href="https://www.linkedin.com/in/tommyvega" target="_blank" rel="noopener" class="group">
       <svg class="w-5 h-5 text-white hover:text-[#ffe066] transition" fill="currentColor" viewBox="0 0 24 24">
         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.337-.027-3.063-1.867-3.063-1.868 0-2.155 1.46-2.155 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.759 1.381-1.559 2.841-1.559 3.039 0 3.6 2.001 3.6 4.604v5.588z"/>
@@ -67,11 +67,23 @@
     </a>
   </div>
 
-  <!-- Full-Screen Menu -->
-  <button id="menu-toggle" class="fixed top-2 right-2 z-[9998] bg-transparent backdrop-blur-md rounded-2xl text-3xl text-white hover:text-[#ffe066] transition px-4 py-3 border-none outline-none flex flex-col justify-center items-end w-14 h-14 group">    <span class="menuline line1"></span>
-    <span class="menuline line2"></span>
-    <span class="menuline line3"></span>
-  </button>
+  <!-- Top Navigation Container -->
+  <div class="fixed top-2 sm:top-4 right-4 z-[9998] flex items-center gap-4">
+    <!-- Portfolio Button -->
+    <a href="portfolio.html" class="px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base font-semibold rounded-full border border-[#ffe066]/50 hover:border-[#ffe066] overflow-hidden group relative w-fit transition-opacity duration-300 backdrop-blur-md bg-white/5 hover:bg-white/10">
+      <span class="relative z-10 flex items-center gap-2 text-white group-hover:text-[#1a1a1b]" data-lang="portfolio">
+        Portfolio
+      </span>
+      <div class="absolute inset-0 bg-[#ffe066] -z-10 transform scale-y-0 origin-bottom group-hover:scale-y-100 transition-transform duration-500 ease-out"></div>
+    </a>
+
+    <!-- Menu Toggle -->
+    <button id="menu-toggle" class="bg-transparent backdrop-blur-md rounded-2xl text-3xl text-white hover:text-[#ffe066] transition px-4 py-3 border-none outline-none flex flex-col justify-center items-end w-14 h-14 group">    
+      <span class="menuline line1"></span>
+      <span class="menuline line2"></span>
+      <span class="menuline line3"></span>
+    </button>
+  </div>
 
   <div id="fullscreen-menu" class="fixed inset-0 z-[9997] bg-[#18181b]/[.90] backdrop-blur-md flex items-center justify-center transition-transform duration-500 ease-[cubic-bezier(.68,-0.55,.27,1.55)] translate-x-full pointer-events-none">
     <div class="flex flex-col-reverse sm:flex-row w-full max-w-5xl items-center justify-center px-4">
@@ -110,6 +122,17 @@
         <a href="#resume" class="fullscreen-nav-link text-left w-full opacity-0 translate-y-4 transition-all duration-500">
           <span class="text-[#ffe066] mr-2">05.</span><span data-lang="resume">Resume</span>
         </a>
+        
+        <!-- Language Switcher -->
+        <div class="mt-8">
+          <button id="language-switcher" class="language-switcher" aria-label="Switch language">
+            <span class="switch-track">
+              <span id="lang-en" class="switch-label">EN</span>
+              <span id="lang-es" class="switch-label">ES</span>
+              <span id="lang-knob" class="switch-knob"></span>
+            </span>
+          </button>
+        </div>
       </nav>
     </div>
   </div>
@@ -202,9 +225,9 @@
         <!-- Bachelor Degree Card -->
         <div class="edu-card w-full max-w-sm flex" data-aos="fade-up" data-aos-duration="800">
           <div class="relative h-full w-full">
-            <div class="bg-gradient-to-br from-blue-500/20 to-purple-500/10 backdrop-blur-md border border-blue-400/40 rounded-2xl p-6 h-full min-h-[320px] flex flex-col justify-between items-center text-center hover:border-blue-400/80 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20">
+            <div class="bg-gradient-to-br from-blue-500/20 to-purple-500/10 backdrop-blur-md border border-blue-400/40 rounded-2xl p-6 h-full min-h-[260px] flex flex-col justify-between items-center text-center hover:border-blue-400/80 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20">
               <div class="flex flex-col items-center">
-                <img src="assets/images/unicah_logo.jpeg" alt="UNICAH Logo" class="w-24 h-24 rounded-full object-cover brightness-110 mb-4">
+                <img src="assets/images/unicah_logo.jpeg" alt="UNICAH Logo" class="w-16 h-16 rounded-full object-cover brightness-110 mb-4">
                 <span class="text-blue-300 font-semibold text-sm mb-3">2025 - Present</span>
                 <h3 class="text-lg font-bold text-white mb-1">Universidad Católica de Honduras</h3>
                 <p class="text-blue-300 font-semibold mb-2" data-lang="bachelorDegree">Bachelor of Science in Computer Science</p>
@@ -221,9 +244,9 @@
         <!-- Associate Degree Card -->
         <div class="edu-card w-full max-w-sm flex" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
           <div class="relative h-full w-full">
-            <div class="bg-gradient-to-br from-purple-500/20 to-blue-500/10 backdrop-blur-md border border-purple-400/40 rounded-2xl p-6 h-full min-h-[320px] flex flex-col justify-between items-center text-center hover:border-purple-400/80 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20">
+            <div class="bg-gradient-to-br from-purple-500/20 to-blue-500/10 backdrop-blur-md border border-purple-400/40 rounded-2xl p-6 h-full min-h-[260px] flex flex-col justify-between items-center text-center hover:border-purple-400/80 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20">
               <div class="flex flex-col items-center">
-                <img src="assets/images/vc_logo.jpg" alt="Valencia College Logo" class="w-24 h-24 rounded-full object-cover brightness-110 mb-4">
+                <img src="assets/images/vc_logo.jpg" alt="Valencia College Logo" class="w-16 h-16 rounded-full object-cover brightness-110 mb-4">
                 <span class="text-purple-300 font-semibold text-sm mb-3">2016 - 2018</span>
                 <h3 class="text-lg font-bold text-white mb-1">Valencia College</h3>
                 <p class="text-purple-300 font-semibold mb-2" data-lang="associateDegree">Associate of Science in Computer Programming & Analysis</p>
@@ -285,18 +308,6 @@
         <p class="text-sm text-gray-300" data-lang="credits">
           2025 &copy; Made with ❤️ by Tommy Vega
         </p>
-        <div class="flex justify-center space-x-4 mt-4">
-          <a href="https://www.linkedin.com/in/tommyvega" target="_blank" class="hover:scale-110 transition">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white hover:text-[#ffe066] transition" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.337-.027-3.063-1.867-3.063-1.868 0-2.155 1.46-2.155 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.759 1.381-1.559 2.841-1.559 3.039 0 3.6 2.001 3.6 4.604v5.588z"/>
-            </svg>
-          </a>
-          <a href="https://github.com/tommysvs" target="_blank" class="hover:scale-110 transition">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white hover:text-[#ffe066] transition" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.089-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.332-5.466-5.93 0-1.31.469-2.381 1.236-3.221-.123-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.241 2.873.118 3.176.77.84 1.236 1.911 1.236 3.221 0 4.61-2.807 5.623-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576 4.765-1.587 8.2-6.084 8.2-11.386 0-6.627-5.373-12-12-12z"/>
-            </svg>
-          </a>
-        </div>
       </div>
     </div>
   </footer>
@@ -310,15 +321,6 @@
       <span class="text-xs text-white mt-1 font-semibold tracking-widest">TOP</span>
     </div>
   </div>
-
-  <!-- Language Switcher -->
-  <button id="language-switcher" class="language-switcher" aria-label="Switch language">
-    <span class="switch-track">
-      <span id="lang-en" class="switch-label">EN</span>
-      <span id="lang-es" class="switch-label">ES</span>
-      <span id="lang-knob" class="switch-knob"></span>
-    </span>
-  </button>
 
   <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
   <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>

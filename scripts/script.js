@@ -1,6 +1,7 @@
 // --- TRANSLATIONS ---
 const translations = {
   en: {
+    portfolio: "Portfolio",
     about: "About Me",
     skills: "Skills",
     experience: "Experience",
@@ -29,9 +30,11 @@ const translations = {
     bachelorDegree: "Bachelor of Science in Computer Science",
     associateDegree: "Associate of Science in Programming & Analysis",
     cvDescription: "Check out my resume to see my full background, skills, and experience. Available in English and Spanish.",
-    sectionConstruction: "Section under construction."
+    sectionConstruction: "Section under construction.",
+    underConstruction: "Site under construction"
   },
   es: {
+    portfolio: "Portafolio",
     about: "Sobre mí",
     skills: "Habilidades",
     experience: "Experiencia",
@@ -59,7 +62,8 @@ const translations = {
     bachelorDegree: "Ingeniería en Ciencias de la Computación",
     associateDegree: "Associate of Science in Programming & Analysis",
     cvDescription: "Te comparto mi CV para explorar mi experiencia completa, habilidades y logros. Disponible en inglés y español.",
-    sectionConstruction: "Sección en construcción."
+    sectionConstruction: "Sección en construcción.",
+    underConstruction: "Sitio en construcción"
   }
 };
 
@@ -107,6 +111,10 @@ window.addEventListener('load', () => {
   const heroButton = document.getElementById("hero-mouse");
 
   if (heroButton) heroButton.style.opacity = 0;
+  
+  if (!heroTyping) {
+    initializePageTranslations();
+  }
 
   setTimeout(() => {
     if (loader) {
@@ -116,6 +124,21 @@ window.addEventListener('load', () => {
       setTimeout(() => {
         loader.remove();
         document.body.classList.remove('body-no-scroll');
+        if (heroTyping) {
+          typeText(heroTyping, translations[currentLanguage].heroTitle, () => {
+            typeText(heroTypingSubtitle, translations[currentLanguage].heroSubtitle, () => {
+              if (heroButton) {
+                heroButton.style.opacity = 1;
+                heroButton.style.transition = "opacity 0.5s";
+              }
+            });
+          });
+        }
+        updateFooterLanguage(currentLanguage);
+      }, 700);
+    } else {
+      document.body.classList.remove('body-no-scroll');
+      if (heroTyping) {
         typeText(heroTyping, translations[currentLanguage].heroTitle, () => {
           typeText(heroTypingSubtitle, translations[currentLanguage].heroSubtitle, () => {
             if (heroButton) {
@@ -124,22 +147,31 @@ window.addEventListener('load', () => {
             }
           });
         });
-        updateFooterLanguage(currentLanguage);
-      }, 700);
-    } else {
-      document.body.classList.remove('body-no-scroll');
-      typeText(heroTyping, translations[currentLanguage].heroTitle, () => {
-        typeText(heroTypingSubtitle, translations[currentLanguage].heroSubtitle, () => {
-          if (heroButton) {
-            heroButton.style.opacity = 1;
-            heroButton.style.transition = "opacity 0.5s";
-          }
-        });
-      });
+      }
       updateFooterLanguage(currentLanguage);
     }
   }, 2000);
 });
+
+// --- INITIALIZE TRANSLATIONS FOR NON-HERO PAGES ---
+function initializePageTranslations() {
+  if (typeof window.currentLanguage === 'undefined') {
+    window.currentLanguage = 'en';
+  }
+  
+  document.querySelectorAll("[data-lang]").forEach((element) => {
+    const key = element.getAttribute("data-lang");
+    if (key !== "heroTitle" && key !== "heroSubtitle" && key !== "contact" && key !== "credits") {
+      if (translations[window.currentLanguage] && translations[window.currentLanguage][key]) {
+        element.textContent = translations[window.currentLanguage][key];
+      }
+    }
+  });
+  
+  if (typeof AOS !== 'undefined') {
+    AOS.init();
+  }
+}
 
 // --- CHANGE LANGUAGE ON CLICK ---
 document.addEventListener('DOMContentLoaded', () => {
@@ -171,14 +203,16 @@ function updateLanguage() {
   if (heroButton) 
     heroButton.style.opacity = 0;
 
-  typeText(heroTyping, translations[currentLanguage].heroTitle, () => {
-    typeText(heroTypingSubtitle, translations[currentLanguage].heroSubtitle, () => {
-      if (heroButton) {
-        heroButton.style.opacity = 1;
-        heroButton.style.transition = "opacity 0.5s";
-      }
+  if (heroTyping && heroTypingSubtitle) {
+    typeText(heroTyping, translations[currentLanguage].heroTitle, () => {
+      typeText(heroTypingSubtitle, translations[currentLanguage].heroSubtitle, () => {
+        if (heroButton) {
+          heroButton.style.opacity = 1;
+          heroButton.style.transition = "opacity 0.5s";
+        }
+      });
     });
-  });
+  }
 
   document.querySelectorAll("[data-lang]").forEach((element) => {
     const key = element.getAttribute("data-lang");
@@ -440,6 +474,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuToggle = document.getElementById('menu-toggle');
   const fullscreenMenu = document.getElementById('fullscreen-menu');
   const navLinks = fullscreenMenu.querySelectorAll('.fullscreen-nav-link');
+  const portfolioBtn = document.querySelector('a[href="portfolio.html"]');
 
   menuToggle.addEventListener('click', () => {
     menuToggle.classList.toggle('open');
@@ -448,6 +483,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fullscreenMenu.classList.toggle('pointer-events-none');
 
     if (fullscreenMenu.classList.contains('translate-x-0')) {
+      if (portfolioBtn) portfolioBtn.classList.add('opacity-0', 'pointer-events-none');
       navLinks.forEach((link, i) => {
         setTimeout(() => {
           link.classList.add('opacity-100', 'translate-y-0');
@@ -455,6 +491,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 100 + i * 120);
       });
     } else {
+      if (portfolioBtn) portfolioBtn.classList.remove('opacity-0', 'pointer-events-none');
       navLinks.forEach((link) => {
         link.classList.remove('opacity-100', 'translate-y-0');
         link.classList.add('opacity-0', 'translate-y-4');
@@ -468,6 +505,7 @@ document.addEventListener('DOMContentLoaded', () => {
       fullscreenMenu.classList.remove('translate-x-0');
       fullscreenMenu.classList.add('pointer-events-none');
       menuToggle.classList.remove('open');
+      if (portfolioBtn) portfolioBtn.classList.remove('opacity-0', 'pointer-events-none');
       navLinks.forEach((l) => {
         l.classList.remove('opacity-100', 'translate-y-0');
         l.classList.add('opacity-0', 'translate-y-4');

@@ -198,7 +198,7 @@ a, button, input, textarea, select, label {
   background: transparent;
   backdrop-filter: blur(4px);
   border-radius: 999px;
-  border: 1px solid #e0e0e050;
+  border: 1px solid #ffe066;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -670,7 +670,6 @@ body.scrolled .hero {
   filter: blur(100px);
   z-index: 1;
 }
-
 @media (pointer: coarse), (max-width: 768px) {
   #custom-cursor {
     display: none !important;
