@@ -600,3 +600,68 @@ window.addEventListener('scroll', () => {
     tzParent.classList.remove('tz-group-hidden');
   }
 });
+
+// --- GSAP GLOW ANIMATION ON PORTFOLIO BUTTON ---
+document.addEventListener('DOMContentLoaded', () => {
+  if (!window.gsap) return;
+  const portfolioBtn = document.querySelector('a[href="portfolio.html"]');
+  if (!portfolioBtn) return;
+
+  portfolioBtn.style.position = 'relative';
+  portfolioBtn.style.boxShadow = '0 0 20px rgba(255, 224, 102, 0)';
+
+  gsap.to(portfolioBtn, {
+    boxShadow: '0 0 15px rgba(255, 224, 102, 0.35)',
+    duration: 1.5,
+    ease: 'sine.inOut',
+    repeat: -1,
+    yoyo: true
+  });
+
+  portfolioBtn.addEventListener('mouseenter', () => {
+    gsap.getProperty(portfolioBtn, 'boxShadow');
+    gsap.getTweensOf(portfolioBtn).forEach(tween => tween.pause());
+  });
+
+  portfolioBtn.addEventListener('mouseleave', () => {
+    gsap.getTweensOf(portfolioBtn).forEach(tween => tween.resume());
+  });
+});
+
+// --- GSAP RIBBON SCROLL ANIMATION ---
+document.addEventListener('DOMContentLoaded', () => {
+  if (!window.gsap) return;
+  const ribbons = gsap.utils.toArray('.skills-ribbon');
+  
+  ribbons.forEach((ribbon, index) => {
+    const track = ribbon.querySelector('.skills-track');
+    if (!track) return;
+    
+    const items = track.querySelectorAll('.skill-badge');
+    const clonedItems = Array.from(items).map(item => item.cloneNode(true));
+    clonedItems.forEach(item => track.appendChild(item));
+    
+    const isReverse = index % 2 === 1;
+    
+    if (isReverse) {
+      gsap.set(track, { x: '-50%' });
+      const tween = gsap.to(track, {
+        x: '0%',
+        duration: 30,
+        ease: 'none',
+        repeat: -1
+      });
+      ribbon.addEventListener('mouseenter', () => tween.pause());
+      ribbon.addEventListener('mouseleave', () => tween.resume());
+    } else {
+      const tween = gsap.to(track, {
+        x: '-50%',
+        duration: 30,
+        ease: 'none',
+        repeat: -1
+      });
+      ribbon.addEventListener('mouseenter', () => tween.pause());
+      ribbon.addEventListener('mouseleave', () => tween.resume());
+    }
+  });
+});

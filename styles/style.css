@@ -47,7 +47,8 @@ a, button, input, textarea, select, label {
 }
 
 /* Social Media Icons */
-.group:hover svg {
+.group:hover svg,
+.group:hover i {
   transform: rotate(15deg) scale(1.1);
   transition: transform 0.3s cubic-bezier(.4,2,.6,1);
 }
@@ -523,6 +524,92 @@ body.scrolled .hero {
   }
 }
 
+/* Skills Section */
+.skills-category {
+  margin-bottom: 2rem;
+}
+
+.skills-ribbon {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(to right, 
+    rgba(26, 26, 27, 1) 0%, 
+    rgba(26, 26, 27, 0) 10%, 
+    rgba(26, 26, 27, 0) 90%, 
+    rgba(26, 26, 27, 1) 100%);
+  padding: 2rem 0;
+  transform: skewY(-2deg);
+  overflow: hidden;
+  --grad-pos: 0%;
+}
+
+.skills-ribbon::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(106, 17, 203, 0.25), rgba(30, 120, 255, 0.35));
+  background-size: 200% 100%;
+  background-position: var(--grad-pos) 50%;
+  filter: blur(16px);
+  opacity: 0.70;
+  pointer-events: none;
+}
+
+.skills-ribbon:nth-child(1) {
+  background: linear-gradient(to right, 
+    rgba(26, 26, 27, 1) 0%, 
+    rgba(26, 26, 27, 0) 10%, 
+    rgba(26, 26, 27, 0) 90%, 
+    rgba(26, 26, 27, 1) 100%);
+}
+
+.skills-ribbon:nth-child(2) {
+  background: linear-gradient(to right, 
+    rgba(26, 26, 27, 1) 0%, 
+    rgba(26, 26, 27, 0) 10%, 
+    rgba(26, 26, 27, 0) 90%, 
+    rgba(26, 26, 27, 1) 100%);
+}
+
+.skills-ribbon:nth-child(3) {
+  background: linear-gradient(to right, 
+    rgba(26, 26, 27, 1) 0%, 
+    rgba(26, 26, 27, 0) 10%, 
+    rgba(26, 26, 27, 0) 90%, 
+    rgba(26, 26, 27, 1) 100%);
+}
+
+.skills-track {
+  display: flex;
+  gap: 1rem;
+  width: fit-content;
+  animation: scroll-left 30s linear infinite;
+  position: relative;
+  z-index: 1;
+}
+
+.skill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  line-height: 1.5rem;
+  border-radius: 2rem;
+  background: none;
+  backdrop-filter: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.skill-badge:hover {
+  transform: translateY(-2px) scale(1.2);
+}
+
 /* Education section */
 .education-section {
   padding-left: 0 !important;
@@ -670,6 +757,7 @@ body.scrolled .hero {
   filter: blur(100px);
   z-index: 1;
 }
+
 @media (pointer: coarse), (max-width: 768px) {
   #custom-cursor {
     display: none !important;
