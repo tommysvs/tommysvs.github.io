@@ -45,8 +45,10 @@ window.addEventListener('load', () => {
   const heroTyping = document.getElementById("hero-typing");
   const heroTypingSubtitle = document.getElementById("hero-typing-subtitle");
   const heroButton = document.getElementById("hero-mouse");
+  const heroLine = document.getElementById("hero-line");
 
   if (heroButton) heroButton.style.opacity = 0;
+  if (heroLine) gsap.set(heroLine, { scaleX: 0 });
   
   if (!heroTyping) {
     initializePageTranslations();
@@ -67,6 +69,13 @@ window.addEventListener('load', () => {
                 heroButton.style.opacity = 1;
                 heroButton.style.transition = "opacity 0.5s";
               }
+              if (heroLine) {
+                gsap.to(heroLine, {
+                  scaleX: 1,
+                  duration: 0.8,
+                  ease: "power2.out"
+                });
+              }
             });
           });
         }
@@ -80,6 +89,13 @@ window.addEventListener('load', () => {
             if (heroButton) {
               heroButton.style.opacity = 1;
               heroButton.style.transition = "opacity 0.5s";
+            }
+            if (heroLine) {
+              gsap.to(heroLine, {
+                scaleX: 1,
+                duration: 0.8,
+                ease: "power2.out"
+              });
             }
           });
         });
@@ -233,53 +249,6 @@ document.addEventListener('scroll', () => {
   });
 });
 
-// --- TIMELINE SCROLL ---
-document.addEventListener('DOMContentLoaded', () => {
-  const timeline = document.getElementById('edu-timeline');
-  if (!timeline) return;
-  const inner = timeline.querySelector('div.flex');
-  const leftBtn = document.getElementById('edu-left');
-  const rightBtn = document.getElementById('edu-right');
-  let scrollAmount = 260;
-
-  leftBtn.onclick = () => {
-    timeline.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-  };
-  rightBtn.onclick = () => {
-    timeline.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-  };
-
-  let isDown = false, startX, scrollLeft;
-  timeline.addEventListener('mousedown', (e) => {
-    isDown = true;
-    timeline.classList.add('active');
-    startX = e.pageX - timeline.offsetLeft;
-    scrollLeft = timeline.scrollLeft;
-  });
-  timeline.addEventListener('mouseleave', () => { isDown = false; timeline.classList.remove('active'); });
-  timeline.addEventListener('mouseup', () => { isDown = false; timeline.classList.remove('active'); });
-  timeline.addEventListener('mousemove', (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - timeline.offsetLeft;
-    const walk = (x - startX) * 1.5;
-    timeline.scrollLeft = scrollLeft - walk;
-  });
-
-  timeline.addEventListener('touchstart', (e) => {
-    isDown = true;
-    startX = e.touches[0].pageX - timeline.offsetLeft;
-    scrollLeft = timeline.scrollLeft;
-  });
-  timeline.addEventListener('touchend', () => { isDown = false; });
-  timeline.addEventListener('touchmove', (e) => {
-    if (!isDown) return;
-    const x = e.touches[0].pageX - timeline.offsetLeft;
-    const walk = (x - startX) * 1.5;
-    timeline.scrollLeft = scrollLeft - walk;
-  });
-});
-
 // --- SCROLL TO TOP ---
 window.addEventListener('scroll', () => {
   const curtain = document.getElementById('scroll-top');
@@ -294,43 +263,6 @@ window.addEventListener('scroll', () => {
 document.getElementById('scroll-top').onclick = () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 };
-
-// --- GSAP TIMELINE SCROLL ---
-document.addEventListener('DOMContentLoaded', () => {
-  if (window.gsap && window.ScrollTrigger) {
-    const section = document.getElementById('education');
-    const timeline = document.getElementById('edu-timeline');
-    if (!section || !timeline) return;
-
-    const totalWidth = timeline.scrollWidth;
-    const viewportWidth = section.offsetWidth;
-
-    const cards = timeline.children.length;
-    const card = timeline.children[0];
-    const cardWidth = card ? card.offsetWidth : 340;
-    const gap = 48;
-    const lastCardOffset = (viewportWidth - cardWidth) / 2;
-    const scrollDistance = (cardWidth + gap) * (cards - 1) - lastCardOffset;
-
-    if (totalWidth > viewportWidth) {
-      gsap.to(timeline, {
-        x: () => `-${scrollDistance}px`,
-        ease: "none",
-        scrollTrigger: {
-          trigger: section,
-          start: "top top",
-          end: () => `+=${scrollDistance}`,
-          pin: true,
-          scrub: 1,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-        }
-      });
-    } else {
-      timeline.style.transform = "none";
-    }
-  }
-});
 
 // --- THREE.JS RANDOM PARTICLES ---
 document.addEventListener('DOMContentLoaded', () => {
@@ -602,7 +534,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// --- TOOLTIP ANIMATION (GSAP) ---
+// --- GSAP TOOLTIP ANIMATION ---
 document.addEventListener('DOMContentLoaded', () => {
   if (!window.gsap) return;
   document.querySelectorAll('.tooltip-wrap').forEach((wrap) => {

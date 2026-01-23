@@ -14,9 +14,9 @@
 
 <body class="font-sans">
   <!-- Loader Overlay -->
-  <div id="loader-overlay" class="fixed inset-0 z-[9999] flex items-center justify-center bg-[#1a1a1b] transition-all duration-700 opacity-100">
+  <!--<div id="loader-overlay" class="fixed inset-0 z-[9999] flex items-center justify-center bg-[#1a1a1b] transition-all duration-700 opacity-100">
     <div id="loader-threejs" style="width:100vw;height:100vh;display:block;"></div>
-  </div>
+  </div>-->
 
   <!-- Custom Cursor -->
   <div id="custom-cursor">
@@ -121,17 +121,20 @@
   </div>
 
   <!-- Hero Section -->
-  <section class="hero fixed inset-0 z-20 flex items-center justify-center text-center">
+  <section class="hero fixed inset-0 z-20 flex items-center justify-center text-center lg:justify-start lg:text-left lg:pl-64">
     <div id="hero-content">
-      <h1 id="hero-typing" data-aos="fade-up" data-aos-duration="800" class="text-gray-900 dark:text-white"></h1>
-      <p id="hero-typing-subtitle" data-aos="fade-up" data-aos-duration="1000" class="text-gray-700 dark:text-gray-200"></p>
-      <span id="hero-mouse" data-aos="fade-up" data-aos-duration="1200" class="relative flex items-center justify-center mt-8">
-        <svg class="w-8 h-8 text-white" fill="none" viewBox="0 0 40 64" xmlns="http://www.w3.org/2000/svg">
-          <rect x="4" y="4" width="32" height="56" rx="16" stroke="currentColor" stroke-width="3" fill="none"/>
-          <circle class="animate-bounce" cx="20" cy="18" r="3" fill="currentColor"/>
-        </svg>
-      </span>
+      <div class="flex items-center gap-6">
+        <h1 id="hero-typing" data-aos="fade-up" data-aos-duration="800" class="text-gray-900 dark:text-white"></h1>
+        <div id="hero-line" class="hidden lg:block w-96 opacity-20 bg-[#ffe066]" style="height: 0.5px; transform: scaleX(0); transform-origin: left;"></div>
+      </div>
+      <p id="hero-typing-subtitle" data-aos="fade-up" data-aos-duration="1000" class="text-gray-700 dark:text-gray-200 mt-4"></p>
     </div>
+    <span id="hero-mouse" class="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center justify-center">
+      <svg class="w-8 h-8 text-white" fill="none" viewBox="0 0 40 64" xmlns="http://www.w3.org/2000/svg">
+        <rect x="4" y="4" width="32" height="56" rx="16" stroke="currentColor" stroke-width="3" fill="none"/>
+        <circle class="animate-bounce" cx="20" cy="18" r="3" fill="currentColor"/>
+      </svg>
+    </span>
   </section>
 
   <!-- Language Switcher (Hero bottom-right) -->
