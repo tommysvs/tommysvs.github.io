@@ -285,9 +285,9 @@ window.addEventListener('scroll', () => {
   const curtain = document.getElementById('scroll-top');
   if (!curtain) return;
   if (window.scrollY > window.innerHeight * 0.5) {
-    curtain.style.display = 'flex';
+    curtain.classList.add('visible');
   } else {
-    curtain.style.display = 'none';
+    curtain.classList.remove('visible');
   }
 });
 
@@ -410,7 +410,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuToggle = document.getElementById('menu-toggle');
   const fullscreenMenu = document.getElementById('fullscreen-menu');
   const navLinks = fullscreenMenu.querySelectorAll('.fullscreen-nav-link');
-  const portfolioBtn = document.querySelector('a[href="portfolio.html"]');
+  const portfolioBtn = document.querySelector('a[href="portfolio/"], a[href="portfolio.html"]');
 
   menuToggle.addEventListener('click', () => {
     menuToggle.classList.toggle('open');
