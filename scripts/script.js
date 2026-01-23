@@ -540,7 +540,7 @@ window.addEventListener('scroll', () => {
 // --- GSAP GLOW ANIMATION ON PORTFOLIO BUTTON ---
 document.addEventListener('DOMContentLoaded', () => {
   if (!window.gsap) return;
-  const portfolioBtn = document.querySelector('a[href="portfolio.html"]');
+  const portfolioBtn = document.querySelector('a[href="portfolio/"], a[href="portfolio.html"]');
   if (!portfolioBtn) return;
 
   portfolioBtn.style.position = 'relative';
