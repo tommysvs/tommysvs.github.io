@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cursorDot.style.top = cursorRing.style.top = e.clientY + 'px';
   });
 
-  document.querySelectorAll('a, button, #scroll-top').forEach(el => {
+  document.querySelectorAll('a, button, #scroll-top, .skill-badge').forEach(el => {
     el.addEventListener('mouseenter', () => {
       cursorDot.classList.add('grow');
     });
@@ -599,5 +599,47 @@ document.addEventListener('DOMContentLoaded', () => {
       ribbon.addEventListener('mouseenter', () => tween.pause());
       ribbon.addEventListener('mouseleave', () => tween.resume());
     }
+  });
+});
+
+// --- TOOLTIP ANIMATION (GSAP) ---
+document.addEventListener('DOMContentLoaded', () => {
+  if (!window.gsap) return;
+  document.querySelectorAll('.tooltip-wrap').forEach((wrap) => {
+    const bubble = wrap.querySelector('.tooltip-bubble');
+    const arrow = wrap.querySelector('.tooltip-arrow');
+    if (!bubble || !arrow) return;
+
+    gsap.set(bubble, { autoAlpha: 0, y: 12, scale: 0.85, rotate: -2, filter: 'blur(4px)' });
+    gsap.set(arrow, { autoAlpha: 0, y: 8, scale: 0.6, rotate: 45, filter: 'blur(2px)' });
+
+    const tl = gsap.timeline({ paused: true });
+    tl.to(bubble, {
+      duration: 0.28,
+      autoAlpha: 1,
+      y: 0,
+      scale: 1,
+      rotate: 0,
+      filter: 'blur(0px)',
+      ease: 'back.out(1.6)',
+      boxShadow: '0 12px 34px rgba(0,0,0,0.38), 0 0 0 1px rgba(255,224,102,0.18)'
+    })
+    .to(arrow, {
+      duration: 0.18,
+      autoAlpha: 1,
+      y: 0,
+      scale: 1,
+      rotate: 45,
+      filter: 'blur(0px)',
+      ease: 'back.out(1.4)'
+    }, '-=0.16');
+
+    const show = () => tl.play();
+    const hide = () => tl.reverse();
+
+    wrap.addEventListener('mouseenter', show);
+    wrap.addEventListener('mouseleave', hide);
+    wrap.addEventListener('focus', show, true);
+    wrap.addEventListener('blur', hide, true);
   });
 });
