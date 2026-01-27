@@ -184,14 +184,13 @@ function updateLanguage() {
 // --- CUSTOM CURSOR ---
 document.addEventListener('DOMContentLoaded', () => {
   const cursorDot = document.querySelector('.cursor-dot');
-  const cursorRing = document.querySelector('.cursor-ring');
 
   document.addEventListener('mousemove', e => {
-    cursorDot.style.left = cursorRing.style.left = e.clientX + 'px';
-    cursorDot.style.top = cursorRing.style.top = e.clientY + 'px';
+    cursorDot.style.left = e.clientX + 'px';
+    cursorDot.style.top = e.clientY + 'px';
   });
 
-  document.querySelectorAll('a, button, #scroll-top, .skill-badge').forEach(el => {
+  document.querySelectorAll('a, button, #scroll-top, .naip-card, .skill-badge').forEach(el => {
     el.addEventListener('mouseenter', () => {
       cursorDot.classList.add('grow');
     });
@@ -282,7 +281,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderer.domElement.style.pointerEvents = "none";
   container.appendChild(renderer.domElement);
 
-  const particleCount = 100;
+  const particleCount = 500;
   const spread = 200;
   const positions = [];
   const basePositions = [];
@@ -299,7 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const geometry = new THREE.BufferGeometry();
   geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
   const material = new THREE.PointsMaterial({
-    color: 0xffe066,
+    color: 0x34ebab,
     size: 0.3,
     transparent: true,
     opacity: 0.5
@@ -328,6 +327,7 @@ document.addEventListener('DOMContentLoaded', () => {
     geometry.attributes.position.needsUpdate = true;
     renderer.render(scene, camera);
   }
+
   animateParticles();
 
   window.addEventListener('resize', () => {
@@ -573,5 +573,105 @@ document.addEventListener('DOMContentLoaded', () => {
     wrap.addEventListener('mouseleave', hide);
     wrap.addEventListener('focus', show, true);
     wrap.addEventListener('blur', hide, true);
+  });
+});
+
+// --- EXPERIENCE TABS ---
+document.addEventListener('DOMContentLoaded', function() {
+  const tabs = document.querySelectorAll('.exp-tab');
+  const panels = document.querySelectorAll('.exp-panel');
+  function activateTab(tab) {
+    tabs.forEach(t => t.classList.remove(
+      'border-cyan-400',
+      'bg-[#ffe066]/10',
+      'focus:bg-[#ffe066]/20',
+      'border-cyan-400',
+      'bg-[#6a11cb70]',
+      'focus:bg-[#6a11cb70]',
+      'bg-gradient-to-r',
+      'from-[#6a11cb]/60',
+      'to-cyan-300/40',
+      'from-[#23232b]',
+      'to-[#23232b]'
+    ));
+    panels.forEach(p => p.classList.add('hidden'));
+    tabs.forEach(t => t.classList.add('bg-gradient-to-r', 'from-[#23232b]', 'to-[#23232b]'));
+    tab.classList.add('border-cyan-400', 'bg-gradient-to-r', 'from-[#6a11cb]/60', 'to-cyan-300/40');
+    document.getElementById(tab.getAttribute('data-tab')).classList.remove('hidden');
+  }
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => activateTab(tab));
+  });
+  if (tabs.length) activateTab(tabs[0]);
+});
+
+// --- EXPERIENCE 3D TILT ANIMATION ---
+document.addEventListener('DOMContentLoaded', function() {
+  const expContainer = document.querySelector('#experience .flex.md\\:flex-row');
+  if (expContainer && window.gsap) {
+    let bounds = null;
+    const baseGlow = {blur: 18, color: '#6a11cb44', blur2: 4, color2: '#1eb8ff22'};
+    function setGlowByTilt(rotateX, rotateY) {
+      const offsetX = Math.round(-rotateY * 2.5);
+      const offsetY = Math.round(rotateX * 2.5);
+      expContainer.style.boxShadow = `${offsetX}px ${offsetY}px ${baseGlow.blur}px 0 ${baseGlow.color}, ${offsetX/2}px ${offsetY/2}px ${baseGlow.blur2}px 0 ${baseGlow.color2}`;
+    }
+    expContainer.addEventListener('mouseenter', () => {
+      bounds = expContainer.getBoundingClientRect();
+    });
+    expContainer.addEventListener('mousemove', (e) => {
+      if (!bounds) bounds = expContainer.getBoundingClientRect();
+      const x = e.clientX - bounds.left;
+      const y = e.clientY - bounds.top;
+      const centerX = bounds.width / 2;
+      const centerY = bounds.height / 2;
+      const rotateY = ((x - centerX) / centerX) * 10;
+      const rotateX = -((y - centerY) / centerY) * 10;
+      gsap.to(expContainer, {
+        rotateY,
+        rotateX,
+        transformPerspective: 900,
+        transformOrigin: 'center',
+        duration: 0.4,
+        ease: 'power2.out',
+        onUpdate: function() {
+          const curRotateX = gsap.getProperty(expContainer, 'rotateX');
+          const curRotateY = gsap.getProperty(expContainer, 'rotateY');
+          setGlowByTilt(curRotateX, curRotateY);
+        }
+      });
+      setGlowByTilt(rotateX, rotateY);
+    });
+    expContainer.addEventListener('mouseleave', () => {
+      gsap.to(expContainer, {
+        rotateY: 0,
+        rotateX: 0,
+        duration: 0.6,
+        ease: 'power2.out',
+        onUpdate: function() {
+          setGlowByTilt(0, 0);
+        }
+      });
+    });
+
+    setGlowByTilt(0, 0);
+  }
+});
+
+// --- SMOOTH SCROLL WITHOUT HASH ---
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href').slice(1);
+      const target = document.getElementById(targetId);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const menu = document.getElementById('fullscreen-menu');
+        if (menu && menu.classList.contains('!translate-x-0')) {
+          menu.classList.remove('!translate-x-0');
+        }
+      }
+    });
   });
 });

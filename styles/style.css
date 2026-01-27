@@ -9,7 +9,7 @@
 }
 
 @keyframes cursorPulse {
-  0% { box-shadow: 0 0 0 0 #ffe06680; }
+  0% { box-shadow: 0 0 0 0 #ffe06690; }
   70% { box-shadow: 0 0 0 10px #ffe06600; }
   100% { box-shadow: 0 0 0 0 #ffe06600; }
 }
@@ -42,7 +42,7 @@ a, button, input, textarea, select, label {
   display: none !important;
 }
 
-/* Background Styles */
+/* Background */
 #three-bg {
   position: fixed;
   inset: 0;
@@ -71,7 +71,7 @@ a, button, input, textarea, select, label {
   margin-bottom: 0;
 }
 
-/* Menu Toggle Styles */
+/* Menu Toggle */
 #menu-toggle .menuline {
   height: 1px;
   background: #fff;
@@ -131,7 +131,7 @@ a, button, input, textarea, select, label {
   transform: translateX(4px) rotate(3deg);
 }
 
-/* Fullscreen Navigation Styles */
+/* Fullscreen Navigation */
 .fullscreen-nav-link {
   position: relative;
   overflow: hidden;
@@ -175,7 +175,7 @@ a, button, input, textarea, select, label {
   line-height: 1.1;
 }
 
-/* Language Switcher Styles */
+/* Language Switcher */
 .language-switcher {
   position: fixed;
   bottom: 1rem;
@@ -275,16 +275,14 @@ body.scrolled .language-switcher {
   opacity: 0.6;
 }
 
-/* Section Styles */
-.about-section {
+/* Key Sections */
+.custom-section {
   position: relative; 
-  z-index: 30; 
-  margin-top: 100vh;
   background: transparent;
   backdrop-filter: blur(4px);
 }
 
-/* Hero Section Styles */
+/* Hero Section */
 .typing-cursor {
   display: inline-block;
   color: #fff;
@@ -345,7 +343,12 @@ body.scrolled .hero {
   pointer-events: none;
 }
 
-/* About Section Styles */
+/* About Section */
+.about-section {
+  z-index: 30; 
+  margin-top: 100vh;
+}
+
 #naip-stack {
   perspective: 1200px;
   width: 370px;
@@ -581,6 +584,8 @@ body.scrolled .hero {
   }
 }
 
+
+/* Skills Section */
 .skills-ribbon {
   position: relative;
   width: 100%;
@@ -684,7 +689,7 @@ body.scrolled .hero {
   }
 }
 
-/* Footer Styles */
+/* Footer */
 .footer {
   text-align: center;
   padding: 2rem 1.5rem;
@@ -758,7 +763,7 @@ body.scrolled .hero {
   transform: scale(0.97) translateY(4px);
 }
 
-/* Scrollbar Styles */
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
   background: transparent;
@@ -779,21 +784,23 @@ body.scrolled .hero {
   border-radius: 8px;
 }
 
-/* Custom Cursor Styles */
+/* Custom Cursor */
 #custom-cursor {
   pointer-events: none;
   position: fixed;
   z-index: 99999;
-  top: 0; left: 0;
+  top: 0; 
+  left: 0;
 }
 
 .cursor-dot {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   background: #ffe066;
   border-radius: 50%;
   position: absolute;
-  left: 0; top: 0;
+  left: 0; 
+  top: 0;
   transform: translate(-50%, -50%);
   transition: width 0.2s, height 0.2s, background 0.2s;
   z-index: 2;
@@ -804,19 +811,6 @@ body.scrolled .hero {
   width: 40px;
   height: 40px;
   background: #ffe06699;
-}
-
-.cursor-ring {
-  width: 40px;
-  height: 40px;
-  border: 80px solid #9fddff30;
-  border-radius: 50%;
-  position: absolute;
-  left: 0; top: 0;
-  transform: translate(-50%, -50%);
-  transition: border-color 0.2s;
-  filter: blur(100px);
-  z-index: 1;
 }
 
 @media (pointer: coarse), (max-width: 768px) {

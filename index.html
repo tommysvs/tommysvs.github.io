@@ -21,7 +21,6 @@
   <!-- Custom Cursor -->
   <div id="custom-cursor">
     <div class="cursor-dot"></div>
-    <div class="cursor-ring"></div>
   </div>
 
   <!-- Background Particles -->
@@ -147,7 +146,7 @@
   </button>
 
   <!-- About Me Section -->
-  <section id="about" class="about-section w-full flex flex-col items-center justify-center min-h-screen bg-transparent">
+  <section id="about" class="custom-section about-section w-full flex flex-col items-center justify-center min-h-screen bg-transparent">
     <div class="text-center mb-10 px-4">
       <h2 class="text-3xl md:text-4xl font-bold mb-2 text-white flex items-center justify-center gap-2 drop-shadow-lg">
         <span class="text-[#ffe066]">01.</span>
@@ -192,7 +191,7 @@
   </section>
 
   <!-- Skills Section -->
-  <section id="skills" class="relative flex flex-col items-center justify-center min-h-screen bg-transparent py-20">
+  <section id="skills" class="custom-section relative flex flex-col items-center justify-center min-h-screen bg-transparent py-20">
     <div class="w-full">
       <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white flex items-center justify-center gap-2 drop-shadow-lg">
         <span class="text-[#ffe066]">02.</span>
@@ -252,24 +251,99 @@
             <span class="skill-badge"><i class="fas fa-wifi skill-icon" style="color: #0078D4;"></i>Ubiquiti</span>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
   <!-- Experience Section -->
-  <section id="experience" class="relative flex flex-col items-center justify-center min-h-screen px-4 md:px-12 bg-transparent text-center">
-    <div class="max-w-3xl">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white flex items-center justify-center gap-2 drop-shadow-lg">
+  <section id="experience" class="custom-section relative flex flex-col items-center justify-center min-h-screen px-4 md:px-12 bg-transparent">
+    <div class="w-full max-w-5xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold mb-8 text-white flex items-center gap-2 drop-shadow-lg justify-center text-center">
         <span class="text-[#ffe066]">03.</span>
         <span class="text-white" data-lang="experience">Experience</span>
       </h2>
-      <p class="text-white/80 text-lg" data-lang="sectionConstruction">Section under construction</p>
+      <div class="mt-0 md:mt-14"></div>
+      <div data-aos="fade-up" data-aos-duration="800">
+        <div class="flex flex-col md:flex-row bg-[#23232b] rounded-2xl shadow-lg overflow-hidden min-h-[400px] backdrop-blur-md bg-opacity-70 border border-white/10">
+        <div class="flex md:flex-col border-b md:border-b-0 md:border-r border-[#6a11cb70]/20 bg-[#18181b] md:min-w-[220px]">
+        <div class="flex md:flex-col border-b md:border-b-0 md:border-r border-[#6a11cb70]/20 bg-[#18181b] md:min-w-[220px] overflow-x-auto md:overflow-x-visible whitespace-nowrap scrollbar-thin scrollbar-thumb-[#6a11cb70] scrollbar-track-transparent" style="-webkit-overflow-scrolling: touch;">
+          <button class="exp-tab px-6 py-4 text-left text-white font-semibold bg-gradient-to-r from-[#23232b] to-[#23232b] hover:from-[#6a11cb]/40 hover:to-cyan-300/30 focus:from-[#6a11cb]/60 focus:to-cyan-300/40 border-l-4 border-transparent focus:border-cyan-400 transition flex-shrink-0 w-auto md:w-full" data-tab="exp1">Grupo Platino</button>
+          <button class="exp-tab px-6 py-4 text-left text-white font-semibold bg-gradient-to-r from-[#23232b] to-[#23232b] hover:from-[#6a11cb]/40 hover:to-cyan-300/30 focus:from-[#6a11cb]/60 focus:to-cyan-300/40 border-l-4 border-transparent focus:border-cyan-400 transition flex-shrink-0 w-auto md:w-full" data-tab="exp2">Grupo IB</button>
+          <button class="exp-tab px-6 py-4 text-left text-white font-semibold bg-gradient-to-r from-[#23232b] to-[#23232b] hover:from-[#6a11cb]/40 hover:to-cyan-300/30 focus:from-[#6a11cb]/60 focus:to-cyan-300/40 border-l-4 border-transparent focus:border-cyan-400 transition flex-shrink-0 w-auto md:w-full" data-tab="exp3">GRS Electrodomésticos</button>
+          <button class="exp-tab px-6 py-4 text-left text-white font-semibold bg-gradient-to-r from-[#23232b] to-[#23232b] hover:from-[#6a11cb]/40 hover:to-cyan-300/30 focus:from-[#6a11cb]/60 focus:to-cyan-300/40 border-l-4 border-transparent focus:border-cyan-400 transition flex-shrink-0 w-auto md:w-full" data-tab="exp4">Seaboard Solutions</button>
+          <button class="exp-tab px-6 py-4 text-left text-white font-semibold bg-gradient-to-r from-[#23232b] to-[#23232b] hover:from-[#6a11cb]/40 hover:to-cyan-300/30 focus:from-[#6a11cb]/60 focus:to-cyan-300/40 border-l-4 border-transparent focus:border-cyan-400 transition flex-shrink-0 w-auto md:w-full" data-tab="exp5">Verde Creativa</button>
+        </div>
+        </div>
+        <div class="flex-1 p-6 md:p-10 text-left relative">
+          <div class="exp-panel" id="exp1">
+            <h3 class="text-2xl font-bold text-[#ffe066]">Project Manager / Systems Analyst <span class="text-white font-normal">@ Grupo Platino</span></h3>
+            <p class="text-white/70 text-sm mb-2">Mar 2025 - Present · 11 mos | San Pedro Sula, Cortés, Honduras</p>
+            <ul class="list-disc ml-6 text-white/90 space-y-2">
+              <li>Leadership of system integration and improvement projects, including implementations such as Kananfleet, coordinating teams and ensuring measurable results in efficiency and operations.</li>
+              <li>Development of customized solutions in SAP Business One using .NET 8 (SDK and Service Layer), tailoring the system to the needs of different business areas.</li>
+              <li>Creation of advanced reports with Crystal Reports and Power BI, enabling data-driven decision-making through accurate and timely information.</li>
+              <li>Process automation and data integration through ETL in SQL Server, centralizing information from SAP Business One, CRM, and Jotform to improve data consistency and operational analysis.</li>
+            </ul>
+            <div class="mt-3 text-xs text-white/60">
+              <strong>Skills:</strong> SAP Business One · ASP.NET MVC · SAP HANA · C# · Microsoft Power BI · GitHub · Node.js · SAP SDK · Three.js · .NET Core · Git · Databases · Crystal Reports · SQL
+            </div>
+          </div>
+          <div class="exp-panel hidden" id="exp2">
+            <h3 class="text-2xl font-bold text-[#ffe066]">IT Manager <span class="text-white font-normal">@ Grupo IB - Agentes de Aduana y Logística</span></h3>
+            <p class="text-white/70 text-sm mb-2">Sep 2023 - Nov 2024 · 1 yr 3 mos | San Pedro Sula, Cortés, Honduras · On-site</p>
+            <ul class="list-disc ml-6 text-white/90 space-y-2">
+              <li>Leadership of the IT area and administration of SAP Business One in Honduras, Nicaragua, and Costa Rica, combining strategic management with hands-on technical support for operations.</li>
+              <li>Execution of process improvement and automation projects, including SAP Business One optimizations and the implementation of payroll systems for HR, reducing manual tasks and improving operational efficiency.</li>
+              <li>Supervision of infrastructure, networks, and user support across nine customs offices, including switches, servers, and continuity of technological services.</li>
+              <li>Management of IT staff, budget, and vendors, ensuring efficient use of resources and operational stability.</li>
+            </ul>
+            <div class="mt-3 text-xs text-white/60">
+              <strong>Skills:</strong> SAP Business One · Microsoft Azure · SAP HANA · Microsoft Office · CCTV · Databases · Crystal Reports · Fortinet · SQL
+            </div>
+          </div>
+          <div class="exp-panel hidden" id="exp3">
+            <h3 class="text-2xl font-bold text-[#ffe066]">Regional ERP Lead <span class="text-white font-normal">@ GRS Electrodomésticos</span></h3>
+            <p class="text-white/70 text-sm mb-2">Jan 2022 - Aug 2023 · 1 yr 8 mos | San Pedro Sula, Cortés, Honduras · Hybrid</p>
+            <ul class="list-disc ml-6 text-white/90 space-y-2">
+              <li>Regional administration of SAP Business One in Central America, ensuring system stability, proper cross-department integration, and business operational continuity.</li>
+              <li>Leadership and execution of IT projects, working directly with Finance, Logistics, HR, Sales, Marketing, and Customer Service to align systems with business needs and improve operational efficiency.</li>
+              <li>Design, development, and oversight of ETL processes and SQL-based solutions (HANA, SQL Server, and MySQL), ensuring accurate reporting, improving data availability for strategic decision-making, and strengthening interdepartmental coordination.</li>
+            </ul>
+            <div class="mt-3 text-xs text-white/60">
+              <strong>Skills:</strong> HubSpot · SAP Business One · MySQL · SAP HANA · Microsoft Power BI · WordPress · GitHub · SQL Server Integration Services (SSIS) · Shopify · SQL Server Reporting Services (SSRS) · Odoo · Microsoft Office · PostgreSQL · Git · Databases · Crystal Reports · SQL
+            </div>
+          </div>
+          <div class="exp-panel hidden" id="exp4">
+            <h3 class="text-2xl font-bold text-[#ffe066]">Application Developer <span class="text-white font-normal">@ Seaboard Solutions</span></h3>
+            <p class="text-white/70 text-sm mb-2">Oct 2019 - Jul 2020 · 10 mos | San Pedro Sula, Cortés, Honduras · Hybrid</p>
+            <ul class="list-disc ml-6 text-white/90 space-y-2">
+              <li>Development of web applications in ASP.NET MVC with SQL Server, implementing functional solutions for internal processes.</li>
+              <li>Interface design using Kendo UI and Figma, focused on user experience and operational efficiency.</li>
+              <li>Project management with JIRA, planning tasks and sprints to achieve development objectives.</li>
+            </ul>
+            <div class="mt-3 text-xs text-white/60">
+              <strong>Skills:</strong> HTML5 · ASP.NET MVC · HTML · C# · GitHub · .NET Framework · Bootstrap · XML · CSS · JavaScript · Telerik · Microsoft Office · jQuery · .NET Core · Git · AJAX · Databases · JIRA · SQL
+            </div>
+          </div>
+          <div class="exp-panel hidden" id="exp5">
+            <h3 class="text-2xl font-bold text-[#ffe066]">Webmaster <span class="text-white font-normal">@ Verde Creativa</span></h3>
+            <p class="text-white/70 text-sm mb-2">Jun 2019 - Sep 2019 · 4 mos | San Pedro Sula, Cortés, Honduras · On-site</p>
+            <ul class="list-disc ml-6 text-white/90 space-y-2">
+              <li>Administration and maintenance of websites using PHP, MySQL, and WordPress.</li>
+              <li>Creation of pages with HTML, CSS, and Bootstrap, adapting designs from the graphic team.</li>
+              <li>File management via FTP and general website support.</li>
+            </ul>
+            <div class="mt-3 text-xs text-white/60">
+              <strong>Skills:</strong> HTML5 · MySQL · HTML · Adobe Illustrator · Figma (Software) · Bootstrap · CSS · JavaScript · Microsoft Office · Adobe Photoshop · PHP
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Education Section -->
-  <section id="education" class="education-section relative flex flex-col items-center justify-center min-h-screen bg-transparent">
+  <section id="education" class="custom-section education-section relative flex flex-col items-center justify-center min-h-screen bg-transparent">
     <div class="text-center mb-12 px-4">
       <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white flex items-center justify-center gap-2 drop-shadow-lg">
         <span class="text-[#ffe066]">04.</span>
@@ -321,7 +395,7 @@
   </section>
 
   <!-- Resume Section -->
-  <section id="resume" data-aos="fade-up" data-aos-duration="800" class="relative flex items-center justify-center min-h-screen px-4 md:px-12 bg-transparent bg-opacity-90 text-gray-800 rounded-3xl mx-auto overflow-hidden pt-16">
+  <section id="resume" data-aos="fade-up" data-aos-duration="800" class="custom-section relative flex items-center justify-center min-h-screen px-4 md:px-12 bg-transparent bg-opacity-90 text-gray-800 rounded-3xl mx-auto overflow-hidden pt-16">
     <div class="section-content relative z-10 flex flex-col items-center">
       <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center text-white flex items-center gap-2 drop-shadow-lg">
         <span class="text-[#ffe066]">05.</span>
@@ -344,7 +418,7 @@
   </section>
 
   <!-- Footer -->
-  <footer data-aos="fade-up" data-aos-duration="800" id="footer" class="footer bg-transparent">
+  <footer data-aos="fade-up" data-aos-duration="800" id="footer" class="footer custom-section bg-transparent">
     <div class="w-full px-4">
       <div class="flex flex-wrap justify-center items-center gap-x-2 gap-y-2 sm:gap-x-4 sm:gap-y-2 mb-6 text-sm sm:text-base max-w-sm sm:max-w-none mx-auto">
         <a href="#about" class="footer-link whitespace-nowrap"><span class="footer-num mr-1">01.</span><span class="footer-label" data-lang="about">About me</span></a>
