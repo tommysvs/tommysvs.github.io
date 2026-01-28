@@ -243,7 +243,7 @@ a, button, input, textarea, select, label {
 }
 
 #menu-toggle.open .line3 {
-  transform: translateY(-6px) rotate(-45deg);
+  transform: translateY(-4px) rotate(-45deg);
   width: 28px;
 }
 
@@ -324,15 +324,8 @@ a, button, input, textarea, select, label {
   outline: none;
   cursor: pointer;
   user-select: none;
-  display: flex !important;
+  display: flex;
   align-items: center;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-body.scrolled .language-switcher {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease;
 }
 
 .switch-track {
@@ -936,6 +929,17 @@ body.scrolled .hero {
 ::-webkit-scrollbar-track {
   background: #18181b;
   border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  html {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
 }
 
 /* Custom Cursor */

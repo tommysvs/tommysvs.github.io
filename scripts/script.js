@@ -3,24 +3,6 @@ if (typeof translations === 'undefined') {
   console.error('Translations not loaded. Include scripts/translations.js before script.js.');
 }
 
-// --- UPDATE FOOTER LANGUAGE ---
-function updateFooterLanguage(lang) {
-  document.querySelectorAll("[data-lang]").forEach((el) => {
-    const key = el.getAttribute("data-lang");
-    if (key === "contact") {
-      const emailLink = el.querySelector("a");
-      el.innerHTML = `${translations[lang][key]} `;
-      if (emailLink) {
-        el.appendChild(emailLink);
-      }
-    } else if (key === "credits") {
-      el.innerHTML = translations[lang][key];
-    } else {
-      el.textContent = translations[lang][key];
-    }
-  });
-}
-
 // --- TYPYNG EFFECT ---
 function typeText(el, text, callback) {
   let plain = '';
@@ -200,6 +182,24 @@ function updateLanguage() {
     heroBtn.textContent = translations[currentLanguage].discoverMore;
 }
 
+// --- UPDATE FOOTER LANGUAGE ---
+function updateFooterLanguage(lang) {
+  document.querySelectorAll("[data-lang]").forEach((el) => {
+    const key = el.getAttribute("data-lang");
+    if (key === "contact") {
+      const emailLink = el.querySelector("a");
+      el.innerHTML = `${translations[lang][key]} `;
+      if (emailLink) {
+        el.appendChild(emailLink);
+      }
+    } else if (key === "credits") {
+      el.innerHTML = translations[lang][key];
+    } else {
+      el.textContent = translations[lang][key];
+    }
+  });
+}
+
 // --- CUSTOM CURSOR ---
 document.addEventListener('DOMContentLoaded', () => {
   const cursorDot = document.querySelector('.cursor-dot');
@@ -267,6 +267,52 @@ document.addEventListener('scroll', () => {
   });
 });
 
+// --- SCROLL EFFECTS ---
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 10) {
+    document.body.classList.add('scrolled');
+  } else {
+    document.body.classList.remove('scrolled');
+  }
+});
+
+// --- SMOOTH SCROLL WITHOUT HASH ---
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href').slice(1);
+      const target = document.getElementById(targetId);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const menu = document.getElementById('fullscreen-menu');
+        if (menu && menu.classList.contains('!translate-x-0')) {
+          menu.classList.remove('!translate-x-0');
+        }
+      }
+    });
+  });
+});
+
+// --- SPOTLIGHT OPACITY ON SCROLL ---
+document.addEventListener('DOMContentLoaded', function () {
+  const purple = document.querySelector('.global-spotlight-purple');
+  const blue = document.querySelector('.global-spotlight-blue');
+  function updateSpotlightByScroll() {
+    const faint = window.scrollY > 80;
+    if (purple) {
+      purple.style.transition = 'opacity 0.5s';
+      purple.style.opacity = faint ? '0.25' : '0.85';
+    }
+    if (blue) {
+      blue.style.transition = 'opacity 0.5s';
+      blue.style.opacity = faint ? '0.15' : '0.75';
+    }
+  }
+  window.addEventListener('scroll', updateSpotlightByScroll);
+  updateSpotlightByScroll();
+});
+
 // --- SCROLL TO TOP ---
 window.addEventListener('scroll', () => {
   const curtain = document.getElementById('scroll-top');
@@ -327,42 +373,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// --- HIDE MOBILE SOCIAL ICONS ON FOOTER INTERSECTION WITH FADE ---
-document.addEventListener("DOMContentLoaded", function () {
-  const mobileSocial = document.querySelector('.fixed.left-4.bottom-16.z-\\[9997\\]');
-  const footer = document.getElementById('footer');
-
-  if (!mobileSocial || !footer) return;
-
-  mobileSocial.style.transition = 'opacity 0.4s';
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          mobileSocial.style.opacity = '0';
-          mobileSocial.style.pointerEvents = 'none';
-        } else {
-          mobileSocial.style.opacity = '1';
-          mobileSocial.style.pointerEvents = '';
-        }
-      });
-    },
-    { threshold: 0.1 }
-  );
-
-  observer.observe(footer);
-});
-
-// --- SCROLL EFFECTS ---
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 10) {
-    document.body.classList.add('scrolled');
-  } else {
-    document.body.classList.remove('scrolled');
-  }
-});
-
 // --- CLOCK TIME ZONE ---
 function updateClock() {
   const tz = 'America/Tegucigalpa';
@@ -373,22 +383,6 @@ function updateClock() {
 }
 setInterval(updateClock, 1000);
 updateClock();
-
-// --- NAIP STACK CARD INTERACTION ---
-document.addEventListener("DOMContentLoaded", function () {
-  const cards = Array.from(document.querySelectorAll("#naip-stack .naip-card"));
-  cards.forEach(card => {
-    card.addEventListener("click", function () {
-      cards.forEach(c => c.classList.remove("active"));
-      this.classList.add("active");
-      this.style.zIndex = 20;
-      cards.filter(c => c !== this).forEach((c, i) => {
-        c.style.zIndex = 10 - i;
-      });
-    });
-  });
-  if (cards[0]) cards[0].classList.add("active");
-});
 
 // --- HIDE TIME ZONE GROUP ON SCROLL ---
 window.addEventListener('scroll', () => {
@@ -414,43 +408,20 @@ window.addEventListener('scroll', () => {
   }
 });
 
-
-// --- GSAP RIBBON SCROLL ANIMATION ---
-document.addEventListener('DOMContentLoaded', () => {
-  if (!window.gsap) return;
-  const ribbons = gsap.utils.toArray('.skills-ribbon');
-  
-  ribbons.forEach((ribbon, index) => {
-    const track = ribbon.querySelector('.skills-track');
-    if (!track) return;
-    
-    const items = track.querySelectorAll('.skill-badge');
-    const clonedItems = Array.from(items).map(item => item.cloneNode(true));
-    clonedItems.forEach(item => track.appendChild(item));
-    
-    const isReverse = index % 2 === 1;
-    
-    if (isReverse) {
-      gsap.set(track, { x: '-50%' });
-      const tween = gsap.to(track, {
-        x: '0%',
-        duration: 30,
-        ease: 'none',
-        repeat: -1
+// --- NAIP STACK CARD INTERACTION ---
+document.addEventListener("DOMContentLoaded", function () {
+  const cards = Array.from(document.querySelectorAll("#naip-stack .naip-card"));
+  cards.forEach(card => {
+    card.addEventListener("click", function () {
+      cards.forEach(c => c.classList.remove("active"));
+      this.classList.add("active");
+      this.style.zIndex = 20;
+      cards.filter(c => c !== this).forEach((c, i) => {
+        c.style.zIndex = 10 - i;
       });
-      ribbon.addEventListener('mouseenter', () => tween.pause());
-      ribbon.addEventListener('mouseleave', () => tween.resume());
-    } else {
-      const tween = gsap.to(track, {
-        x: '-50%',
-        duration: 30,
-        ease: 'none',
-        repeat: -1
-      });
-      ribbon.addEventListener('mouseenter', () => tween.pause());
-      ribbon.addEventListener('mouseleave', () => tween.resume());
-    }
+    });
   });
+  if (cards[0]) cards[0].classList.add("active");
 });
 
 // --- GSAP TOOLTIP ANIMATION ---
@@ -492,6 +463,44 @@ document.addEventListener('DOMContentLoaded', () => {
     wrap.addEventListener('mouseleave', hide);
     wrap.addEventListener('focus', show, true);
     wrap.addEventListener('blur', hide, true);
+  });
+});
+
+// --- GSAP RIBBON SCROLL ANIMATION ---
+document.addEventListener('DOMContentLoaded', () => {
+  if (!window.gsap) return;
+  const ribbons = gsap.utils.toArray('.skills-ribbon');
+  
+  ribbons.forEach((ribbon, index) => {
+    const track = ribbon.querySelector('.skills-track');
+    if (!track) return;
+    
+    const items = track.querySelectorAll('.skill-badge');
+    const clonedItems = Array.from(items).map(item => item.cloneNode(true));
+    clonedItems.forEach(item => track.appendChild(item));
+    
+    const isReverse = index % 2 === 1;
+    
+    if (isReverse) {
+      gsap.set(track, { x: '-50%' });
+      const tween = gsap.to(track, {
+        x: '0%',
+        duration: 30,
+        ease: 'none',
+        repeat: -1
+      });
+      ribbon.addEventListener('mouseenter', () => tween.pause());
+      ribbon.addEventListener('mouseleave', () => tween.resume());
+    } else {
+      const tween = gsap.to(track, {
+        x: '-50%',
+        duration: 30,
+        ease: 'none',
+        repeat: -1
+      });
+      ribbon.addEventListener('mouseenter', () => tween.pause());
+      ribbon.addEventListener('mouseleave', () => tween.resume());
+    }
   });
 });
 
@@ -575,43 +584,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     setGlowByTilt(0, 0);
   }
-});
-
-// --- SMOOTH SCROLL WITHOUT HASH ---
-document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener('click', function(e) {
-      const targetId = this.getAttribute('href').slice(1);
-      const target = document.getElementById(targetId);
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        const menu = document.getElementById('fullscreen-menu');
-        if (menu && menu.classList.contains('!translate-x-0')) {
-          menu.classList.remove('!translate-x-0');
-        }
-      }
-    });
-  });
-});
-
-// --- SPOTLIGHT OPACITY ON SCROLL (CLASS TOGGLE) ---
-document.addEventListener('DOMContentLoaded', function () {
-  const purple = document.querySelector('.global-spotlight-purple');
-  const blue = document.querySelector('.global-spotlight-blue');
-  function updateSpotlightByScroll() {
-    const faint = window.scrollY > 80;
-    if (purple) {
-      purple.style.transition = 'opacity 0.5s';
-      purple.style.opacity = faint ? '0.25' : '0.85';
-    }
-    if (blue) {
-      blue.style.transition = 'opacity 0.5s';
-      blue.style.opacity = faint ? '0.15' : '0.75';
-    }
-  }
-  window.addEventListener('scroll', updateSpotlightByScroll);
-  updateSpotlightByScroll();
 });
 
 // --- GSAP GLITCH EFFECT ON VERTICAL PORTFOLIO LINK ---
