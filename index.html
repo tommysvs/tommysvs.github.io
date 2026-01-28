@@ -23,8 +23,9 @@
     <div class="cursor-dot"></div>
   </div>
 
-  <!-- Background Particles -->
-  <div id="three-bg"></div>
+  <!-- Background Spotlights -->
+  <div class="global-spotlight global-spotlight-purple"></div>
+  <div class="global-spotlight global-spotlight-blue"></div>
 
   <!-- Timezone Clock -->
   <div id="timezone-clock" class="fixed top-4 left-4 z-[9996] bg-transparent backdrop-blur-md bg-opacity-90 text-[#fff] rounded-xl px-3 py-1 flex items-center gap-2 font-mono text-xs select-none">
@@ -42,36 +43,25 @@
 
   <!-- Social Media Links Desktop -->
   <div class="fixed left-4 top-1/2 z-[9997] flex-col items-center gap-6 -translate-y-1/2 backdrop-blur-md rounded-3xl px-3 py-4 hidden sm:flex">
+    <a href="portfolio/" class="vertical-portfolio-link mb-4 select-none">
+      <span class="vertical-text font-bold tracking-widest text-lg">Portfolio</span>
+    </a>
     <a href="https://www.linkedin.com/in/tommyvega" target="_blank" rel="noopener" class="group">
-      <i class="fab fa-linkedin text-xl text-white hover:text-[#ffe066] transition"></i>
+      <i class="fab fa-linkedin text-xl text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#7f5af0] hover:to-[#38bdf8] transition"></i>
     </a>
     <a href="https://github.com/tommysvs" target="_blank" rel="noopener" class="group">
-      <i class="fab fa-github text-xl text-white hover:text-[#ffe066] transition"></i>
+      <i class="fab fa-github text-xl text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#7f5af0] hover:to-[#38bdf8] transition"></i>
     </a>
   </div>
 
-  <!-- Social Media Links Mobile -->
-  <div class="fixed left-2 bottom-2 z-[9997] flex flex-col items-center gap-6 backdrop-blur-md rounded-3xl px-3 py-4 sm:hidden">
-    <a href="https://www.linkedin.com/in/tommyvega" target="_blank" rel="noopener" class="group">
-      <i class="fab fa-linkedin text-xl text-white hover:text-[#ffe066] transition"></i>
-    </a>
-    <a href="https://github.com/tommysvs" target="_blank" rel="noopener" class="group">
-      <i class="fab fa-github text-xl text-white hover:text-[#ffe066] transition"></i>
-    </a>
-  </div>
+  <!-- Portfolio Link Mobile -->
+  <a href="portfolio/" class="vertical-portfolio-link fixed left-2 bottom-2 z-[9997] mb-0 select-none block sm:hidden backdrop-blur-md rounded-3xl px-1 py-2">
+    <span class="vertical-text font-bold tracking-widest text-lg">Portfolio</span>
+  </a>
 
   <!-- Top Navigation Container -->
   <div class="fixed top-2 sm:top-4 right-4 z-[9998] flex items-center gap-4">
-    <!-- Portfolio Button -->
-    <a href="portfolio/" class="px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base font-semibold rounded-full border border-[#ffe066]/50 hover:border-[#ffe066] overflow-hidden group relative w-fit transition-opacity duration-300 backdrop-blur-md bg-white/5 hover:bg-white/10">
-      <span class="relative z-10 flex items-center gap-2 text-white group-hover:text-[#1a1a1b]" data-lang="portfolio">
-        Portfolio
-      </span>
-      <div class="absolute inset-0 bg-[#ffe066] -z-10 transform scale-y-0 origin-bottom group-hover:scale-y-100 transition-transform duration-500 ease-out"></div>
-    </a>
-
-    <!-- Menu Toggle -->
-    <button id="menu-toggle" class="bg-transparent backdrop-blur-md rounded-2xl text-3xl text-white hover:text-[#ffe066] transition px-4 py-3 border-none outline-none flex flex-col justify-center items-end w-14 h-14 group">    
+    <button id="menu-toggle" class="backdrop-blur-md rounded-2xl text-3xl text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#7f5af0] hover:to-[#38bdf8] transition px-4 py-3 border-none outline-none flex flex-col justify-center items-end w-14 h-14 group">    
       <span class="menuline line1"></span>
       <span class="menuline line2"></span>
       <span class="menuline line3"></span>
@@ -81,15 +71,15 @@
   <div id="fullscreen-menu" class="fixed inset-0 z-[9997] bg-[#18181b]/[.90] backdrop-blur-md flex items-center justify-center transition-transform duration-500 ease-[cubic-bezier(.68,-0.55,.27,1.55)] translate-x-full pointer-events-none">
     <div class="flex flex-col-reverse sm:flex-row w-full max-w-5xl items-center justify-center px-4">
       <div class="flex flex-col items-center justify-center flex-1 mb-6 sm:mb-0">
-        <a href="https://www.linkedin.com/in/tommyvega" target="_blank" rel="noopener" class="fullscreen-social-link text-white hover:text-[#ffe066] transition font-semibold mb-4">
+        <a href="https://www.linkedin.com/in/tommyvega" target="_blank" rel="noopener" class="fullscreen-social-link text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#7f5af0] hover:to-[#38bdf8] transition font-semibold mb-4">
           LINKEDIN
         </a>
-        <a href="https://github.com/tommysvs" target="_blank" rel="noopener" class="fullscreen-social-link text-white hover:text-[#ffe066] transition font-semibold">
+        <a href="https://github.com/tommysvs" target="_blank" rel="noopener" class="fullscreen-social-link text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#7f5af0] hover:to-[#38bdf8] transition font-semibold">
           GITHUB
         </a>
         <div class="mt-8 flex flex-col items-start">
           <span data-lang="contactPhrase" class="mb-2 text-white/80 text-sm italic">Let’s build something together</span>
-          <a href="mailto:tommysvs@hotmail.com" class="flex items-center gap-2 text-md text-white/90 hover:text-[#ffe066] transition font-semibold">
+          <a href="mailto:tommysvs@hotmail.com" class="flex items-center gap-2 text-md text-white/90 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#7f5af0] hover:to-[#38bdf8] transition font-semibold">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l9 6 9-6M21 8v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8m18-2a2 2 0 00-2-2H5a2 2 0 00-2 2v0" />
             </svg>
@@ -101,19 +91,19 @@
       <div class="block sm:hidden w-[70vw] h-px bg-white opacity-40 my-8"></div>
       <nav class="flex flex-col gap-4 sm:gap-6 text-xl sm:text-2xl md:text-3xl font-bold items-center w-auto flex-1">
         <a href="#about" class="fullscreen-nav-link text-left w-full opacity-0 translate-y-4 transition-all duration-500">
-          <span class="text-[#ffe066] mr-2">01.</span><span data-lang="about">About me</span>
+          <span class="bg-gradient-to-r from-[#7f5af0] to-[#38bdf8] text-transparent bg-clip-text mr-2">01.</span><span data-lang="about">About me</span>
         </a>
         <a href="#skills" class="fullscreen-nav-link text-left w-full opacity-0 translate-y-4 transition-all duration-500">
-          <span class="text-[#ffe066] mr-2">02.</span><span data-lang="skills">Skills</span>
+          <span class="bg-gradient-to-r from-[#7f5af0] to-[#38bdf8] text-transparent bg-clip-text mr-2">02.</span><span data-lang="skills">Skills</span>
         </a>
         <a href="#experience" class="fullscreen-nav-link text-left w-full opacity-0 translate-y-4 transition-all duration-500">
-          <span class="text-[#ffe066] mr-2">03.</span><span data-lang="experience">Experience</span>
+          <span class="bg-gradient-to-r from-[#7f5af0] to-[#38bdf8] text-transparent bg-clip-text mr-2">03.</span><span data-lang="experience">Experience</span>
         </a>
         <a href="#education" class="fullscreen-nav-link text-left w-full opacity-0 translate-y-4 transition-all duration-500">
-          <span class="text-[#ffe066] mr-2">04.</span><span data-lang="education">Education</span>
+          <span class="bg-gradient-to-r from-[#7f5af0] to-[#38bdf8] text-transparent bg-clip-text mr-2">04.</span><span data-lang="education">Education</span>
         </a>
         <a href="#resume" class="fullscreen-nav-link text-left w-full opacity-0 translate-y-4 transition-all duration-500">
-          <span class="text-[#ffe066] mr-2">05.</span><span data-lang="resume">Resume</span>
+          <span class="bg-gradient-to-r from-[#7f5af0] to-[#38bdf8] text-transparent bg-clip-text mr-2">05.</span><span data-lang="resume">Resume</span>
         </a>
       </nav>
     </div>
@@ -124,11 +114,10 @@
     <div id="hero-content">
       <div class="flex items-center gap-6">
         <h1 id="hero-typing" data-aos="fade-up" data-aos-duration="800" class="text-gray-900 dark:text-white"></h1>
-        <div id="hero-line" class="hidden lg:block w-96 opacity-20 bg-[#ffe066]" style="height: 0.5px; transform: scaleX(0); transform-origin: left;"></div>
       </div>
       <p id="hero-typing-subtitle" data-aos="fade-up" data-aos-duration="1000" class="text-gray-700 dark:text-gray-200 mt-4"></p>
     </div>
-    <span id="hero-mouse" class="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center justify-center">
+    <span id="hero-mouse" class="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center justify-center hidden sm:flex">
       <svg class="w-8 h-8 text-white" fill="none" viewBox="0 0 40 64" xmlns="http://www.w3.org/2000/svg">
         <rect x="4" y="4" width="32" height="56" rx="16" stroke="currentColor" stroke-width="3" fill="none"/>
         <circle class="animate-bounce" cx="20" cy="18" r="3" fill="currentColor"/>
@@ -136,20 +125,11 @@
     </span>
   </section>
 
-  <!-- Language Switcher (Hero bottom-right) -->
-  <button id="language-switcher" class="language-switcher" aria-label="Switch language">
-    <span class="switch-track">
-      <span id="lang-en" class="switch-label">EN</span>
-      <span id="lang-es" class="switch-label">ES</span>
-      <span id="lang-knob" class="switch-knob"></span>
-    </span>
-  </button>
-
   <!-- About Me Section -->
-  <section id="about" class="custom-section about-section w-full flex flex-col items-center justify-center min-h-screen bg-transparent">
+  <section id="about" class="about-section w-full flex flex-col items-center justify-center min-h-screen bg-transparent">
     <div class="text-center mb-10 px-4">
       <h2 class="text-3xl md:text-4xl font-bold mb-2 text-white flex items-center justify-center gap-2 drop-shadow-lg">
-        <span class="text-[#ffe066]">01.</span>
+        <span class="bg-gradient-to-r from-[#7f5af0] to-[#38bdf8] text-transparent bg-clip-text">01.</span>
         <span class="text-white" data-lang="about">About me</span>
       </h2>
     </div>
@@ -157,8 +137,8 @@
       <!-- Card 1 -->
       <div class="naip-card">
         <div class="naip-inner">
-          <img src="assets/images/me.JPEG" alt="Tommy Vega" class="naip-avatar mx-auto rounded-full border-4 border-[#ffe066] shadow" style="object-fit:cover;width:130px;height:130px;">
-          <h3 class="text-[#ffe066] font-extrabold text-xl mt-2 mb-1">Tommy Vega</h3>
+          <img src="assets/images/me.JPEG" alt="Tommy Vega" class="naip-avatar mx-auto rounded-full border-4 border-[#7f5af0] shadow" style="object-fit:cover;width:130px;height:130px;">
+          <h3 class="bg-gradient-to-r from-[#7f5af0] to-[#38bdf8] text-transparent bg-clip-text font-extrabold text-xl mt-2 mb-1">Tommy Vega</h3>
           <div class="font-semibold text-[#2a2a2a] mb-1" data-lang="cardTitleConsultant">IT Consultant</div>
           <div class="text-[#3a3a3a] text-sm mb-1">
             <span class="block">tommysvs@hotmail.com</span>
@@ -191,10 +171,10 @@
   </section>
 
   <!-- Skills Section -->
-  <section id="skills" class="custom-section relative flex flex-col items-center justify-center min-h-screen bg-transparent py-20">
+  <section id="skills" class="relative flex flex-col items-center justify-center min-h-screen py-20">
     <div class="w-full">
       <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white flex items-center justify-center gap-2 drop-shadow-lg">
-        <span class="text-[#ffe066]">02.</span>
+        <span class="bg-gradient-to-r from-[#7f5af0] to-[#38bdf8] text-transparent bg-clip-text">02.</span>
         <span class="text-white" data-lang="skills">Skills</span>
       </h2>
       <p class="text-white/80 text-lg text-center mb-16" data-lang="skillsDescription">Technologies and tools I work with</p>
@@ -256,10 +236,10 @@
   </section>
 
   <!-- Experience Section -->
-  <section id="experience" class="custom-section relative flex flex-col items-center justify-center min-h-screen px-4 md:px-12 bg-transparent">
+  <section id="experience" class="relative flex flex-col items-center justify-center min-h-screen px-4 md:px-12 bg-transparent">
     <div class="w-full max-w-5xl mx-auto">
       <h2 class="text-3xl md:text-4xl font-bold mb-8 text-white flex items-center gap-2 drop-shadow-lg justify-center text-center">
-        <span class="text-[#ffe066]">03.</span>
+        <span class="bg-gradient-to-r from-[#7f5af0] to-[#38bdf8] text-transparent bg-clip-text">03.</span>
         <span class="text-white" data-lang="experience">Experience</span>
       </h2>
       <div class="mt-0 md:mt-14"></div>
@@ -276,7 +256,7 @@
         </div>
         <div class="flex-1 p-6 md:p-10 text-left relative">
           <div class="exp-panel" id="exp1">
-            <h3 class="text-2xl font-bold text-[#ffe066]">Project Manager / Systems Analyst <span class="text-white font-normal">@ Grupo Platino</span></h3>
+            <h3 class="text-2xl font-bold bg-gradient-to-r from-[#7f5af0] to-[#38bdf8] text-transparent bg-clip-text">Project Manager / Systems Analyst <span class="text-white font-normal">@ Grupo Platino</span></h3>
             <p class="text-white/70 text-sm mb-2">Mar 2025 - Present · 11 mos | San Pedro Sula, Cortés, Honduras</p>
             <ul class="list-disc ml-6 text-white/90 space-y-2">
               <li>Leadership of system integration and improvement projects, including implementations such as Kananfleet, coordinating teams and ensuring measurable results in efficiency and operations.</li>
@@ -289,7 +269,7 @@
             </div>
           </div>
           <div class="exp-panel hidden" id="exp2">
-            <h3 class="text-2xl font-bold text-[#ffe066]">IT Manager <span class="text-white font-normal">@ Grupo IB - Agentes de Aduana y Logística</span></h3>
+            <h3 class="text-2xl font-bold bg-gradient-to-r from-[#7f5af0] to-[#38bdf8] text-transparent bg-clip-text">IT Manager <span class="text-white font-normal">@ Grupo IB - Agentes de Aduana y Logística</span></h3>
             <p class="text-white/70 text-sm mb-2">Sep 2023 - Nov 2024 · 1 yr 3 mos | San Pedro Sula, Cortés, Honduras · On-site</p>
             <ul class="list-disc ml-6 text-white/90 space-y-2">
               <li>Leadership of the IT area and administration of SAP Business One in Honduras, Nicaragua, and Costa Rica, combining strategic management with hands-on technical support for operations.</li>
@@ -302,7 +282,7 @@
             </div>
           </div>
           <div class="exp-panel hidden" id="exp3">
-            <h3 class="text-2xl font-bold text-[#ffe066]">Regional ERP Lead <span class="text-white font-normal">@ GRS Electrodomésticos</span></h3>
+            <h3 class="text-2xl font-bold bg-gradient-to-r from-[#7f5af0] to-[#38bdf8] text-transparent bg-clip-text">Regional ERP Lead <span class="text-white font-normal">@ GRS Electrodomésticos</span></h3>
             <p class="text-white/70 text-sm mb-2">Jan 2022 - Aug 2023 · 1 yr 8 mos | San Pedro Sula, Cortés, Honduras · Hybrid</p>
             <ul class="list-disc ml-6 text-white/90 space-y-2">
               <li>Regional administration of SAP Business One in Central America, ensuring system stability, proper cross-department integration, and business operational continuity.</li>
@@ -314,7 +294,7 @@
             </div>
           </div>
           <div class="exp-panel hidden" id="exp4">
-            <h3 class="text-2xl font-bold text-[#ffe066]">Application Developer <span class="text-white font-normal">@ Seaboard Solutions</span></h3>
+            <h3 class="text-2xl font-bold bg-gradient-to-r from-[#7f5af0] to-[#38bdf8] text-transparent bg-clip-text">Application Developer <span class="text-white font-normal">@ Seaboard Solutions</span></h3>
             <p class="text-white/70 text-sm mb-2">Oct 2019 - Jul 2020 · 10 mos | San Pedro Sula, Cortés, Honduras · Hybrid</p>
             <ul class="list-disc ml-6 text-white/90 space-y-2">
               <li>Development of web applications in ASP.NET MVC with SQL Server, implementing functional solutions for internal processes.</li>
@@ -326,7 +306,7 @@
             </div>
           </div>
           <div class="exp-panel hidden" id="exp5">
-            <h3 class="text-2xl font-bold text-[#ffe066]">Webmaster <span class="text-white font-normal">@ Verde Creativa</span></h3>
+            <h3 class="text-2xl font-bold bg-gradient-to-r from-[#7f5af0] to-[#38bdf8] text-transparent bg-clip-text">Webmaster <span class="text-white font-normal">@ Verde Creativa</span></h3>
             <p class="text-white/70 text-sm mb-2">Jun 2019 - Sep 2019 · 4 mos | San Pedro Sula, Cortés, Honduras · On-site</p>
             <ul class="list-disc ml-6 text-white/90 space-y-2">
               <li>Administration and maintenance of websites using PHP, MySQL, and WordPress.</li>
@@ -343,10 +323,10 @@
   </section>
 
   <!-- Education Section -->
-  <section id="education" class="custom-section education-section relative flex flex-col items-center justify-center min-h-screen bg-transparent">
+  <section id="education" class="education-section relative flex flex-col items-center justify-center min-h-screen bg-transparent">
     <div class="text-center mb-12 px-4">
       <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white flex items-center justify-center gap-2 drop-shadow-lg">
-        <span class="text-[#ffe066]">04.</span>
+        <span class="bg-gradient-to-r from-[#7f5af0] to-[#38bdf8] text-transparent bg-clip-text">04.</span>
         <span class="text-white" data-lang="education">Education</span>
       </h2>
     </div>
@@ -395,10 +375,10 @@
   </section>
 
   <!-- Resume Section -->
-  <section id="resume" data-aos="fade-up" data-aos-duration="800" class="custom-section relative flex items-center justify-center min-h-screen px-4 md:px-12 bg-transparent bg-opacity-90 text-gray-800 rounded-3xl mx-auto overflow-hidden pt-16">
+  <section id="resume" class="relative flex items-center justify-center min-h-screen px-4 md:px-12 bg-transparent bg-opacity-90 text-gray-800 mx-auto overflow-hidden pt-16">
     <div class="section-content relative z-10 flex flex-col items-center">
       <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center text-white flex items-center gap-2 drop-shadow-lg">
-        <span class="text-[#ffe066]">05.</span>
+        <span class="bg-gradient-to-r from-[#7f5af0] to-[#38bdf8] text-transparent bg-clip-text">05.</span>
         <span class="text-white" data-lang="resume">Resume</span>
       </h2>
       <p data-lang="cvDescription" class="mb-8 text-lg text-white/90 text-center max-w-2xl">
@@ -418,27 +398,48 @@
   </section>
 
   <!-- Footer -->
-  <footer data-aos="fade-up" data-aos-duration="800" id="footer" class="footer custom-section bg-transparent">
+  <footer data-aos="fade-up" data-aos-duration="800" id="footer" class="footer bg-transparent">
     <div class="w-full px-4">
       <div class="flex flex-wrap justify-center items-center gap-x-2 gap-y-2 sm:gap-x-4 sm:gap-y-2 mb-6 text-sm sm:text-base max-w-sm sm:max-w-none mx-auto">
         <a href="#about" class="footer-link whitespace-nowrap"><span class="footer-num mr-1">01.</span><span class="footer-label" data-lang="about">About me</span></a>
-        <span class="hidden sm:inline text-[#ffe066]/40">|</span>
+        <span class="hidden sm:inline text-white">|</span>
         <a href="#skills" class="footer-link whitespace-nowrap"><span class="footer-num mr-1">02.</span><span class="footer-label" data-lang="skills">Skills</span></a>
-        <span class="hidden sm:inline text-[#ffe066]/40">|</span>
+        <span class="hidden sm:inline text-white">|</span>
         <a href="#experience" class="footer-link whitespace-nowrap"><span class="footer-num mr-1">03.</span><span class="footer-label" data-lang="experience">Experience</span></a>
-        <span class="hidden sm:inline text-[#ffe066]/40">|</span>
+        <span class="hidden sm:inline text-white">|</span>
         <a href="#education" class="footer-link whitespace-nowrap"><span class="footer-num mr-1">04.</span><span class="footer-label" data-lang="education">Education</span></a>
-        <span class="hidden sm:inline text-[#ffe066]/40">|</span>
+        <span class="hidden sm:inline text-white">|</span>
         <a href="#resume" class="footer-link whitespace-nowrap"><span class="footer-num mr-1">05.</span><span class="footer-label" data-lang="resume">Resume</span></a>
       </div>
+
+      <div class="flex justify-center items-center gap-6 mt-4 mb-2 sm:hidden">
+        <a href="https://www.linkedin.com/in/tommyvega" target="_blank" rel="noopener" class="group">
+          <i class="fab fa-linkedin text-xl text-white hover:text-[#ffe066] transition"></i>
+        </a>
+        <a href="https://github.com/tommysvs" target="_blank" rel="noopener" class="group">
+          <i class="fab fa-github text-xl text-white hover:text-[#ffe066] transition"></i>
+        </a>
+      </div>
+
       <div class="mb-6 text-center">
         <p class="text-gray-300 font-medium" data-lang="contact">
           Contact me: 
         </p>
-        <a href="mailto:tommysvs@hotmail.com" class="footer-link-extra text-white hover:text-[#ffe066] transition text-sm">
+        <a href="mailto:tommysvs@hotmail.com" class="footer-link-extra text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#7f5af0] hover:to-[#38bdf8] transition text-sm">
           tommysvs@hotmail.com
         </a>
       </div>
+
+      <div class="flex justify-center items-center mt-2 mb-6">
+        <button id="language-switcher" class="language-switcher" aria-label="Switch language">
+          <span class="switch-track">
+            <span id="lang-en" class="switch-label">EN</span>
+            <span id="lang-es" class="switch-label">ES</span>
+            <span id="lang-knob" class="switch-knob"></span>
+          </span>
+        </button>
+      </div>
+
       <div class="text-center">
         <p class="text-sm text-gray-300" data-lang="credits">
           2025 &copy; Made with ❤️ by Tommy Vega

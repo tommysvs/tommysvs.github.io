@@ -23,11 +23,30 @@ function updateFooterLanguage(lang) {
 
 // --- TYPYNG EFFECT ---
 function typeText(el, text, callback) {
-  let i = 0;
+  let plain = '';
+  let map = [];
+  let inTag = false;
+  for (let i = 0, j = 0; i < text.length; i++) {
+    if (text[i] === '<') inTag = true;
+    if (!inTag) {
+      plain += text[i];
+      map.push(i);
+    }
+    if (text[i] === '>') inTag = false;
+  }
+  let k = 0;
   function type() {
-    el.innerHTML = text.slice(0, i) + '<span class="typing-cursor">|</span>';
-    i++;
-    if (i <= text.length) {
+    let html = '';
+    if (k === 0) {
+      html = '';
+    } else {
+      let lastIdx = map[k - 1] + 1;
+      html = text.slice(0, lastIdx);
+    }
+    html += '<span class="typing-cursor">|</span>';
+    el.innerHTML = html;
+    k++;
+    if (k <= plain.length) {
       setTimeout(type, 60);
     } else {
       el.innerHTML = text;
@@ -263,80 +282,6 @@ document.getElementById('scroll-top').onclick = () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 
-// --- THREE.JS RANDOM PARTICLES ---
-document.addEventListener('DOMContentLoaded', () => {
-  const container = document.getElementById('three-bg');
-  if (!container) return;
-
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(75, container.offsetWidth / container.offsetHeight, 0.1, 1000);
-  camera.position.z = 80;
-
-  const renderer = new THREE.WebGLRenderer({ alpha: true });
-  renderer.setSize(container.offsetWidth, container.offsetHeight);
-  renderer.setClearColor(0x000000, 0);
-  renderer.domElement.style.position = "absolute";
-  renderer.domElement.style.top = 0;
-  renderer.domElement.style.left = 0;
-  renderer.domElement.style.pointerEvents = "none";
-  container.appendChild(renderer.domElement);
-
-  const particleCount = 500;
-  const spread = 200;
-  const positions = [];
-  const basePositions = [];
-  const animOffsets = [];
-  for (let i = 0; i < particleCount; i++) {
-    const x = (Math.random() - 0.5) * spread * 2;
-    const y = (Math.random() - 0.5) * spread * 2;
-    const z = (Math.random() - 0.5) * spread * 2;
-    positions.push(x, y, z);
-    basePositions.push(x, y, z);
-    animOffsets.push(Math.random() * Math.PI * 2);
-  }
-
-  const geometry = new THREE.BufferGeometry();
-  geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
-  const material = new THREE.PointsMaterial({
-    color: 0x34ebab,
-    size: 0.3,
-    transparent: true,
-    opacity: 0.5
-  });
-  const particles = new THREE.Points(geometry, material);
-  scene.add(particles);
-
-  function animateParticles() {
-    requestAnimationFrame(animateParticles);
-    const time = performance.now() * 0.7 * 0.001;
-    const pos = geometry.attributes.position.array;
-
-    for (let i = 0; i < particleCount; i++) {
-      let bx = basePositions[i * 3 + 0];
-      let by = basePositions[i * 3 + 1];
-      let bz = basePositions[i * 3 + 2];
-
-      let fx = bx + Math.sin(time + animOffsets[i]) * 1.2;
-      let fy = by + Math.cos(time * 1.2 + animOffsets[i]) * 1.2;
-      let fz = bz + Math.sin(time * 0.7 + animOffsets[i]) * 1.2;
-
-      pos[i * 3 + 0] = fx;
-      pos[i * 3 + 1] = fy;
-      pos[i * 3 + 2] = fz;
-    }
-    geometry.attributes.position.needsUpdate = true;
-    renderer.render(scene, camera);
-  }
-
-  animateParticles();
-
-  window.addEventListener('resize', () => {
-    renderer.setSize(container.offsetWidth, container.offsetHeight);
-    camera.aspect = container.offsetWidth / container.offsetHeight;
-    camera.updateProjectionMatrix();
-  });
-});
-
 // --- FULL SCREEN MENU TOGGLE ---
 document.addEventListener('DOMContentLoaded', () => {
   const menuToggle = document.getElementById('menu-toggle');
@@ -469,32 +414,6 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// --- GSAP GLOW ANIMATION ON PORTFOLIO BUTTON ---
-document.addEventListener('DOMContentLoaded', () => {
-  if (!window.gsap) return;
-  const portfolioBtn = document.querySelector('a[href="portfolio/"], a[href="portfolio.html"]');
-  if (!portfolioBtn) return;
-
-  portfolioBtn.style.position = 'relative';
-  portfolioBtn.style.boxShadow = '0 0 20px rgba(255, 224, 102, 0)';
-
-  gsap.to(portfolioBtn, {
-    boxShadow: '0 0 15px rgba(255, 224, 102, 0.35)',
-    duration: 1.5,
-    ease: 'sine.inOut',
-    repeat: -1,
-    yoyo: true
-  });
-
-  portfolioBtn.addEventListener('mouseenter', () => {
-    gsap.getProperty(portfolioBtn, 'boxShadow');
-    gsap.getTweensOf(portfolioBtn).forEach(tween => tween.pause());
-  });
-
-  portfolioBtn.addEventListener('mouseleave', () => {
-    gsap.getTweensOf(portfolioBtn).forEach(tween => tween.resume());
-  });
-});
 
 // --- GSAP RIBBON SCROLL ANIMATION ---
 document.addEventListener('DOMContentLoaded', () => {
@@ -674,4 +593,60 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
+});
+
+// --- SPOTLIGHT OPACITY ON SCROLL (CLASS TOGGLE) ---
+document.addEventListener('DOMContentLoaded', function () {
+  const purple = document.querySelector('.global-spotlight-purple');
+  const blue = document.querySelector('.global-spotlight-blue');
+  function updateSpotlightByScroll() {
+    const faint = window.scrollY > 80;
+    if (purple) {
+      purple.style.transition = 'opacity 0.5s';
+      purple.style.opacity = faint ? '0.25' : '0.85';
+    }
+    if (blue) {
+      blue.style.transition = 'opacity 0.5s';
+      blue.style.opacity = faint ? '0.15' : '0.75';
+    }
+  }
+  window.addEventListener('scroll', updateSpotlightByScroll);
+  updateSpotlightByScroll();
+});
+
+// --- GSAP GLITCH EFFECT ON VERTICAL PORTFOLIO LINK ---
+document.addEventListener('DOMContentLoaded', () => {
+  if (!window.gsap) return;
+  const verticalText = document.querySelector('.vertical-text');
+  if (!verticalText) return;
+
+  function setWhiteText(on) {
+    if (on) {
+      verticalText.style.background = 'none';
+      verticalText.style.webkitBackgroundClip = 'initial';
+      verticalText.style.backgroundClip = 'initial';
+      verticalText.style.webkitTextFillColor = '#fff';
+      verticalText.style.color = '#fff';
+    } else {
+      verticalText.style.background = 'linear-gradient(to bottom, #7f5af0, #38bdf8)';
+      verticalText.style.webkitBackgroundClip = 'text';
+      verticalText.style.backgroundClip = 'text';
+      verticalText.style.webkitTextFillColor = 'transparent';
+      verticalText.style.color = 'transparent';
+    }
+  }
+
+  function glitch() {
+    const tl = gsap.timeline();
+    tl.to(verticalText, { x: 2, skewX: 20, duration: 0.05, ease: 'power1.in', onStart: () => setWhiteText(true) })
+      .to(verticalText, { x: -2, skewX: -15, duration: 0.04, ease: 'power1.in', onStart: () => setWhiteText(false) })
+      .to(verticalText, { x: 1, skewX: 10, duration: 0.03, ease: 'power1.in', onStart: () => setWhiteText(true) })
+      .to(verticalText, { x: 0, skewX: 0, duration: 0.08, ease: 'power1.out', onStart: () => setWhiteText(false) });
+  }
+
+  verticalText.addEventListener('mouseenter', glitch);
+
+  setInterval(() => {
+    if (Math.random() < 0.18) glitch();
+  }, 500);
 });
