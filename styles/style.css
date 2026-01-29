@@ -802,28 +802,6 @@ body.scrolled .hero {
   transform: translateY(-2px) scale(1.2);
 }
 
-/* Education section */
-.education-section {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  overflow: hidden;
-}
-
-.education-timeline-outer {
-  overflow: visible;
-}
-
-.education-timeline {
-  transition: box-shadow 0.3s;
-}
-
-@media (max-width: 768px) {
-  .education-timeline-outer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
-
 /* Resume Section */
 .cv-card {
   border: 2px solid transparent;
