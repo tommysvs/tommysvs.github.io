@@ -47,7 +47,7 @@ const translations = window.translations = {
     cardTitleExperience: "Lo que hago",
     bachelorDegree: "Ingeniería en Ciencias de la Computación",
     associateDegree: "Associate of Science in Computer Programming & Analysis",
-    cvDescription: "Te comparto mi CV para explorar mi experiencia completa, habilidades y logros",
+    cvDescription: "Te comparto mi CV para explorar mi experiencia completa",
     sectionConstruction: "Sección en construcción",
     skillsDescription: "Tecnologías y herramientas con las que trabajo",
     underConstruction: "Sitio en construcción"

@@ -824,6 +824,20 @@ body.scrolled .hero {
   }
 }
 
+/* Resume Section */
+.cv-card {
+  border: 2px solid transparent;
+  box-shadow: 0 4px 32px 0 #7f5af033, 0 1.5px 8px 0 #18181b11;
+  transition: box-shadow 0.3s, border 0.3s, background 0.3s;
+  cursor: pointer;
+}
+
+.cv-card:hover {
+  border: 2px solid #fff;
+  box-shadow: 0 8px 40px 0 #38bdf888, 0 3px 16px 0 #18181b22;
+  background: linear-gradient(90deg, #7f5af0 0%, #38bdf8 100%);
+}
+
 /* Footer */
 .footer {
   text-align: center;
