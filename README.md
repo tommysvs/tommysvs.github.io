@@ -1,11 +1,11 @@
-# Tommy Vega — Personal Portfolio
+# Tommy Vega — Personal portfolio
 
 Welcome to my personal portfolio repository.  
 Here you’ll find my professional experience and skills as a IT Consultand and SAP Specialist.
 
 ---
 
-## Live Demo
+## Live page
 
 [View the website](https://tommysvs.github.io/)
 
@@ -21,10 +21,10 @@ tommysvs.github.io
 ├── styles/
 │   └── style.css        # Main stylesheet
 ├── scripts/
-│   ├── loader.js        # Loading screen animation
-│   └── script.js        # JavaScript for translations, typing, and interactivity
+│   ├── loader.js           # Loading screen animation
+│   ├── script.js           # For animations like typing and interactivity
+│   └── translations.js     # For translations
 ├── assets/
-│   ├── fonts/           # Custom fonts
 │   ├── images/          # Images and graphic assets
 │   └── resume/          # Resume files
 ```
